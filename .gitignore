@@ -28,10 +28,36 @@ daisyui-*.tar
 # Ignore assets that are produced by build tools.
 /priv/static/assets/
 
+# Ignore dializer PLTs
+/priv/plts/*.plt
+/priv/plts/*.plt.hash
+
 # Ignore digested assets cache.
+/priv/static/assets/
+/priv/static/**/*.gz
+/priv/static/**/*-????????????????????????????????.*
 /priv/static/cache_manifest.json
 
 # In case you use Node.js/npm, you want to ignore these.
 npm-debug.log
 /assets/node_modules/
 
+# minio
+/minio/data/*
+/data
+
+# Ignore language server artefacts
+.elixir_ls
+.elixir-tools
+
+# ignore local .env
+.env
+
+# Ignore logfiles
+*.log
+
+# Ignore Mac OS files
+.DS_Store
+
+# Ignore database dumps
+priv/repo/dump/*.dump

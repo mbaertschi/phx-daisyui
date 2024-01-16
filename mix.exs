@@ -5,11 +5,18 @@ defmodule Daisyui.MixProject do
     [
       app: :daisyui,
       version: "0.1.0",
-      elixir: "~> 1.14",
+      elixir: "~> 1.16",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+
+      # Dialyzer
+      dialyzer: [
+        plt_local_path: "priv/plts/project.plt",
+        plt_core_path: "priv/plts/core.plt",
+        plt_add_apps: [:mix]
+      ]
     ]
   end
 
@@ -32,25 +39,49 @@ defmodule Daisyui.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      # Phoenix Framework
+      {:bandit, ">= 1.1.0"},
       {:phoenix, "~> 1.7.10"},
       {:phoenix_ecto, "~> 4.4"},
-      {:ecto_sql, "~> 3.10"},
-      {:postgrex, ">= 0.0.0"},
-      {:phoenix_html, "~> 3.3"},
+      {:phoenix_html, "~> 4.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_view, "~> 0.20.1"},
-      {:floki, ">= 0.30.0", only: :test},
-      {:phoenix_live_dashboard, "~> 0.8.2"},
+      {:phoenix_live_view, "~> 0.20.3"},
+
+      # Database and Ecto
+      {:ecto_sql, "~> 3.11"},
+      {:postgrex, ">= 0.0.0"},
+
+      # Testing and Linting
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
+      {:mix_audit, "~> 2.0", only: [:dev, :test], runtime: false},
+      {:tailwind_formatter, "~> 0.4.0", only: [:dev, :test], runtime: false},
+      {:recode, "~> 0.6", only: [:dev, :test]},
+
+      # Assers
       {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
       {:tailwind, "~> 0.2.0", runtime: Mix.env() == :dev},
-      {:swoosh, "~> 1.3"},
+
+      # Internationalization and Localization
+      {:gettext, "~> 0.20"},
+
+      # HTTP and API Utilities
       {:finch, "~> 0.13"},
+      {:jason, "~> 1.2"},
+
+      # Mailing
+      {:swoosh, "~> 1.3"},
+
+      # Data Processing and Parsing
+      {:floki, ">= 0.30.0", only: :test},
+
+      # Monitoring and Tracing
+      {:phoenix_live_dashboard, "~> 0.8.2"},
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
-      {:gettext, "~> 0.20"},
-      {:jason, "~> 1.2"},
-      {:dns_cluster, "~> 0.1.1"},
-      {:bandit, ">= 0.0.0"}
+
+      # Clustering
+      {:dns_cluster, "~> 0.1.1"}
     ]
   end
 
@@ -62,13 +93,80 @@ defmodule Daisyui.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "ecto.setup", "assets.setup", "assets.build"],
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-      "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["tailwind default", "esbuild default"],
-      "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
+      # Setup Project
+      setup: [
+        "deps.get",
+        "repo.setup",
+        "assets.setup",
+        "assets.build"
+      ],
+
+      # Database management
+      "repo.create": [
+        "ecto.create"
+      ],
+      "repo.migrate": [
+        "ecto.migrate"
+      ],
+      "repo.drop": [
+        "ecto.drop"
+      ],
+      "repo.setup": [
+        "repo.create",
+        "repo.migrate",
+        "run priv/repo/seeds.exs"
+      ],
+      "repo.reset": [
+        "repo.drop",
+        "repo.setup"
+      ],
+
+      # Run tests
+      test: [
+        "repo.create --quiet",
+        "repo.migrate --quiet",
+        "test"
+      ],
+
+      # Translation management
+      "gettext.update": [
+        "gettext.extract --merge"
+      ],
+      "gettext.lint": [
+        "gettext.extract --check-up-to-date"
+      ],
+
+      # Asset management
+      "assets.setup": [
+        "tailwind.install --if-missing",
+        "esbuild.install --if-missing",
+        "cmd cd assets && npm install"
+      ],
+      "assets.update": [
+        "tailwind.install",
+        "esbuild.install",
+        "cmd cd assets && npm update"
+      ],
+      "assets.build": [
+        "tailwind default",
+        "esbuild default"
+      ],
+      "assets.deploy": [
+        "tailwind default --minify",
+        "esbuild default --minify",
+        "phx.digest"
+      ],
+
+      # Run linters
+      lint: [
+        # temporarily disabled because of redefining module warnings
+        # "compile --all-warnings --warnings-as-errors",
+        "format --check-formatted",
+        "credo --strict",
+        "deps.audit",
+        "gettext.lint",
+        "dialyzer"
+      ]
     ]
   end
 end

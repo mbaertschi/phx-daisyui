@@ -1,4 +1,6 @@
 defmodule DaisyuiWeb.PageControllerTest do
+  @moduledoc false
+
   use DaisyuiWeb.ConnCase
 
   test "GET /", %{conn: conn} do

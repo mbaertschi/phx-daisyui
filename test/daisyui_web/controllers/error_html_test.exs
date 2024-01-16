@@ -1,4 +1,6 @@
 defmodule DaisyuiWeb.ErrorHTMLTest do
+  @moduledoc false
+
   use DaisyuiWeb.ConnCase, async: true
 
   # Bring render_to_string/4 for testing custom views

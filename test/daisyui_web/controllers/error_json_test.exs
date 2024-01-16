@@ -1,4 +1,6 @@
 defmodule DaisyuiWeb.ErrorJSONTest do
+  @moduledoc false
+
   use DaisyuiWeb.ConnCase, async: true
 
   test "renders 404" do
