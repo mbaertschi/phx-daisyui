@@ -1,15 +1,15 @@
-## This file is a PO Template file.
-##
-## "msgid"s here are often extracted from source code.
-## Add new messages manually only if they're dynamic
-## messages that can't be statically extracted.
-##
-## Run "mix gettext.extract" to bring this file up to
-## date. Leave "msgstr"s empty as changing them here has no
-## effect: edit them in PO (.po) files instead.
-#
+## "msgid"s in this file come from POT (.pot) files.
+###
+### Do not add, change, or remove "msgid"s manually here as
+### they're tied to the ones in the corresponding POT file
+### (with the same domain).
+###
+### Use "mix gettext.extract --merge" or "mix gettext.merge"
+### to merge POT files into PO files.
 msgid ""
 msgstr ""
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: lib/daisyui_web/components/core_components.ex:484
 #, elixir-autogen, elixir-format
@@ -26,59 +26,59 @@ msgstr ""
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.DashboardLive.Index"
 msgid "Hide"
-msgstr ""
+msgstr "Schliessen"
 
 #: lib/daisyui_web/live/dashboard_live/index.ex:28
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.DashboardLive.Index"
 msgid "Open"
-msgstr ""
+msgstr "Öffnen"
 
 #: lib/daisyui_web/live/collection_live/index.ex:19
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.CollectionLive.Index"
 msgid "Collections"
-msgstr ""
+msgstr "Sammlungen"
 
 #: lib/daisyui_web/live/dashboard_live/index.ex:21
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.DashboardLive.Index"
 msgid "Home"
-msgstr ""
+msgstr "Startseite"
 
 #: lib/daisyui_web/live/records_live/index.ex:19
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.RecordLive.Index"
 msgid "Records"
-msgstr ""
+msgstr "Einträge"
 
 #: lib/daisyui_web/live/task_live/index.ex:19
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.TaskLive.Index"
 msgid "Tasks"
-msgstr ""
+msgstr "Aufgaben"
 
 #: lib/daisyui_web/components/shared/sidebar.html.heex:38
-#, elixir-autogen, elixir-format
+#, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.Page"
 msgid "Collections"
-msgstr ""
+msgstr "Sammlungen"
 
 #: lib/daisyui_web/components/shared/sidebar.html.heex:26
-#, elixir-autogen, elixir-format
+#, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.Page"
 msgid "Home"
-msgstr ""
+msgstr "Startseite"
 
 #: lib/daisyui_web/components/shared/sidebar.html.heex:50
-#, elixir-autogen, elixir-format
+#, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.Page"
 msgid "Records"
-msgstr ""
+msgstr "Einträge"
 
 #: lib/daisyui_web/components/shared/sidebar.html.heex:61
 #: lib/daisyui_web/components/shared/sidebar.html.heex:65
-#, elixir-autogen, elixir-format
+#, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.Page"
 msgid "Tasks"
-msgstr ""
+msgstr "Aufgaben"

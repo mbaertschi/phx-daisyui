@@ -21,4 +21,31 @@ defmodule DaisyuiWeb.Gettext do
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
   use Gettext, otp_app: :daisyui
+
+  defmacro mgettext(text, opts \\ []) do
+    context = inspect(__CALLER__.module)
+
+    quote do
+      pgettext(unquote(context), unquote(text), unquote(opts))
+    end
+  end
+
+  defmacro sigil_t({:<<>>, _, [text]}, []) do
+    quote do
+      gettext(unquote(text))
+    end
+  end
+
+  defmacro sigil_t({:<<>>, _, [text]}, [?m]) do
+    quote do
+      mgettext(unquote(text))
+    end
+  end
+
+  defmacro __using__(_) do
+    quote do
+      import unquote(__MODULE__)
+      require unquote(__MODULE__)
+    end
+  end
 end

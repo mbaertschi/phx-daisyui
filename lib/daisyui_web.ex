@@ -81,6 +81,9 @@ defmodule DaisyuiWeb do
 
   defp html_helpers do
     quote do
+      # Custom UI components
+      use DaisyuiWeb.CustomComponents
+
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation

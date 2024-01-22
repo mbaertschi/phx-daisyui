@@ -64,6 +64,8 @@ defmodule Daisyui.MixProject do
 
       # Internationalization and Localization
       {:gettext, "~> 0.20"},
+      {:ex_cldr, "~> 2.37"},
+      {:ex_cldr_plugs, "~> 1.3"},
 
       # HTTP and API Utilities
       {:finch, "~> 0.13"},
