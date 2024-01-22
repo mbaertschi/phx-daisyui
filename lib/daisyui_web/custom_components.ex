@@ -8,6 +8,8 @@ defmodule DaisyuiWeb.CustomComponents do
         Dropdown,
         LocaleSelect
       }
+
+      use DaisyuiWeb.ThemeSelect
     end
   end
 end
