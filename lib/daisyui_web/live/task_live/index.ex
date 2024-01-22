@@ -16,7 +16,7 @@ defmodule DaisyuiWeb.TaskLive.Index do
     <.page current="tasks">
       <header>
         <h1 class="text-base-content text-2xl font-bold leading-7 md:truncate md:text-3xl md:tracking-tight">
-          Tasks
+          <%= ~t"Tasks"m %>
         </h1>
       </header>
     </.page>

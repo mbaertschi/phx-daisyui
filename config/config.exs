@@ -22,6 +22,16 @@ config :daisyui, DaisyuiWeb.Endpoint,
   pubsub_server: Daisyui.PubSub,
   live_view: [signing_salt: "3t/AONPr"]
 
+# Configure gettext
+config :daisyui, DaisyuiWeb.Gettext,
+  default_locale: "en",
+  locales: ~w(de fr)
+
+# Configure Cldr
+config :ex_cldr,
+  default_backend: DaisyuiWeb.Cldr,
+  json_library: Jason
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails

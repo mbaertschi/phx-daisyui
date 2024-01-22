@@ -5,7 +5,8 @@ defmodule DaisyuiWeb.CustomComponents do
     quote do
       import DaisyuiWeb.{
         Drawer,
-        Dropdown
+        Dropdown,
+        LocaleSelect
       }
     end
   end

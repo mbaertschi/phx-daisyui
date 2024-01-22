@@ -18,14 +18,14 @@ defmodule DaisyuiWeb.DashboardLive.Index do
     <.page current="home" with_secondary>
       <header>
         <h1 class="text-base-content text-2xl font-bold leading-7 md:truncate md:text-3xl md:tracking-tight">
-          Home
+          <%= ~t"Home"m %>
         </h1>
       </header>
 
       <section class="h-screen">
         <button type="button" class="btn btn-primary drawer-button mt-10" phx-click="toggle">
-          <span :if={@show}>Hide</span>
-          <span :if={!@show}>Open</span>
+          <span :if={@show}><%= ~t"Hide"m %></span>
+          <span :if={!@show}><%= ~t"Open"m %></span>
         </button>
       </section>
 

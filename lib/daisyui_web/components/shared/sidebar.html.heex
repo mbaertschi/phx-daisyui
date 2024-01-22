@@ -23,7 +23,7 @@
         ]}
       >
         <.icon name="hero-home" class="size-6" />
-        <span class="md:hidden lg:inline">Home</span>
+        <span class="md:hidden lg:inline"><%= ~t"Home"m %></span>
       </.link>
     </li>
     <li>
@@ -35,7 +35,7 @@
         ]}
       >
         <.icon name="hero-squares-2x2" class="size-6" />
-        <span class="md:hidden lg:inline">Collections</span>
+        <span class="md:hidden lg:inline"><%= ~t"Collections"m %></span>
       </.link>
     </li>
     <li>
@@ -47,7 +47,7 @@
         ]}
       >
         <.icon name="hero-bug-ant" class="size-6" />
-        <span class="md:hidden lg:inline">Records</span>
+        <span class="md:hidden lg:inline"><%= ~t"Records"m %></span>
       </.link>
     </li>
     <li>
@@ -58,11 +58,11 @@
           @current == "tasks" && "active",
           "md:max-lg:indicator"
         ]}
-        data-tip="Tasks"
+        data-tip={~t"Tasks"m}
       >
         <.icon name="hero-rectangle-stack" class="size-6" />
         <span class="md:hidden lg:inline">
-          Tasks
+          <%= ~t"Tasks"m %>
           <span class="badge badge-primary hidden lg:inline-flex">
             9
           </span>

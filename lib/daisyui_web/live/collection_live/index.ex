@@ -16,7 +16,7 @@ defmodule DaisyuiWeb.CollectionLive.Index do
     <.page current="collections">
       <header>
         <h1 class="text-base-content text-2xl font-bold leading-7 md:truncate md:text-3xl md:tracking-tight">
-          Collections
+          <%= ~t"Collections"m %>
         </h1>
       </header>
     </.page>

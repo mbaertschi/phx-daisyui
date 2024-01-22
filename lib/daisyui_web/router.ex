@@ -1,13 +1,34 @@
 defmodule DaisyuiWeb.Router do
   use DaisyuiWeb, :router
 
+  import DaisyuiWeb.Locale, only: [assign_current_locale: 2]
+
+  # Browser
+
+  pipeline :locale do
+    plug :fetch_session
+
+    plug Cldr.Plug.PutLocale,
+      apps: [:cldr, :gettext],
+      cldr: DaisyuiWeb.Cldr,
+      gettext: DaisyuiWeb.Gettext,
+      from: [:query, :session, :accept_language],
+      param: "locale"
+
+    plug :assign_current_locale
+
+    plug Cldr.Plug.PutSession, as: :language_tag
+  end
+
   pipeline :browser do
     plug :accepts, ["html"]
-    plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, html: {DaisyuiWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+  end
+
+  pipeline :with_root_layout do
+    plug :put_root_layout, html: {DaisyuiWeb.Layouts, :root}
   end
 
   pipeline :api do
@@ -15,9 +36,11 @@ defmodule DaisyuiWeb.Router do
   end
 
   scope "/", DaisyuiWeb do
-    pipe_through :browser
+    pipe_through [:locale, :browser, :with_root_layout]
 
-    user_hooks = []
+    user_hooks = [
+      DaisyuiWeb.LiveLocale
+    ]
 
     live_session :default, on_mount: user_hooks do
       live "/", DashboardLive.Index, :index
@@ -42,7 +65,7 @@ defmodule DaisyuiWeb.Router do
     import Phoenix.LiveDashboard.Router
 
     scope "/dev" do
-      pipe_through :browser
+      pipe_through [:locale, :browser]
 
       live_dashboard "/dashboard", metrics: DaisyuiWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview

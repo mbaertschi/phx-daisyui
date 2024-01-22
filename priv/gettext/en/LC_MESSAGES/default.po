@@ -11,7 +11,7 @@ msgstr ""
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: lib/daisyui_web/components/core_components.ex:483
+#: lib/daisyui_web/components/core_components.ex:484
 #, elixir-autogen, elixir-format
 msgid "Actions"
 msgstr ""
@@ -20,4 +20,65 @@ msgstr ""
 #: lib/daisyui_web/components/core_components.ex:131
 #, elixir-autogen, elixir-format
 msgid "close"
+msgstr ""
+
+#: lib/daisyui_web/live/dashboard_live/index.ex:27
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.DashboardLive.Index"
+msgid "Hide"
+msgstr ""
+
+#: lib/daisyui_web/live/dashboard_live/index.ex:28
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.DashboardLive.Index"
+msgid "Open"
+msgstr ""
+
+#: lib/daisyui_web/live/collection_live/index.ex:19
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.CollectionLive.Index"
+msgid "Collections"
+msgstr ""
+
+#: lib/daisyui_web/live/dashboard_live/index.ex:21
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.DashboardLive.Index"
+msgid "Home"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:19
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Records"
+msgstr ""
+
+#: lib/daisyui_web/live/task_live/index.ex:19
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.TaskLive.Index"
+msgid "Tasks"
+msgstr ""
+
+#: lib/daisyui_web/components/shared/sidebar.html.heex:38
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Page"
+msgid "Collections"
+msgstr ""
+
+#: lib/daisyui_web/components/shared/sidebar.html.heex:26
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Page"
+msgid "Home"
+msgstr ""
+
+#: lib/daisyui_web/components/shared/sidebar.html.heex:50
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Page"
+msgid "Records"
+msgstr ""
+
+#: lib/daisyui_web/components/shared/sidebar.html.heex:61
+#: lib/daisyui_web/components/shared/sidebar.html.heex:65
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Page"
+msgid "Tasks"
 msgstr ""
