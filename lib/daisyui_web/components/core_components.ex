@@ -142,12 +142,13 @@ defmodule DaisyuiWeb.CoreComponents do
 
       <.flash_group flash={@flash} />
   """
+  attr :class, :string, default: nil, doc: "the flash group class"
   attr :flash, :map, required: true, doc: "the map of flash messages"
   attr :id, :string, default: "flash-group", doc: "the optional id of flash container"
 
   def flash_group(assigns) do
     ~H"""
-    <div id={@id}>
+    <div id={@id} class={@class}>
       <.flash kind={:info} title="Success!" flash={@flash} />
       <.flash kind={:error} title="Error!" flash={@flash} />
       <.flash
@@ -594,7 +595,7 @@ defmodule DaisyuiWeb.CoreComponents do
 
   def icon(%{name: "hero-" <> _} = assigns) do
     ~H"""
-    <span class={[@name, @class]} />
+    <span class={[@name, @class]} aria-hidden="true" />
     """
   end
 

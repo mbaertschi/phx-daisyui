@@ -20,6 +20,8 @@ import "phoenix_html";
 // Establish Phoenix Socket and LiveView configuration.
 import { Socket } from "phoenix";
 import { LiveSocket } from "phoenix_live_view";
+
+import hooks from "./hooks";
 import topbar from "../vendor/topbar";
 
 // Global type definitions
@@ -34,7 +36,10 @@ const csrfToken = document
   ?.getAttribute("content");
 
 const liveSocket = new LiveSocket("/live", Socket, {
-  params: { _csrf_token: csrfToken },
+  params: {
+    _csrf_token: csrfToken,
+  },
+  hooks,
 });
 
 // Show progress bar on live navigation and form submits

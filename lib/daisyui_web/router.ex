@@ -17,7 +17,14 @@ defmodule DaisyuiWeb.Router do
   scope "/", DaisyuiWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    user_hooks = []
+
+    live_session :default, on_mount: user_hooks do
+      live "/", DashboardLive.Index, :index
+      live "/collections", CollectionLive.Index, :index
+      live "/records", RecordLive.Index, :index
+      live "/tasks", TaskLive.Index, :index
+    end
   end
 
   # Other scopes may use custom stacks.

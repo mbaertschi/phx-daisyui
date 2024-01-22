@@ -13,6 +13,13 @@ module.exports = {
     "../lib/daisyui_web.ex",
     "../lib/daisyui_web/**/*.*ex",
   ],
+  theme: {
+    extend: {
+      screens: {
+        "3xl": "1850px",
+      },
+    },
+  },
   plugins: [
     // DaisyUI
     require("daisyui"),
@@ -27,8 +34,8 @@ module.exports = {
     ),
     plugin(({ addVariant }) =>
       addVariant("phx-feedback", [
-        ".form-control:not(.phx-no-feedback) &",
         ".form-control:not(.phx-no-feedback)&",
+        ".form-control:not(.phx-no-feedback) &",
       ])
     ),
     plugin(({ addVariant }) =>
