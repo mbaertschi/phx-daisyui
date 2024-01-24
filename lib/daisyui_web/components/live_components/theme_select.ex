@@ -1,11 +1,11 @@
-defmodule DaisyuiWeb.ThemeSelect do
+defmodule DaisyuiWeb.LiveComponents.ThemeSelect do
   @moduledoc """
   A component to select the current color mode.
   """
 
   use Phoenix.LiveComponent
 
-  import DaisyuiWeb.CoreComponents, only: [icon: 1]
+  import DaisyuiWeb.Components.Icon, only: [icon: 1]
 
   @themes [system: "hero-computer-desktop", dark: "hero-moon", light: "hero-sun"]
   @theme_names Keyword.keys(@themes)
@@ -88,7 +88,7 @@ defmodule DaisyuiWeb.ThemeSelect do
 
   defmacro __using__(_opts) do
     quote do
-      import DaisyuiWeb.ThemeSelect, only: [theme_select: 1]
+      import DaisyuiWeb.LiveComponents.ThemeSelect, only: [theme_select: 1]
     end
   end
 end

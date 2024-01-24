@@ -1,9 +1,9 @@
-defmodule Storybook.CoreComponents.Modal do
+defmodule Storybook.Components.Modal do
   use PhoenixStorybook.Story, :component
-  alias DaisyuiWeb.CoreComponents
+  alias DaisyuiWeb.Components
 
-  def function, do: &CoreComponents.modal/1
-  def imports, do: [{CoreComponents, [hide_modal: 1, show_modal: 1]}]
+  def function, do: &Components.Modal.modal/1
+  def imports, do: [{Components.Modal, [hide_modal: 1, show_modal: 1]}]
 
   def template do
     """

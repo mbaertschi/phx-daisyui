@@ -1,13 +1,13 @@
-defmodule DaisyuiWeb.LocaleSelect do
+defmodule DaisyuiWeb.Components.LocaleSelect do
   @moduledoc """
   A component to select the current color mode.
   """
 
   use Phoenix.Component
 
-  import DaisyuiWeb.Dropdown
-
   alias Phoenix.LiveView.JS
+
+  import DaisyuiWeb.Components.Dropdown, only: [dropdown: 1]
 
   @locales DaisyuiWeb.Locale.locales()
 

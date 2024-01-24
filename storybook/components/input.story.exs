@@ -1,9 +1,9 @@
-defmodule Storybook.CoreComponents.Input do
+defmodule Storybook.Components.Input do
   use PhoenixStorybook.Story, :component
-  alias DaisyuiWeb.CoreComponents
+  alias DaisyuiWeb.Components
 
-  def function, do: &CoreComponents.input/1
-  def imports, do: [{CoreComponents, [simple_form: 1]}]
+  def function, do: &Components.Input.input/1
+  def imports, do: [{Components.SimpleForm, [simple_form: 1]}]
 
   def template do
     """

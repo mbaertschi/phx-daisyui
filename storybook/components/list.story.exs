@@ -1,7 +1,7 @@
-defmodule Storybook.CoreComponents.List do
+defmodule Storybook.Components.List do
   use PhoenixStorybook.Story, :component
 
-  def function, do: &DaisyuiWeb.CoreComponents.list/1
+  def function, do: &DaisyuiWeb.Components.List.list/1
 
   def variations do
     [

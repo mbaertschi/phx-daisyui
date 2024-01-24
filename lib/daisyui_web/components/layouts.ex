@@ -1,5 +1,5 @@
 defmodule DaisyuiWeb.Layouts do
   use DaisyuiWeb, :html
 
-  embed_templates "layouts/*"
+  embed_templates "layouts/*.html"
 end

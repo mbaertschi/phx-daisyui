@@ -1,4 +1,4 @@
-defmodule DaisyuiWeb.Drawer do
+defmodule DaisyuiWeb.Components.Drawer do
   @moduledoc """
   A component to render a generic drawer.
   """

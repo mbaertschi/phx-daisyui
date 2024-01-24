@@ -1,9 +1,9 @@
-defmodule Storybook.CoreComponents.Table do
+defmodule Storybook.Components.Table do
   use PhoenixStorybook.Story, :component
-  alias DaisyuiWeb.CoreComponents
+  alias DaisyuiWeb.Components
 
-  def function, do: &CoreComponents.table/1
-  def aliases, do: [Storybook.CoreComponents.Table.User]
+  def function, do: &Components.Table.table/1
+  def aliases, do: [Storybook.Components.Table.User]
 
   def variations do
     [
@@ -36,6 +36,6 @@ defmodule Storybook.CoreComponents.Table do
   end
 end
 
-defmodule Storybook.CoreComponents.Table.User do
+defmodule Storybook.Components.Table.User do
   defstruct [:id, :username]
 end

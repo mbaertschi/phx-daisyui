@@ -11,13 +11,13 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: lib/daisyui_web/components/core_components.ex:454
+#: lib/daisyui_web/components/components/table.ex:48
 #, elixir-autogen, elixir-format
 msgid "Actions"
 msgstr ""
 
-#: lib/daisyui_web/components/core_components.ex:77
-#: lib/daisyui_web/components/core_components.ex:131
+#: lib/daisyui_web/components/components/flash.ex:52
+#: lib/daisyui_web/components/components/modal.ex:68
 #, elixir-autogen, elixir-format
 msgid "close"
 msgstr ""
@@ -58,27 +58,52 @@ msgctxt "DaisyuiWeb.TaskLive.Index"
 msgid "Tasks"
 msgstr "Aufgaben"
 
-#: lib/daisyui_web/components/shared/sidebar.html.heex:38
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:38
 #, elixir-autogen, elixir-format, fuzzy
-msgctxt "DaisyuiWeb.Page"
+msgctxt "DaisyuiWeb.Layouts.Primary"
 msgid "Collections"
 msgstr "Sammlungen"
 
-#: lib/daisyui_web/components/shared/sidebar.html.heex:26
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:26
 #, elixir-autogen, elixir-format, fuzzy
-msgctxt "DaisyuiWeb.Page"
+msgctxt "DaisyuiWeb.Layouts.Primary"
 msgid "Home"
 msgstr "Startseite"
 
-#: lib/daisyui_web/components/shared/sidebar.html.heex:50
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:50
 #, elixir-autogen, elixir-format, fuzzy
-msgctxt "DaisyuiWeb.Page"
+msgctxt "DaisyuiWeb.Layouts.Primary"
 msgid "Records"
 msgstr "Einträge"
 
-#: lib/daisyui_web/components/shared/sidebar.html.heex:61
-#: lib/daisyui_web/components/shared/sidebar.html.heex:65
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:61
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:65
 #, elixir-autogen, elixir-format, fuzzy
-msgctxt "DaisyuiWeb.Page"
+msgctxt "DaisyuiWeb.Layouts.Primary"
+msgid "Tasks"
+msgstr "Aufgaben"
+
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:38
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Layouts.Secondary"
+msgid "Collections"
+msgstr "Sammlungen"
+
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:26
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Layouts.Secondary"
+msgid "Home"
+msgstr "Startseite"
+
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:50
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Layouts.Secondary"
+msgid "Records"
+msgstr "Einträge"
+
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:61
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:65
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Layouts.Secondary"
 msgid "Tasks"
 msgstr "Aufgaben"

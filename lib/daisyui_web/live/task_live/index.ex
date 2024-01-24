@@ -3,7 +3,7 @@ defmodule DaisyuiWeb.TaskLive.Index do
 
   use DaisyuiWeb, :live_view
 
-  import DaisyuiWeb.Page, only: [page: 1]
+  import DaisyuiWeb.Layouts.Primary, only: [page: 1]
 
   @impl true
   def mount(_params, _session, socket) do

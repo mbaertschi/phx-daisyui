@@ -1,9 +1,9 @@
-defmodule Storybook.CoreComponents.Flash do
+defmodule Storybook.Components.Flash do
   use PhoenixStorybook.Story, :component
-  alias DaisyuiWeb.CoreComponents
+  alias DaisyuiWeb.Components
 
-  def function, do: &CoreComponents.flash/1
-  def imports, do: [{CoreComponents, [show: 1]}]
+  def function, do: &Components.Flash.flash/1
+  def imports, do: [{Components.Transitions, [show: 1]}]
 
   def template do
     """

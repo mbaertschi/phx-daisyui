@@ -1,8 +1,8 @@
-defmodule Storybook.CoreComponents.Header do
+defmodule Storybook.Blocks.Header do
   use PhoenixStorybook.Story, :component
-  alias DaisyuiWeb.CoreComponents
+  alias DaisyuiWeb.Blocks
 
-  def function, do: &CoreComponents.header/1
+  def function, do: &Blocks.Header.header/1
 
   def variations do
     [

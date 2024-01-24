@@ -2,12 +2,22 @@
 // require connect parameters, uncomment the following lines and declare them as
 // such:
 //
-// import * as Hooks from "./hooks";
+import Hooks from "./hooks";
 // import * as Params from "./params";
 // import * as Uploaders from "./uploaders";
 
+declare global {
+  interface Window {
+    storybook: {
+      Hooks: typeof Hooks;
+    };
+  }
+}
+
 (function () {
   // window.storybook = { Hooks, Params, Uploaders };
+  console.log(Hooks);
+  window.storybook = { Hooks };
 
   window.addEventListener("phx:page-loading-stop", (info) => {
     if (initialPageLoad(info as CustomEvent)) {
