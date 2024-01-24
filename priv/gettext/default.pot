@@ -16,7 +16,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: lib/daisyui_web/components/components/flash.ex:52
+#: lib/daisyui_web/components/components/flash.ex:67
 #: lib/daisyui_web/components/components/modal.ex:68
 #, elixir-autogen, elixir-format
 msgid "close"
@@ -106,4 +106,28 @@ msgstr ""
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Layouts.Secondary"
 msgid "Tasks"
+msgstr ""
+
+#: lib/daisyui_web/components/components/flash.ex:105
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.Components.Flash"
+msgid "Attempting to reconnect"
+msgstr ""
+
+#: lib/daisyui_web/components/components/flash.ex:117
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.Components.Flash"
+msgid "Hang in there while we get back on track"
+msgstr ""
+
+#: lib/daisyui_web/components/components/flash.ex:112
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.Components.Flash"
+msgid "Something went wrong!"
+msgstr ""
+
+#: lib/daisyui_web/components/components/flash.ex:100
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.Components.Flash"
+msgid "We can't find the internet"
 msgstr ""

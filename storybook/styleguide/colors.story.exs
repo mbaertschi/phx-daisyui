@@ -81,7 +81,7 @@ defmodule Storybook.Styleguide.Colors do
     ~H"""
     <div class="flex items-center gap-4">
       <div class={[
-        "flex h-12 w-12 items-center justify-center rounded text-center",
+        "size-12 flex items-center justify-center rounded text-center",
         @class,
         @text,
         @bg,
