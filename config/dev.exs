@@ -26,7 +26,8 @@ config :daisyui, DaisyuiWeb.Endpoint,
   secret_key_base: "yX3PybhL+uqLsGFKMNNM+AUiA0fXmjZek0N5Vuj7wAc/4d8CcxGOOrfQeW1nGSGC",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]},
+    storybook_tailwind: {Tailwind, :install_and_run, [:storybook, ~w(--watch)]}
   ]
 
 # ## SSL Support
@@ -58,8 +59,39 @@ config :daisyui, DaisyuiWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/daisyui_web/(controllers|live|components)/.*(ex|heex)$"
+      ~r"lib/daisyui_web/(controllers|live|components)/.*(ex|heex)$",
+      ~r"storybook/.*(exs)$"
     ]
+  ]
+
+# Configure esbuild (the version is required)
+config :esbuild,
+  version: "0.19.11",
+  default: [
+    args:
+      ~w(js/app.ts js/storybook.ts --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
+    cd: Path.expand("../assets", __DIR__),
+    env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
+  ]
+
+# Configure tailwind (the version is required)
+config :tailwind,
+  version: "3.4.1",
+  default: [
+    args: ~w(
+      --config=tailwind.config.js
+      --input=css/app.css
+      --output=../priv/static/assets/app.css
+    ),
+    cd: Path.expand("../assets", __DIR__)
+  ],
+  storybook: [
+    args: ~w(
+          --config=tailwind.storybook.config.js
+          --input=css/storybook.css
+          --output=../priv/static/assets/storybook.css
+        ),
+    cd: Path.expand("../assets", __DIR__)
   ]
 
 # Enable dev routes for dashboard and mailbox
