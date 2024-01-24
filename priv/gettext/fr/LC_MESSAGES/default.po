@@ -11,7 +11,7 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n>1);\n"
 
-#: lib/daisyui_web/components/core_components.ex:484
+#: lib/daisyui_web/components/core_components.ex:454
 #, elixir-autogen, elixir-format
 msgid "Actions"
 msgstr ""

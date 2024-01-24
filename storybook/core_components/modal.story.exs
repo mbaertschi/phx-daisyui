@@ -3,13 +3,13 @@ defmodule Storybook.CoreComponents.Modal do
   alias DaisyuiWeb.CoreComponents
 
   def function, do: &CoreComponents.modal/1
-  def imports, do: [{CoreComponents, [button: 1, hide_modal: 1, show_modal: 1]}]
+  def imports, do: [{CoreComponents, [hide_modal: 1, show_modal: 1]}]
 
   def template do
     """
-    <.button phx-click={show_modal(":variation_id")} psb-code-hidden>
+    <button type="button" class="btn" phx-click={show_modal(":variation_id")} psb-code-hidden>
       Open modal
-    </.button>
+    </button>
     <.psb-variation/>
     """
   end

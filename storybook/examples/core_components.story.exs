@@ -33,7 +33,9 @@ defmodule Storybook.Examples.CoreComponents do
       List of users
       <:subtitle>Feel free to add any missing user!</:subtitle>
       <:actions>
-        <.button phx-click={show_modal("new-user-modal")}>Create user</.button>
+        <button type="button" class="btn" phx-click={show_modal("new-user-modal")}>
+          Create user
+        </button>
       </:actions>
     </.header>
     <.table id="user-table" rows={@users}>
@@ -61,7 +63,7 @@ defmodule Storybook.Examples.CoreComponents do
         <.input field={f[:first_name]} label="First name" />
         <.input field={f[:last_name]} label="Last name" />
         <:actions>
-          <.button>Save user</.button>
+          <button type="button" class="btn">Save user</button>
         </:actions>
       </.simple_form>
     </.modal>

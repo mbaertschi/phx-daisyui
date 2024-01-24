@@ -3,13 +3,13 @@ defmodule Storybook.CoreComponents.Flash do
   alias DaisyuiWeb.CoreComponents
 
   def function, do: &CoreComponents.flash/1
-  def imports, do: [{CoreComponents, [button: 1, show: 1]}]
+  def imports, do: [{CoreComponents, [show: 1]}]
 
   def template do
     """
-    <.button phx-click={show("#:variation_id")} psb-code-hidden>
+    <button type="button" class="btn" phx-click={show("#:variation_id")} psb-code-hidden>
       Open flash
-    </.button>
+    </button>
     <.psb-variation/>
     """
   end

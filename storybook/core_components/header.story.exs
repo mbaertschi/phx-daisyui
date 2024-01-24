@@ -3,7 +3,6 @@ defmodule Storybook.CoreComponents.Header do
   alias DaisyuiWeb.CoreComponents
 
   def function, do: &CoreComponents.header/1
-  def imports, do: [{CoreComponents, button: 1}]
 
   def variations do
     [
@@ -27,7 +26,7 @@ defmodule Storybook.CoreComponents.Header do
           "<:subtitle>I'm a header subtitle</:subtitle>",
           """
           <:actions>
-            <.button>Link</.button>
+            <button type="button" class="btn">Link</button>
           </:actions>
           """
         ]
