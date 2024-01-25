@@ -3,25 +3,34 @@ defmodule Storybook.Examples.Components do
   use DaisyuiWeb.Components
   use DaisyuiWeb.Blocks
 
+  import DaisyuiWeb.Layouts.Secondary, only: [page: 1]
+
   alias Phoenix.LiveView.JS
 
   def doc do
     "An example of what you can achieve with Phoenix core components."
   end
 
-  defstruct [:id, :first_name, :last_name]
+  defstruct [:id, :first_name, :last_name, :email]
 
   @impl true
   def mount(_params, _session, socket) do
     {:ok,
      assign(socket,
        current_id: 2,
+       selected_user: nil,
        users: [
-         %__MODULE__{id: 1, first_name: "Jose", last_name: "Valim"},
+         %__MODULE__{
+           id: 1,
+           first_name: "Jose",
+           last_name: "Valim",
+           email: "jose.valim@example.com"
+         },
          %__MODULE__{
            id: 2,
            first_name: "Chris",
-           last_name: "McCord"
+           last_name: "McCord",
+           email: "chris.mscord@example.com"
          }
        ]
      )}
@@ -30,44 +39,132 @@ defmodule Storybook.Examples.Components do
   @impl true
   def render(assigns) do
     ~H"""
-    <.header>
-      List of users
-      <:subtitle>Feel free to add any missing user!</:subtitle>
-      <:actions>
-        <button type="button" class="btn" phx-click={show_modal("new-user-modal")}>
-          Create user
-        </button>
-      </:actions>
-    </.header>
-    <.table id="user-table" rows={@users}>
-      <:col :let={user} label="Id">
-        <%= user.id %>
-      </:col>
-      <:col :let={user} label="First name">
-        <%= user.first_name %>
-      </:col>
-      <:col :let={user} label="Last name">
-        <%= user.last_name %>
-      </:col>
-    </.table>
-    <.modal id="new-user-modal">
+    <.page current="home">
       <.header>
-        Create new user
-        <:subtitle>This won't be persisted into DB, memory only</:subtitle>
-      </.header>
-      <.simple_form
-        :let={f}
-        for={%{}}
-        as={:user}
-        phx-submit={JS.push("save_user") |> hide_modal("new-user-modal")}
-      >
-        <.input field={f[:first_name]} label="First name" />
-        <.input field={f[:last_name]} label="Last name" />
+        List of users
+        <:subtitle>Feel free to add any missing user!</:subtitle>
         <:actions>
-          <button type="button" class="btn">Save user</button>
+          <button type="button" class="btn" phx-click={show_modal("new-user-modal")}>
+            Create user
+          </button>
         </:actions>
-      </.simple_form>
-    </.modal>
+      </.header>
+      <div class="overflow-x-auto pb-4">
+        <.table
+          id="user-table"
+          rows={@users}
+          row_click={
+            fn user ->
+              JS.push("select_user", value: %{id: user.id})
+            end
+          }
+        >
+          <:col :let={user} label="Id">
+            <%= user.id %>
+          </:col>
+          <:col :let={user} label="First name">
+            <%= user.first_name %>
+          </:col>
+          <:col :let={user} label="Last name">
+            <%= user.last_name %>
+          </:col>
+          <:col :let={user} label="Email">
+            <%= user.email %>
+          </:col>
+
+          <:action :let={user} class="-mx-3 -my-1.5 sm:-mx-2.5">
+            <.dropdown id={"user-#{user.id}"} class="dropdown-left">
+              <:summary>
+                <summary class="btn btn-sm btn-ghost btn-square text-base-content/75 hover:text-base-content">
+                  <.icon name="hero-ellipsis-horizontal" class="size-4" />
+                </summary>
+              </:summary>
+              <ul class="dropdown-content menu menu-sm bg-base-200 rounded-box border-white/5 outline-black/5 z-10 w-28 gap-1 border p-2 shadow-lg outline outline-1">
+                <li>
+                  <button
+                    type="button"
+                    class="hover:bg-primary hover:text-primary-content"
+                    phx-click={JS.push("select_user", value: %{id: user.id})}
+                  >
+                    View
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="hover:bg-primary hover:text-primary-content">
+                    Edit
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="hover:bg-primary hover:text-primary-content">
+                    Delete
+                  </button>
+                </li>
+              </ul>
+            </.dropdown>
+          </:action>
+        </.table>
+      </div>
+      <:secondary :if={@selected_user != nil}>
+        <div class="bg-base-100 border-white/5 outline-black/5 divide-base-content/10 flex min-h-screen w-96 flex-col divide-y border-l outline outline-1 md:ml-6">
+          <div class="flex min-h-0 flex-1 flex-col overflow-y-scroll px-4">
+            <.header class="pt-32 lg:pt-20">
+              User details
+              <:subtitle><%= full_name(@selected_user) %></:subtitle>
+              <:actions>
+                <button
+                  type="button"
+                  class="btn btn-square btn-ghost drawer-button"
+                  phx-click={JS.push("select_user", value: %{id: nil})}
+                >
+                  <.icon name="hero-x-mark-mini" class="size-5 md:size-6" />
+                </button>
+              </:actions>
+            </.header>
+
+            <.list>
+              <:item title="ID">
+                <%= @selected_user.id %>
+              </:item>
+              <:item title="First name">
+                <%= @selected_user.first_name %>
+              </:item>
+              <:item title="Last name">
+                <%= @selected_user.last_name %>
+              </:item>
+              <:item title="Email">
+                <%= @selected_user.email %>
+              </:item>
+            </.list>
+          </div>
+          <div class="flex flex-shrink-0 justify-end p-4">
+            <button type="button" class="btn" phx-click={JS.push("select_user", value: %{id: nil})}>
+              Close
+            </button>
+          </div>
+        </div>
+      </:secondary>
+      <:portal>
+        <.modal id="new-user-modal">
+          <.header>
+            Create new user
+            <:subtitle>This won't be persisted into DB, memory only</:subtitle>
+          </.header>
+          <.simple_form
+            :let={f}
+            for={%{}}
+            as={:user}
+            phx-submit={JS.push("save_user") |> hide_modal("new-user-modal")}
+          >
+            <.input field={f[:first_name]} label="First name" />
+            <.input field={f[:last_name]} label="Last name" />
+            <.input field={f[:email]} label="EMail" />
+            <:actions>
+              <button type="submit" class="btn">Save user</button>
+            </:actions>
+          </.simple_form>
+        </.modal>
+      </:portal>
+    </.page>
     """
   end
 
@@ -76,6 +173,7 @@ defmodule Storybook.Examples.Components do
     user = %__MODULE__{
       first_name: params["first_name"],
       last_name: params["last_name"],
+      email: params["email"],
       id: socket.assigns.current_id + 1
     }
 
@@ -83,5 +181,21 @@ defmodule Storybook.Examples.Components do
      socket
      |> update(:users, &(&1 ++ [user]))
      |> update(:current_id, &(&1 + 1))}
+  end
+
+  @impl true
+  def handle_event("select_user", %{"id" => id}, socket) do
+    socket =
+      assign(socket, :selected_user, find_user(socket, id))
+
+    {:noreply, socket}
+  end
+
+  def full_name(%__MODULE__{} = user) do
+    "#{user.first_name} #{user.last_name}"
+  end
+
+  defp find_user(socket, id) do
+    Enum.find(socket.assigns.users, &(&1.id == id))
   end
 end

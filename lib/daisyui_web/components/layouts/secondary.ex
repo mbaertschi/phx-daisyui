@@ -9,13 +9,13 @@ defmodule DaisyuiWeb.Layouts.Secondary do
 
   import DaisyuiWeb.Gettext
 
-  embed_templates("shared/*")
+  embed_templates "shared/*"
 
-  attr(:current, :string, required: true, doc: "Current page")
+  attr :current, :string, required: true, doc: "Current page"
 
-  slot(:inner_block, required: true)
-  slot(:portal, doc: "Portal slot for modal, dialog, etc.")
-  slot(:secondary, doc: "Aside slot for secondary column")
+  slot :inner_block, required: true
+  slot :portal, doc: "Portal slot for modal, dialog, etc."
+  slot :secondary, doc: "Aside slot for secondary column"
 
   def page(assigns) do
     ~H"""

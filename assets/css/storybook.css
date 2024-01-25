@@ -4,6 +4,7 @@
 @import "tailwindcss/utilities";
 
 @import "./components/drawer.css";
+@import "./components/table.css";
 
 /*
  * Put your component styling within the Tailwind utilities layer.

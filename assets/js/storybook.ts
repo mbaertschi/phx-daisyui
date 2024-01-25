@@ -16,7 +16,6 @@ declare global {
 
 (function () {
   // window.storybook = { Hooks, Params, Uploaders };
-  console.log(Hooks);
   window.storybook = { Hooks };
 
   window.addEventListener("phx:page-loading-stop", (info) => {
@@ -24,9 +23,16 @@ declare global {
       const current = currentThemeFromLocation();
       if (current) applyTheme(current);
       registerThemeSelect();
+      registerConsoleLoggerListener();
     }
   });
 })();
+
+function registerConsoleLoggerListener() {
+  window.addEventListener("storybook:console:log", (info) => {
+    console.log(info);
+  });
+}
 
 function initialPageLoad(info: CustomEvent) {
   return info.detail?.kind == "initial";
