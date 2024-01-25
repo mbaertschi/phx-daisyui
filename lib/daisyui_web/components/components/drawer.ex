@@ -1,10 +1,38 @@
 defmodule DaisyuiWeb.Components.Drawer do
   @moduledoc """
-  A component to render a generic drawer.
+  Drawer components.
   """
 
   use Phoenix.Component
 
+  @doc """
+  Renders a drawer. Checkout the [drawer documentation](https://daisyui.com/components/drawer) for more information.
+
+  ## Examples
+
+      <.drawer
+        id="drawer-right"
+        class="drawer-end"
+        side_class="pl-px"
+        overlay
+      >
+        <section>
+          <label
+            aria-label="Open drawer"
+            for="drawer-right"
+            class="btn btn-square btn-ghost drawer-button"
+          >
+            <.icon name="hero-bars-3-mini" class="size-5 md:size-6" />
+          </label>
+          Main content
+        </section>
+        <:side>
+          <div class="bg-base-100 border-white/5 outline-black/5 min-h-screen w-80 border-l p-4 outline outline-1">
+            Sidebar content
+          </div>
+        </:side>
+      </.drawer>
+  """
   attr :id, :string, required: true, doc: "ID of the drawer"
   attr :class, :string, default: nil, doc: "Class to add to the drawer"
   attr :content_class, :string, default: nil, doc: "Class to add to the drawer content"
@@ -17,7 +45,7 @@ defmodule DaisyuiWeb.Components.Drawer do
 
   def drawer(assigns) do
     ~H"""
-    <div class={["drawer", @class]}>
+    <div class={["drawer", @overlay == false && "fix-drawer-pointer-events", @class]}>
       <input id={@id} type="checkbox" class="drawer-toggle" checked={@checked} />
       <div class={["drawer-content", @content_class]}>
         <%= render_slot(@inner_block) %>

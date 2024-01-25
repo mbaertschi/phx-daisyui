@@ -22,7 +22,7 @@ defmodule DaisyuiWeb.Layouts.Secondary do
     <.drawer id="sidebar-nav" class="isolate md:drawer-open" side_class="pr-px" overlay>
       <.drawer
         id="secondary-column"
-        class="drawer-end 3xl:drawer-open fix-drawer-end-pointer-events"
+        class="drawer-end 3xl:drawer-open"
         side_class="pl-px"
         checked={@secondary != []}
       >
