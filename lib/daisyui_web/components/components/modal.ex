@@ -7,9 +7,7 @@ defmodule DaisyuiWeb.Components.Modal do
 
   alias Phoenix.LiveView.JS
 
-  import DaisyuiWeb.Gettext, only: [gettext: 1]
-  import DaisyuiWeb.Components.Icon, only: [icon: 1]
-  import DaisyuiWeb.Components.Transitions, only: [show: 2, hide: 2]
+  import DaisyuiWeb.Gettext
 
   @doc """
   Renders a modal.
@@ -29,79 +27,41 @@ defmodule DaisyuiWeb.Components.Modal do
 
   """
   attr :id, :string, required: true
-  attr :show, :boolean, default: false
-  attr :on_cancel, JS, default: %JS{}
-  slot :inner_block, required: true
+  attr :class, :string, default: nil, doc: "Additional CSS classes to add to the modal box."
+  attr :show, :boolean, default: false, doc: "Whether the modal visibility is controlled."
+  attr :on_cancel, JS, default: %JS{}, doc: "JS commands to run when the modal is closed."
+  attr :responsive, :boolean, default: false, doc: "Show at bottom on small screens."
+  attr :backdrop, :boolean, default: true, doc: "Show a backdrop behind the modal."
+  attr :rest, :global, doc: "the arbitrary HTML attributes to add to the modal box."
+
+  slot :inner_block, required: true, doc: "The modal content."
 
   def modal(assigns) do
     ~H"""
-    <div
+    <dialog
       id={@id}
-      phx-mounted={@show && show_modal(@id)}
-      phx-remove={hide_modal(@id)}
-      data-cancel={JS.exec(@on_cancel, "phx-remove")}
-      class="relative z-50 hidden"
+      class={["modal", @responsive && "modal-bottom sm:modal-middle"]}
+      phx-hook="ModalHook"
+      data-show={@show}
+      data-cancel={@on_cancel}
     >
-      <div id={"#{@id}-bg"} class="bg-zinc-50/90 fixed inset-0 transition-opacity" aria-hidden="true" />
-      <div
-        class="fixed inset-0 overflow-y-auto"
-        aria-labelledby={"#{@id}-title"}
-        aria-describedby={"#{@id}-description"}
-        role="dialog"
-        aria-modal="true"
-        tabindex="0"
-      >
-        <div class="flex min-h-full items-center justify-center">
-          <div class="w-full max-w-3xl p-4 sm:p-6 lg:py-8">
-            <.focus_wrap
-              id={"#{@id}-container"}
-              phx-window-keydown={JS.exec("data-cancel", to: "##{@id}")}
-              phx-key="escape"
-              phx-click-away={JS.exec("data-cancel", to: "##{@id}")}
-              class="shadow-zinc-700/10 ring-zinc-700/10 relative hidden rounded-2xl bg-white p-14 shadow-lg ring-1 transition"
+      <div class={["modal-box", @class]} {@rest}>
+        <.focus_wrap id={"#{@id}-content"}>
+          <form method="dialog">
+            <button
+              class="btn btn-sm btn-circle btn-ghost absolute top-2 right-2"
+              aria-label={~t"close"m}
             >
-              <div class="absolute top-6 right-5">
-                <button
-                  phx-click={JS.exec("data-cancel", to: "##{@id}")}
-                  type="button"
-                  class="-m-3 flex-none p-3 opacity-20 hover:opacity-40"
-                  aria-label={gettext("close")}
-                >
-                  <.icon name="hero-x-mark-solid" class="size-5" />
-                </button>
-              </div>
-              <div id={"#{@id}-content"}>
-                <%= render_slot(@inner_block) %>
-              </div>
-            </.focus_wrap>
-          </div>
-        </div>
+              ✕
+            </button>
+          </form>
+          <%= render_slot(@inner_block) %>
+        </.focus_wrap>
       </div>
-    </div>
+      <form :if={@backdrop} method="dialog" class="modal-backdrop">
+        <button><%= ~t"close"m %></button>
+      </form>
+    </dialog>
     """
-  end
-
-  def show_modal(js \\ %JS{}, id) when is_binary(id) do
-    js
-    |> JS.show(to: "##{id}")
-    |> JS.show(
-      to: "##{id}-bg",
-      transition: {"transition-all transform ease-out duration-300", "opacity-0", "opacity-100"}
-    )
-    |> show("##{id}-container")
-    |> JS.add_class("overflow-hidden", to: "body")
-    |> JS.focus_first(to: "##{id}-content")
-  end
-
-  def hide_modal(js \\ %JS{}, id) do
-    js
-    |> JS.hide(
-      to: "##{id}-bg",
-      transition: {"transition-all transform ease-in duration-200", "opacity-100", "opacity-0"}
-    )
-    |> hide("##{id}-container")
-    |> JS.hide(to: "##{id}", transition: {"block", "block", "hidden"})
-    |> JS.remove_class("overflow-hidden", to: "body")
-    |> JS.pop_focus()
   end
 end

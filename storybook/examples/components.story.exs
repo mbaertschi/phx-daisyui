@@ -19,6 +19,7 @@ defmodule Storybook.Examples.Components do
      assign(socket,
        current_id: 2,
        selected_user: nil,
+       show: false,
        users: [
          %__MODULE__{
            id: 1,
@@ -47,7 +48,7 @@ defmodule Storybook.Examples.Components do
           List of users
           <:subtitle>Feel free to add any missing user!</:subtitle>
           <:actions>
-            <button type="button" class="btn" phx-click={show_modal("new-user-modal")}>
+            <button type="button" class="btn" phx-click="show">
               Create user
             </button>
           </:actions>
@@ -62,7 +63,7 @@ defmodule Storybook.Examples.Components do
               end
             }
           >
-            <:col :let={user} label="Id">
+            <:col :let={user} label="Id" class="font-semibold">
               <%= user.id %>
             </:col>
             <:col :let={user} label="First name">
@@ -154,22 +155,28 @@ defmodule Storybook.Examples.Components do
         </div>
       </:secondary>
       <:portal>
-        <.modal id="new-user-modal">
+        <.modal
+          :if={@show}
+          id="show_modal"
+          responsive
+          show
+          backdrop={false}
+          on_cancel={JS.push("hide")}
+        >
           <.header>
             Create new user
             <:subtitle>This won't be persisted into DB, memory only</:subtitle>
           </.header>
-          <.simple_form
-            :let={f}
-            for={%{}}
-            as={:user}
-            phx-submit={JS.push("save_user") |> hide_modal("new-user-modal")}
-          >
-            <.input field={f[:first_name]} label="First name" />
-            <.input field={f[:last_name]} label="Last name" />
-            <.input field={f[:email]} label="EMail" type="email" />
-            <.input field={f[:age]} label="Age" type="number" />
-            <:actions>
+          <.simple_form :let={f} for={%{}} as={:user} phx-submit={JS.push("save_user")}>
+            <.input field={f[:first_name]} label="First name" required />
+            <.input field={f[:last_name]} label="Last name" required />
+            <.input field={f[:email]} label="EMail" type="email" required />
+            <.input field={f[:age]} label="Age" type="number" required />
+            <:actions class="modal-action">
+              <button type="button" class="btn btn-ghost" onclick="show_modal.close()">
+                Cancel
+              </button>
+              <button type="reset" class="btn btn-ghost">Reset</button>
               <button type="submit" class="btn">Save user</button>
             </:actions>
           </.simple_form>
@@ -194,7 +201,18 @@ defmodule Storybook.Examples.Components do
      socket
      |> put_flash(:info, "User created successfully")
      |> update(:users, &(&1 ++ [user]))
-     |> update(:current_id, &(&1 + 1))}
+     |> update(:current_id, &(&1 + 1))
+     |> assign(:show, false)}
+  end
+
+  @impl true
+  def handle_event("show", _, socket) do
+    {:noreply, assign(socket, :show, true)}
+  end
+
+  @impl true
+  def handle_event("hide", _, socket) do
+    {:noreply, assign(socket, :show, false)}
   end
 
   @impl true

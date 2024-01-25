@@ -25,14 +25,20 @@ defmodule DaisyuiWeb.Components.SimpleForm do
     doc: "the arbitrary HTML attributes to apply to the form tag"
 
   slot :inner_block, required: true
-  slot :actions, doc: "the slot for form actions, such as a submit button"
+
+  slot :actions, doc: "the slot for form actions, such as a submit button" do
+    attr :class, :string, doc: "the class to apply to the actions container"
+  end
 
   def simple_form(assigns) do
     ~H"""
     <.form :let={f} for={@for} as={@as} {@rest}>
       <div class="mt-10 space-y-8 bg-white">
         <%= render_slot(@inner_block, f) %>
-        <div :for={action <- @actions} class="mt-2 flex items-center justify-between gap-6">
+        <div
+          :for={action <- @actions}
+          class={action[:class] || "mt-2 flex items-center justify-between gap-6"}
+        >
           <%= render_slot(action, f) %>
         </div>
       </div>

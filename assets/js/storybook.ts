@@ -70,7 +70,6 @@ function sanitizeTheme(theme?: string) {
 }
 
 function applyTheme(theme: string) {
-  console.log("applyTheme", theme);
   if (theme == "system") {
     document.documentElement.removeAttribute("data-theme");
   } else {

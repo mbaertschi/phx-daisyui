@@ -11,12 +11,6 @@ msgstr ""
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: lib/daisyui_web/components/components/flash.ex:67
-#: lib/daisyui_web/components/components/modal.ex:68
-#, elixir-autogen, elixir-format
-msgid "close"
-msgstr ""
-
 #: lib/daisyui_web/live/dashboard_live/index.ex:24
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.DashboardLive.Index"
@@ -132,3 +126,16 @@ msgstr ""
 msgctxt "DaisyuiWeb.Components.Table"
 msgid "Actions"
 msgstr "Aktionen"
+
+#: lib/daisyui_web/components/components/flash.ex:67
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Components.Flash"
+msgid "close"
+msgstr ""
+
+#: lib/daisyui_web/components/components/modal.ex:53
+#: lib/daisyui_web/components/components/modal.ex:62
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Components.Modal"
+msgid "close"
+msgstr ""

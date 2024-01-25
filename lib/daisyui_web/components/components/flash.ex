@@ -64,7 +64,7 @@ defmodule DaisyuiWeb.Components.Flash do
             @kind == :info && "btn btn-sm btn-square btn-ghost text-success hover:bg-success/20",
             @kind == :error && "btn btn-sm btn-square btn-ghost text-error hover:bg-error/20"
           ]}
-          aria-label={gettext("close")}
+          aria-label={~t"close"m}
         >
           <.icon name="hero-x-mark-solid" class="w-5 h-5" />
         </button>
