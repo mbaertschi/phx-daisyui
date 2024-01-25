@@ -17,6 +17,10 @@
   }
 }
 
+#live-container {
+  z-index: 20;
+}
+
 /* Background */
 .psb.psb-bg-white {
   @apply bg-base-100 text-base-content;

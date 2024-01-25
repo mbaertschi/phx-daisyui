@@ -16,18 +16,16 @@ defmodule DaisyuiWeb.DashboardLive.Index do
   def render(assigns) do
     ~H"""
     <.page current="home">
-      <header>
-        <h1 class="text-base-content text-2xl font-bold leading-7 md:truncate md:text-3xl md:tracking-tight">
-          <%= ~t"Home"m %>
-        </h1>
-      </header>
+      <div class="grid gap-y-4">
+        <.header><%= ~t"Home"m %></.header>
 
-      <section class="h-screen">
-        <button type="button" class="btn btn-primary drawer-button mt-10" phx-click="toggle">
-          <span :if={@show}><%= ~t"Hide"m %></span>
-          <span :if={!@show}><%= ~t"Open"m %></span>
-        </button>
-      </section>
+        <section class="h-screen">
+          <button type="button" class="btn btn-primary drawer-button mt-10" phx-click="toggle">
+            <span :if={@show}><%= ~t"Hide"m %></span>
+            <span :if={!@show}><%= ~t"Open"m %></span>
+          </button>
+        </section>
+      </div>
 
       <:secondary :if={@show}>
         <div class="bg-base-100 border-white/5 outline-black/5 min-h-screen w-80 border-l p-4 outline outline-1">

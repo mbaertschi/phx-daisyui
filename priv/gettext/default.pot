@@ -11,48 +11,43 @@
 msgid ""
 msgstr ""
 
-#: lib/daisyui_web/components/components/table.ex:48
-#, elixir-autogen, elixir-format
-msgid "Actions"
-msgstr ""
-
 #: lib/daisyui_web/components/components/flash.ex:67
 #: lib/daisyui_web/components/components/modal.ex:68
 #, elixir-autogen, elixir-format
 msgid "close"
 msgstr ""
 
-#: lib/daisyui_web/live/dashboard_live/index.ex:27
+#: lib/daisyui_web/live/dashboard_live/index.ex:24
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.DashboardLive.Index"
 msgid "Hide"
 msgstr ""
 
-#: lib/daisyui_web/live/dashboard_live/index.ex:28
+#: lib/daisyui_web/live/dashboard_live/index.ex:25
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.DashboardLive.Index"
 msgid "Open"
 msgstr ""
 
-#: lib/daisyui_web/live/collection_live/index.ex:19
+#: lib/daisyui_web/live/collection_live/index.ex:17
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.CollectionLive.Index"
 msgid "Collections"
 msgstr ""
 
-#: lib/daisyui_web/live/dashboard_live/index.ex:21
+#: lib/daisyui_web/live/dashboard_live/index.ex:20
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.DashboardLive.Index"
 msgid "Home"
 msgstr ""
 
-#: lib/daisyui_web/live/records_live/index.ex:19
+#: lib/daisyui_web/live/records_live/index.ex:17
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.RecordLive.Index"
 msgid "Records"
 msgstr ""
 
-#: lib/daisyui_web/live/task_live/index.ex:19
+#: lib/daisyui_web/live/task_live/index.ex:17
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.TaskLive.Index"
 msgid "Tasks"
@@ -130,4 +125,10 @@ msgstr ""
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Components.Flash"
 msgid "We can't find the internet"
+msgstr ""
+
+#: lib/daisyui_web/components/components/table.ex:53
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.Components.Table"
+msgid "Actions"
 msgstr ""

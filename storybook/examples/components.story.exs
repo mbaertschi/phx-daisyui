@@ -11,7 +11,7 @@ defmodule Storybook.Examples.Components do
     "An example of what you can achieve with Phoenix core components."
   end
 
-  defstruct [:id, :first_name, :last_name, :email]
+  defstruct [:id, :first_name, :last_name, :email, :age]
 
   @impl true
   def mount(_params, _session, socket) do
@@ -24,13 +24,15 @@ defmodule Storybook.Examples.Components do
            id: 1,
            first_name: "Jose",
            last_name: "Valim",
-           email: "jose.valim@example.com"
+           email: "jose.valim@example.com",
+           age: 33
          },
          %__MODULE__{
            id: 2,
            first_name: "Chris",
            last_name: "McCord",
-           email: "chris.mscord@example.com"
+           email: "chris.mscord@example.com",
+           age: 28
          }
        ]
      )}
@@ -40,74 +42,79 @@ defmodule Storybook.Examples.Components do
   def render(assigns) do
     ~H"""
     <.page current="home">
-      <.header>
-        List of users
-        <:subtitle>Feel free to add any missing user!</:subtitle>
-        <:actions>
-          <button type="button" class="btn" phx-click={show_modal("new-user-modal")}>
-            Create user
-          </button>
-        </:actions>
-      </.header>
-      <div class="overflow-x-auto pb-4">
-        <.table
-          id="user-table"
-          rows={@users}
-          row_click={
-            fn user ->
-              JS.push("select_user", value: %{id: user.id})
-            end
-          }
-        >
-          <:col :let={user} label="Id">
-            <%= user.id %>
-          </:col>
-          <:col :let={user} label="First name">
-            <%= user.first_name %>
-          </:col>
-          <:col :let={user} label="Last name">
-            <%= user.last_name %>
-          </:col>
-          <:col :let={user} label="Email">
-            <%= user.email %>
-          </:col>
+      <div class="grid gap-y-4">
+        <.header>
+          List of users
+          <:subtitle>Feel free to add any missing user!</:subtitle>
+          <:actions>
+            <button type="button" class="btn" phx-click={show_modal("new-user-modal")}>
+              Create user
+            </button>
+          </:actions>
+        </.header>
+        <div class="overflow-x-auto pb-4">
+          <.table
+            id="user-table"
+            rows={@users}
+            row_click={
+              fn user ->
+                JS.push("select_user", value: %{id: user.id})
+              end
+            }
+          >
+            <:col :let={user} label="Id">
+              <%= user.id %>
+            </:col>
+            <:col :let={user} label="First name">
+              <%= user.first_name %>
+            </:col>
+            <:col :let={user} label="Last name">
+              <%= user.last_name %>
+            </:col>
+            <:col :let={user} label="Email">
+              <%= user.email %>
+            </:col>
+            <:col :let={user} label="Age" class="text-right">
+              <%= user.age %>
+            </:col>
 
-          <:action :let={user} class="-mx-3 -my-1.5 sm:-mx-2.5">
-            <.dropdown id={"user-#{user.id}"} class="dropdown-left">
-              <:summary>
-                <summary class="btn btn-sm btn-ghost btn-square text-base-content/75 hover:text-base-content">
-                  <.icon name="hero-ellipsis-horizontal" class="size-4" />
-                </summary>
-              </:summary>
-              <ul class="dropdown-content menu menu-sm bg-base-200 rounded-box border-white/5 outline-black/5 z-10 w-28 gap-1 border p-2 shadow-lg outline outline-1">
-                <li>
-                  <button
-                    type="button"
-                    class="hover:bg-primary hover:text-primary-content"
-                    phx-click={JS.push("select_user", value: %{id: user.id})}
-                  >
-                    View
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="hover:bg-primary hover:text-primary-content">
-                    Edit
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="hover:bg-primary hover:text-primary-content">
-                    Delete
-                  </button>
-                </li>
-              </ul>
-            </.dropdown>
-          </:action>
-        </.table>
+            <:action :let={user} class="-mx-3 -my-1.5 sm:-mx-2.5">
+              <.dropdown id={"user-#{user.id}"} class="dropdown-left">
+                <:summary>
+                  <summary class="btn btn-sm btn-ghost btn-square text-base-content/75 hover:text-base-content">
+                    <.icon name="hero-ellipsis-horizontal" class="size-4" />
+                  </summary>
+                </:summary>
+                <ul class="dropdown-content menu menu-sm bg-base-200 rounded-box border-white/5 outline-black/5 z-10 w-28 gap-1 border p-2 shadow-lg outline outline-1">
+                  <li>
+                    <button
+                      type="button"
+                      class="hover:bg-primary hover:text-primary-content"
+                      phx-click={JS.push("select_user", value: %{id: user.id})}
+                    >
+                      View
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="hover:bg-primary hover:text-primary-content">
+                      Edit
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="hover:bg-primary hover:text-primary-content">
+                      Delete
+                    </button>
+                  </li>
+                </ul>
+              </.dropdown>
+            </:action>
+          </.table>
+        </div>
       </div>
       <:secondary :if={@selected_user != nil}>
         <div class="bg-base-100 border-white/5 outline-black/5 divide-base-content/10 flex min-h-screen w-96 flex-col divide-y border-l outline outline-1 md:ml-6">
-          <div class="flex min-h-0 flex-1 flex-col overflow-y-scroll px-4">
-            <.header class="pt-32 lg:pt-20">
+          <div class="flex min-h-0 flex-1 flex-col overflow-y-scroll p-4">
+            <.header>
               User details
               <:subtitle><%= full_name(@selected_user) %></:subtitle>
               <:actions>
@@ -134,6 +141,9 @@ defmodule Storybook.Examples.Components do
               <:item title="Email">
                 <%= @selected_user.email %>
               </:item>
+              <:item title="Age">
+                <%= @selected_user.age %>
+              </:item>
             </.list>
           </div>
           <div class="flex flex-shrink-0 justify-end p-4">
@@ -157,12 +167,14 @@ defmodule Storybook.Examples.Components do
           >
             <.input field={f[:first_name]} label="First name" />
             <.input field={f[:last_name]} label="Last name" />
-            <.input field={f[:email]} label="EMail" />
+            <.input field={f[:email]} label="EMail" type="email" />
+            <.input field={f[:age]} label="Age" type="number" />
             <:actions>
               <button type="submit" class="btn">Save user</button>
             </:actions>
           </.simple_form>
         </.modal>
+        <.flash_group class="isolate psb-z-20" flash={@flash} />
       </:portal>
     </.page>
     """
@@ -174,11 +186,13 @@ defmodule Storybook.Examples.Components do
       first_name: params["first_name"],
       last_name: params["last_name"],
       email: params["email"],
+      age: params["age"],
       id: socket.assigns.current_id + 1
     }
 
     {:noreply,
      socket
+     |> put_flash(:info, "User created successfully")
      |> update(:users, &(&1 ++ [user]))
      |> update(:current_id, &(&1 + 1))}
   end

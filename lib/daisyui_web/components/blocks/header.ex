@@ -6,26 +6,28 @@ defmodule DaisyuiWeb.Blocks.Header do
   use Phoenix.Component
 
   @doc """
-  Renders a header with title.
+  Renders a header with title, subtitle and actions.
   """
-  attr :class, :string, default: nil
+  attr :class, :string, default: nil, doc: "the header class"
+  attr :action_class, :string, default: "flex gap-x-3"
+  attr :id, :string, default: nil
 
   slot :inner_block, required: true
-  slot :subtitle
-  slot :actions
+  slot :subtitle, doc: "the optional subtitle displayed below the title"
+  slot :actions, doc: "the optional actions displayed on the right side of the header"
 
   def header(assigns) do
     ~H"""
-    <header class={[@actions != [] && "flex items-center justify-between gap-6", @class]}>
+    <header class={["w-full", @actions != [] && "flex items-center justify-between gap-6", @class]}>
       <div>
-        <h1 class="text-lg font-semibold leading-8 text-zinc-800">
+        <h1 class="text-base-content text-lg font-semibold leading-9">
           <%= render_slot(@inner_block) %>
         </h1>
-        <p :if={@subtitle != []} class="mt-2 text-sm leading-6 text-zinc-600">
+        <p :if={@subtitle != []} class="text-base-content/50 mt-2 text-sm leading-6">
           <%= render_slot(@subtitle) %>
         </p>
       </div>
-      <div class="flex-none"><%= render_slot(@actions) %></div>
+      <div class={@action_class}><%= render_slot(@actions) %></div>
     </header>
     """
   end

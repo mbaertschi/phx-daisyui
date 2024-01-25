@@ -14,11 +14,7 @@ defmodule DaisyuiWeb.TaskLive.Index do
   def render(assigns) do
     ~H"""
     <.page current="tasks">
-      <header>
-        <h1 class="text-base-content text-2xl font-bold leading-7 md:truncate md:text-3xl md:tracking-tight">
-          <%= ~t"Tasks"m %>
-        </h1>
-      </header>
+      <.header><%= ~t"Tasks"m %></.header>
     </.page>
     """
   end

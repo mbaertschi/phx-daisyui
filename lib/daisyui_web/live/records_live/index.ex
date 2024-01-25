@@ -14,11 +14,7 @@ defmodule DaisyuiWeb.RecordLive.Index do
   def render(assigns) do
     ~H"""
     <.page current="records">
-      <header>
-        <h1 class="text-base-content text-2xl font-bold leading-7 md:truncate md:text-3xl md:tracking-tight">
-          <%= ~t"Records"m %>
-        </h1>
-      </header>
+      <.header><%= ~t"Records"m %></.header>
     </.page>
     """
   end
