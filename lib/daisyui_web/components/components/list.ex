@@ -15,20 +15,23 @@ defmodule DaisyuiWeb.Components.List do
         <:item title="Views"><%= @post.views %></:item>
       </.list>
   """
+  attr :class, :string, default: nil
+  attr :rest, :global
+
   slot :item, required: true do
     attr :title, :string, required: true
   end
 
   def list(assigns) do
     ~H"""
-    <div class="mt-14">
-      <dl class="-my-4 divide-y divide-zinc-100">
-        <div :for={item <- @item} class="flex gap-4 py-4 text-sm leading-6 sm:gap-8">
-          <dt class="w-1/4 flex-none text-zinc-500"><%= item.title %></dt>
-          <dd class="text-zinc-700"><%= render_slot(item) %></dd>
-        </div>
-      </dl>
-    </div>
+    <dl class={["divide-base-content/10 w-full divide-y", @class]} {@rest}>
+      <div :for={item <- @item} class="px-8 py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+        <dt class="text-base-content/90 text-sm font-medium leading-6"><%= item.title %></dt>
+        <dd class="text-base-content/60 mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
+          <%= render_slot(item) %>
+        </dd>
+      </div>
+    </dl>
     """
   end
 end

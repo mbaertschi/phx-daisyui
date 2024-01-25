@@ -8,7 +8,7 @@ defmodule Storybook.Components.List do
       %Variation{
         id: :default,
         slots: [
-          ~s|<:item title="Title">Elixir</:item>|,
+          ~s|<:item title="Title">And a very long content about how awesome Elixir is.</:item>|,
           ~s|<:item title="Rating">5/5</:item>|
         ]
       }
