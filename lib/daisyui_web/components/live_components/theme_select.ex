@@ -27,6 +27,7 @@ defmodule DaisyuiWeb.LiveComponents.ThemeSelect do
     ~H"""
     <button
       id={@id}
+      type="button"
       class="btn btn-ghost btn-square text-base-content/75 tooltip tooltip-bottom before:text-xs hover:text-base-content"
       data-tip="Theme"
       phx-click="theme:cycle"
