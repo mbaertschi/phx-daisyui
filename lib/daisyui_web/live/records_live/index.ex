@@ -110,7 +110,7 @@ defmodule DaisyuiWeb.RecordLive.Index do
         </div>
       </div>
       <:secondary>
-        <div class="bg-base-100 border-white/5 outline-black/5 divide-base-content/10 flex min-h-screen w-96 flex-col divide-y border-l outline outline-1 md:ml-6">
+        <div class="bg-base-100 border-white/5 outline-black/5 divide-base-content/10 min-h-dvh flex w-96 flex-col divide-y border-l outline outline-1 md:ml-6">
           <div :if={@selected_user} class="flex min-h-0 flex-1 flex-col overflow-y-scroll p-4">
             <.header>
               <%= ~t"User details"m %>
