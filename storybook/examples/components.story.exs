@@ -42,7 +42,7 @@ defmodule Storybook.Examples.Components do
   @impl true
   def render(assigns) do
     ~H"""
-    <.page current="home">
+    <.page current="home" open={@selected_user != nil}>
       <div class="grid gap-y-4">
         <.header>
           List of users
@@ -112,9 +112,9 @@ defmodule Storybook.Examples.Components do
           </.table>
         </div>
       </div>
-      <:secondary :if={@selected_user != nil}>
+      <:secondary>
         <div class="bg-base-100 border-white/5 outline-black/5 divide-base-content/10 flex min-h-screen w-96 flex-col divide-y border-l outline outline-1 md:ml-6">
-          <div class="flex min-h-0 flex-1 flex-col overflow-y-scroll p-4">
+          <div :if={@selected_user} class="flex min-h-0 flex-1 flex-col overflow-y-scroll p-4">
             <.header>
               User details
               <:subtitle><%= full_name(@selected_user) %></:subtitle>

@@ -12,6 +12,7 @@ defmodule DaisyuiWeb.Layouts.Secondary do
   embed_templates "shared/*"
 
   attr :current, :string, required: true, doc: "Current page"
+  attr :open, :boolean, default: false, doc: "Whether the secondary column is open or not"
 
   slot :inner_block, required: true
   slot :portal, doc: "Portal slot for modal, dialog, etc."
@@ -22,9 +23,9 @@ defmodule DaisyuiWeb.Layouts.Secondary do
     <.drawer id="sidebar-nav" class="isolate md:drawer-open" side_class="pr-px" overlay>
       <.drawer
         id="secondary-column"
-        class="drawer-end 3xl:drawer-open"
+        class={["drawer-end", @open && "3xl:drawer-open"]}
         side_class="pl-px"
-        checked={@secondary != []}
+        checked={@open}
       >
         <.main {assigns} />
         <:side>

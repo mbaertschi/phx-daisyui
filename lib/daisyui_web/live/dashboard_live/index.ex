@@ -15,7 +15,7 @@ defmodule DaisyuiWeb.DashboardLive.Index do
   @impl true
   def render(assigns) do
     ~H"""
-    <.page current="home">
+    <.page current="home" open={@show}>
       <div class="grid gap-y-4">
         <.header><%= ~t"Home"m %></.header>
 
@@ -27,7 +27,7 @@ defmodule DaisyuiWeb.DashboardLive.Index do
         </section>
       </div>
 
-      <:secondary :if={@show}>
+      <:secondary>
         <div class="bg-base-100 border-white/5 outline-black/5 min-h-screen w-80 border-l p-4 outline outline-1">
         </div>
       </:secondary>
