@@ -34,7 +34,7 @@ defmodule DaisyuiWeb.Components.Drawer do
       </.drawer>
   """
   attr :id, :string, required: true, doc: "ID of the drawer"
-  attr :class, :any, default: nil, doc: "Class to add to the drawer"
+  attr :class, :string, default: nil, doc: "Class to add to the drawer"
   attr :content_class, :string, default: nil, doc: "Class to add to the drawer content"
   attr :side_class, :string, default: nil, doc: "Class to add to the side content"
   attr :overlay, :boolean, default: false, doc: "Whether to show an overlay or not"

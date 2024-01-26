@@ -94,6 +94,9 @@ defmodule DaisyuiWeb do
       # Translation
       import DaisyuiWeb.Gettext
 
+      # Formatters
+      import DaisyuiWeb.Helpers
+
       # Routes generation with the ~p sigil
       unquote(verified_routes())
     end
