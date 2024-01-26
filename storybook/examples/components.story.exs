@@ -101,9 +101,12 @@ defmodule Storybook.Examples.Components do
                     </button>
                   </li>
                   <li>
-                    <button type="button" class="hover:bg-primary hover:text-primary-content">
+                    <.link
+                      phx-click={JS.push("delete", value: %{id: user.id})}
+                      data-confirm="Are you sure?"
+                    >
                       Delete
-                    </button>
+                    </.link>
                   </li>
                 </ul>
               </.dropdown>
@@ -208,6 +211,14 @@ defmodule Storybook.Examples.Components do
   end
 
   @impl true
+  def handle_event("delete", %{"id" => id}, socket) do
+    {:noreply,
+     socket
+     |> put_flash(:info, "User deleted successfully")
+     |> update(:users, &List.delete_at(&1, find_index(socket, id)))}
+  end
+
+  @impl true
   def handle_event("select_user", %{"id" => id}, socket) do
     socket =
       assign(socket, :selected_user, find_user(socket, id))
@@ -221,5 +232,9 @@ defmodule Storybook.Examples.Components do
 
   defp find_user(socket, id) do
     Enum.find(socket.assigns.users, &(&1.id == id))
+  end
+
+  def find_index(socket, id) do
+    Enum.find_index(socket.assigns.users, &(&1.id == id))
   end
 end

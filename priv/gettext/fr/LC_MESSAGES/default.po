@@ -35,12 +35,6 @@ msgctxt "DaisyuiWeb.DashboardLive.Index"
 msgid "Home"
 msgstr ""
 
-#: lib/daisyui_web/live/records_live/index.ex:17
-#, elixir-autogen, elixir-format
-msgctxt "DaisyuiWeb.RecordLive.Index"
-msgid "Records"
-msgstr ""
-
 #: lib/daisyui_web/live/task_live/index.ex:17
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.TaskLive.Index"
@@ -138,4 +132,137 @@ msgstr ""
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.Components.Modal"
 msgid "close"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:71
+#: lib/daisyui_web/live/records_live/index.ex:141
+#: lib/daisyui_web/live/records_live/index.ex:174
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Age"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:100
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Are you sure?"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:180
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Cancel"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:148
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Close"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:162
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Create new user"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:45
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Create user"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:102
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Delete"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:172
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "EMail"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:94
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Edit"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:68
+#: lib/daisyui_web/live/records_live/index.ex:138
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Email"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:42
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Feel free to add any missing user!"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:62
+#: lib/daisyui_web/live/records_live/index.ex:132
+#: lib/daisyui_web/live/records_live/index.ex:167
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "First name"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:65
+#: lib/daisyui_web/live/records_live/index.ex:135
+#: lib/daisyui_web/live/records_live/index.ex:168
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Last name"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:41
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "List of users"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:182
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Reset"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:183
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Save user"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:163
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "This won't be persisted into DB, memory only"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:205
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "User created successfully"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:214
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "User deleted successfully"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:115
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "User details"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:89
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "View"
 msgstr ""
