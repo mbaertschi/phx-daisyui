@@ -1,13 +1,13 @@
-defmodule DaisyuiWeb.LocaleSelect do
+defmodule DaisyuiWeb.Components.LocaleSelect do
   @moduledoc """
   A component to select the current color mode.
   """
 
   use Phoenix.Component
 
-  import DaisyuiWeb.Dropdown
-
   alias Phoenix.LiveView.JS
+
+  import DaisyuiWeb.Components.Dropdown, only: [dropdown: 1]
 
   @locales DaisyuiWeb.Locale.locales()
 
@@ -20,6 +20,7 @@ defmodule DaisyuiWeb.LocaleSelect do
         <ul class="dropdown-content menu menu-sm bg-base-200 rounded-box border-white/5 outline-black/5 top-px mt-16 w-44 gap-1 border p-2 shadow-2xl outline outline-1">
           <li :for={option <- options()}>
             <button
+              type="button"
               class={option.selected && "active"}
               phx-click={
                 JS.dispatch("set-locale", to: "#locale-selector-wrapper", detail: option.value)

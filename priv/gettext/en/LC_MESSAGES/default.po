@@ -11,74 +11,294 @@ msgstr ""
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: lib/daisyui_web/components/core_components.ex:484
-#, elixir-autogen, elixir-format
-msgid "Actions"
-msgstr ""
-
-#: lib/daisyui_web/components/core_components.ex:77
-#: lib/daisyui_web/components/core_components.ex:131
-#, elixir-autogen, elixir-format
-msgid "close"
-msgstr ""
-
-#: lib/daisyui_web/live/dashboard_live/index.ex:27
+#: lib/daisyui_web/live/dashboard_live/index.ex:24
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.DashboardLive.Index"
 msgid "Hide"
 msgstr ""
 
-#: lib/daisyui_web/live/dashboard_live/index.ex:28
+#: lib/daisyui_web/live/dashboard_live/index.ex:25
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.DashboardLive.Index"
 msgid "Open"
 msgstr ""
 
-#: lib/daisyui_web/live/collection_live/index.ex:19
+#: lib/daisyui_web/live/collection_live/index.ex:17
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.CollectionLive.Index"
 msgid "Collections"
 msgstr ""
 
-#: lib/daisyui_web/live/dashboard_live/index.ex:21
+#: lib/daisyui_web/live/dashboard_live/index.ex:20
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.DashboardLive.Index"
 msgid "Home"
 msgstr ""
 
-#: lib/daisyui_web/live/records_live/index.ex:19
-#, elixir-autogen, elixir-format
-msgctxt "DaisyuiWeb.RecordLive.Index"
-msgid "Records"
-msgstr ""
-
-#: lib/daisyui_web/live/task_live/index.ex:19
+#: lib/daisyui_web/live/task_live/index.ex:17
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.TaskLive.Index"
 msgid "Tasks"
 msgstr ""
 
-#: lib/daisyui_web/components/shared/sidebar.html.heex:38
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:38
 #, elixir-autogen, elixir-format, fuzzy
-msgctxt "DaisyuiWeb.Page"
+msgctxt "DaisyuiWeb.Layouts.Primary"
 msgid "Collections"
 msgstr ""
 
-#: lib/daisyui_web/components/shared/sidebar.html.heex:26
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:26
 #, elixir-autogen, elixir-format, fuzzy
-msgctxt "DaisyuiWeb.Page"
+msgctxt "DaisyuiWeb.Layouts.Primary"
 msgid "Home"
 msgstr ""
 
-#: lib/daisyui_web/components/shared/sidebar.html.heex:50
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:50
 #, elixir-autogen, elixir-format, fuzzy
-msgctxt "DaisyuiWeb.Page"
+msgctxt "DaisyuiWeb.Layouts.Primary"
 msgid "Records"
 msgstr ""
 
-#: lib/daisyui_web/components/shared/sidebar.html.heex:61
-#: lib/daisyui_web/components/shared/sidebar.html.heex:65
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:61
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:65
 #, elixir-autogen, elixir-format, fuzzy
-msgctxt "DaisyuiWeb.Page"
+msgctxt "DaisyuiWeb.Layouts.Primary"
 msgid "Tasks"
+msgstr ""
+
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:38
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Layouts.Secondary"
+msgid "Collections"
+msgstr ""
+
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:26
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Layouts.Secondary"
+msgid "Home"
+msgstr ""
+
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:50
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Layouts.Secondary"
+msgid "Records"
+msgstr ""
+
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:61
+#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:65
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Layouts.Secondary"
+msgid "Tasks"
+msgstr ""
+
+#: lib/daisyui_web/components/components/flash.ex:105
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.Components.Flash"
+msgid "Attempting to reconnect"
+msgstr ""
+
+#: lib/daisyui_web/components/components/flash.ex:117
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.Components.Flash"
+msgid "Hang in there while we get back on track"
+msgstr ""
+
+#: lib/daisyui_web/components/components/flash.ex:112
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.Components.Flash"
+msgid "Something went wrong!"
+msgstr ""
+
+#: lib/daisyui_web/components/components/flash.ex:100
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.Components.Flash"
+msgid "We can't find the internet"
+msgstr ""
+
+#: lib/daisyui_web/components/components/table.ex:53
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Components.Table"
+msgid "Actions"
+msgstr "Aktionen"
+
+#: lib/daisyui_web/components/components/flash.ex:67
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Components.Flash"
+msgid "close"
+msgstr ""
+
+#: lib/daisyui_web/components/components/modal.ex:85
+#: lib/daisyui_web/components/components/modal.ex:94
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Components.Modal"
+msgid "close"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:71
+#: lib/daisyui_web/live/records_live/index.ex:142
+#: lib/daisyui_web/live/records_live/index.ex:179
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Age"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:101
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Are you sure?"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:185
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Cancel"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:153
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Close"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:167
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Create new user"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:45
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Create user"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:103
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Delete"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:177
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "EMail"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:94
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Edit"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:68
+#: lib/daisyui_web/live/records_live/index.ex:139
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Email"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:42
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Feel free to add any missing user!"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:62
+#: lib/daisyui_web/live/records_live/index.ex:133
+#: lib/daisyui_web/live/records_live/index.ex:172
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "First name"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:65
+#: lib/daisyui_web/live/records_live/index.ex:136
+#: lib/daisyui_web/live/records_live/index.ex:173
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Last name"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:41
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "List of users"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:187
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Reset"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:188
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "Save user"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:168
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "This won't be persisted into DB, memory only"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:209
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "User created successfully"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:218
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "User deleted successfully"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:116
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "User details"
+msgstr ""
+
+#: lib/daisyui_web/live/records_live/index.ex:89
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.RecordLive.Index"
+msgid "View"
+msgstr ""
+
+#: lib/daisyui_web/components/components/alert.ex:43
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Components.Alert"
+msgid "Are you sure?"
+msgstr ""
+
+#: lib/daisyui_web/components/components/alert.ex:49
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Components.Alert"
+msgid "Cancel"
+msgstr ""
+
+#: lib/daisyui_web/components/components/alert.ex:52
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.Components.Alert"
+msgid "OK"
+msgstr ""
+
+#: lib/daisyui_web/components/components/alert.ex:59
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Components.Alert"
+msgid "close"
+msgstr ""
+
+#: lib/daisyui_web/components/components/flash.ex:96
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.Components.Flash"
+msgid "Error!"
+msgstr ""
+
+#: lib/daisyui_web/components/components/flash.ex:95
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.Components.Flash"
+msgid "Success!"
 msgstr ""

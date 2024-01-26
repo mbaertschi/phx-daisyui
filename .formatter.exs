@@ -7,5 +7,10 @@
     Phoenix.LiveView.HTMLFormatter,
     Recode.FormatterPlugin
   ],
-  inputs: ["*.{heex,ex,exs}", "{config,lib,test}/**/*.{heex,ex,exs}", "priv/*/seeds.exs"]
+  inputs: [
+    "*.{heex,ex,exs}",
+    "{config,lib,test}/**/*.{heex,ex,exs}",
+    "priv/*/seeds.exs",
+    "storybook/**/*.exs"
+  ]
 ]

@@ -1,4 +1,4 @@
-.fix-drawer-end-pointer-events {
+.fix-drawer-pointer-events {
   .drawer-side {
     pointer-events: none !important;
 

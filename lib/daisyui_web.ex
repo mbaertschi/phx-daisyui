@@ -81,17 +81,21 @@ defmodule DaisyuiWeb do
 
   defp html_helpers do
     quote do
-      # Custom UI components
-      use DaisyuiWeb.CustomComponents
-
-      # HTML escaping functionality
-      import Phoenix.HTML
-      # Core UI components and translation
-      import DaisyuiWeb.CoreComponents
-      import DaisyuiWeb.Gettext
+      # UI components and blocks
+      use DaisyuiWeb.Components
+      use DaisyuiWeb.Blocks
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
+
+      # HTML escaping functionality
+      import Phoenix.HTML
+
+      # Translation
+      import DaisyuiWeb.Gettext
+
+      # Formatters
+      import DaisyuiWeb.Helpers
 
       # Routes generation with the ~p sigil
       unquote(verified_routes())

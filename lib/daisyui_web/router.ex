@@ -64,6 +64,17 @@ defmodule DaisyuiWeb.Router do
     # as long as you are also using SSL (which you should anyway).
     import Phoenix.LiveDashboard.Router
 
+    import PhoenixStorybook.Router
+
+    scope "/" do
+      storybook_assets()
+
+      scope "/", DaisyuiWeb do
+        pipe_through [:locale, :browser]
+        live_storybook("/storybook", backend_module: DaisyuiWeb.Storybook)
+      end
+    end
+
     scope "/dev" do
       pipe_through [:locale, :browser]
 
