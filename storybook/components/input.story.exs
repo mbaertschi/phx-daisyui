@@ -3,12 +3,14 @@ defmodule Storybook.Components.Input do
   alias DaisyuiWeb.Components
 
   def function, do: &Components.Input.input/1
-  def imports, do: [{Components.SimpleForm, [simple_form: 1]}]
+  def imports, do: [{Components.Form, [simple_form: 1, fieldgroup: 1]}]
 
   def template do
     """
     <.simple_form :let={f} for={%{}} as={:story} class="w-full">
-      <.psb-variation-group field={f[:field]}/>
+      <.fieldgroup>
+        <.psb-variation-group field={f[:field]} required />
+      </.fieldgroup>
     </.simple_form>
     """
   end
@@ -18,12 +20,63 @@ defmodule Storybook.Components.Input do
       %VariationGroup{
         id: :basic_inputs,
         variations:
-          for type <- ~w(text textarea number date color range checkbox)a do
+          for type <-
+                ~w(checkbox color date datetime-local email hidden month number password
+               range search tel text textarea time url week)a do
             %Variation{
               id: type,
               attributes: %{
                 type: to_string(type),
-                label: String.capitalize("#{type} input")
+                label: String.capitalize("#{type} input"),
+                description: String.capitalize("#{type} input description")
+              }
+            }
+          end
+      },
+      %VariationGroup{
+        id: :disabled_inputs,
+        variations:
+          for type <-
+                ~w(checkbox color date datetime-local email hidden month number password
+               range search tel text textarea time url week)a do
+            %Variation{
+              id: type,
+              attributes: %{
+                type: to_string(type),
+                label: String.capitalize("#{type} input"),
+                description: String.capitalize("#{type} input disabled description"),
+                disabled: true
+              }
+            }
+          end
+      },
+      %VariationGroup{
+        id: :radio,
+        variations:
+          for option <- [:option_1, :option_2, :option_3] do
+            %Variation{
+              id: option,
+              attributes: %{
+                label: String.capitalize("#{option} input"),
+                type: "radio",
+                name: "radio_input",
+                description: "Radio input description"
+              }
+            }
+          end
+      },
+      %VariationGroup{
+        id: :radio_disabled,
+        variations:
+          for option <- [:option_1, :option_2, :option_3] do
+            %Variation{
+              id: option,
+              attributes: %{
+                label: String.capitalize("#{option} input"),
+                type: "radio",
+                name: "radio_input",
+                description: "Radio disabled input description",
+                disabled: true
               }
             }
           end
@@ -33,7 +86,39 @@ defmodule Storybook.Components.Input do
         attributes: %{
           label: "Select input",
           type: "select",
-          options: ["Option 1", "Option 2", "Option 3"]
+          options: ["Option 1", "Option 2", "Option 3"],
+          description: "Select input description"
+        }
+      },
+      %Variation{
+        id: :select_disabled,
+        attributes: %{
+          label: "Select input",
+          type: "select",
+          options: ["Option 1", "Option 2", "Option 3"],
+          description: "Select input disabled description",
+          disabled: true
+        }
+      },
+      %Variation{
+        id: :multi_select,
+        attributes: %{
+          label: "Multiselect input",
+          type: "select",
+          options: ["Option 1", "Option 2", "Option 3"],
+          description: "Multielect input description",
+          multiple: true
+        }
+      },
+      %Variation{
+        id: :multi_select_disabled,
+        attributes: %{
+          label: "Multiselect input",
+          type: "select",
+          options: ["Option 1", "Option 2", "Option 3"],
+          description: "Multiselect input disabled description",
+          multiple: true,
+          disabled: true
         }
       }
     ]

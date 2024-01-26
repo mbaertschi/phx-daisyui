@@ -9,12 +9,12 @@ defmodule DaisyuiWeb.Components do
         Drawer,
         Dropdown,
         Flash,
+        Form,
         Icon,
         Input,
         List,
         LocaleSelect,
         Modal,
-        SimpleForm,
         Table,
         Transitions
       }

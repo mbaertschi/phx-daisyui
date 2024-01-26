@@ -20,10 +20,10 @@ defmodule DaisyuiWeb.Blocks.Header do
     ~H"""
     <header class={["w-full", @actions != [] && "flex items-center justify-between gap-6", @class]}>
       <div>
-        <h1 class="text-base-content text-lg font-semibold leading-9">
+        <h1 class="text-base-content text-lg/9 font-semibold">
           <%= render_slot(@inner_block) %>
         </h1>
-        <p :if={@subtitle != []} class="text-base-content/50 mt-2 text-sm leading-6">
+        <p :if={@subtitle != []} class="text-base-content/50 text-sm/6 mt-2">
           <%= render_slot(@subtitle) %>
         </p>
       </div>

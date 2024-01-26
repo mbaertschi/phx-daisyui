@@ -26,16 +26,41 @@ defmodule Storybook.Examples.ControlledModal do
       </button>
 
       <.modal :if={@show} id="modal" show responsive backdrop={false} on_cancel={JS.push("hide")}>
-        <.header>
-          Create new user
-          <:subtitle>This won't be persisted into DB, memory only</:subtitle>
-        </.header>
         <.simple_form :let={f} for={%{}} as={:user} phx-submit={JS.push("save")}>
-          <.input field={f[:first_name]} label="First name" required value="First" />
-          <.input field={f[:last_name]} label="Last name" required value="Second" />
-          <.input field={f[:email]} label="EMail" type="email" required value="email@example.com" />
-          <.input field={f[:age]} label="Age" type="number" required value="33" />
-          <:actions class="modal-action">
+          <.fieldset
+            legend="Shipping details"
+            text="Without this your odds of getting your order are low."
+          >
+            <.fieldgroup>
+              <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4">
+                <.input field={f[:first_name]} label="First name" required />
+                <.input field={f[:last_name]} label="Last name" required />
+              </div>
+
+              <.input field={f[:street_address]} label="Street address" required />
+              <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
+                <div class="sm:col-span-2">
+                  <.input
+                    field={f[:country]}
+                    label="Country"
+                    description="We currently only ship to North America."
+                    required
+                    type="select"
+                    options={["Canada", "Mexico", "United States"]}
+                  />
+                </div>
+                <.input field={f[:postal_code]} label="Postal code" required />
+              </div>
+              <.input
+                field={f[:notes]}
+                label="Delivery notes"
+                description="If you have a tiger, we'd like to know about it."
+                type="textarea"
+                required
+              />
+            </.fieldgroup>
+          </.fieldset>
+          <:actions>
             <button type="button" class="btn btn-ghost" onclick="modal.close()">
               Cancel
             </button>

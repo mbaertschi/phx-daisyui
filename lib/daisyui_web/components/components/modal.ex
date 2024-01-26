@@ -34,21 +34,21 @@ defmodule DaisyuiWeb.Components.Modal do
   For example:
 
       <.modal id="user_modal" responsive backdrop={false} on_cancel={JS.patch(~p"/users")}>
-        <.header>
-          Create new user
-          <:subtitle>This won't be persisted into DB, memory only</:subtitle>
-        </.header>
         <.simple_form
           :let={f}
           for={%{}}
           as={:user}
           phx-submit={JS.push("save_user") |> JS.dispatch("submit:close")}
         >
-          <.input field={f[:first_name]} label="First name" required />
-          <.input field={f[:last_name]} label="Last name" required />
-          <.input field={f[:email]} label="EMail" type="email" required />
-          <.input field={f[:age]} label="Age" type="number" required />
-          <:actions class="modal-action">
+          <.fieldset legend="Create new user" text="This won't be persisted into DB, memory only">
+            <.fieldgroup>
+              <.input field={f[:first_name]} label="First name" required />
+              <.input field={f[:last_name]} label="Last name" required />
+              <.input field={f[:email]} label="EMail" type="email" required />
+              <.input field={f[:age]} label="Age" type="number" required />
+            </.fieldgroup>
+          </.fieldset>
+          <:actions>
             <button type="button" class="btn btn-ghost" onclick="user_modal.close()">
               Cancel
             </button>

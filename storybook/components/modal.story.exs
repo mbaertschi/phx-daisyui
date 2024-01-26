@@ -9,7 +9,7 @@ defmodule Storybook.Components.Modal do
     do: [
       {Blocks.Header, [header: 1]},
       {Components.Input, [input: 1]},
-      {Components.SimpleForm, [simple_form: 1]}
+      {Components.Form, [simple_form: 1, fieldset: 1, fieldgroup: 1]}
     ]
 
   def template do
@@ -92,23 +92,22 @@ defmodule Storybook.Components.Modal do
 
   def content_with_form(id) do
     """
-    <.header>
-      Create new user
-      <:subtitle>This won't be persisted into DB, memory only</:subtitle>
-    </.header>
-
     <.simple_form
       :let={f}
       for={%{}}
       as={:user}
       phx-submit={JS.push("save_user") |> JS.dispatch("submit:close")}
     >
-      <.input field={f[:first_name]} label="First name" />
-      <.input field={f[:last_name]} label="Last name" />
-      <.input field={f[:email]} label="EMail" type="email" />
-      <.input field={f[:age]} label="Age" type="number" />
+      <.fieldset legend="Create new user" text="This won't be persisted into DB, memory only">
+        <.fieldgroup>
+          <.input field={f[:first_name]} label="First name" />
+          <.input field={f[:last_name]} label="Last name" />
+          <.input field={f[:email]} label="EMail" type="email" />
+          <.input field={f[:age]} label="Age" type="number" />
+        </.fieldgroup>
+      </.fieldset>
 
-      <:actions class="modal-action">
+      <:actions>
         <button type="button" class="btn btn-ghost" onclick="document.getElementById('#{id}').close()">
           Cancel
         </button>

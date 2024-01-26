@@ -47,11 +47,14 @@ defmodule DaisyuiWeb.Components.Input do
   attr :field, Phoenix.HTML.FormField,
     doc: "a form field struct retrieved from the form, for example: @form[:email]"
 
+  attr :description, :string, default: nil, doc: "the description for the input"
+
   attr :errors, :list, default: []
   attr :checked, :boolean, doc: "the checked flag for checkbox inputs"
   attr :prompt, :string, default: nil, doc: "the prompt for select inputs"
   attr :options, :list, doc: "the options to pass to Phoenix.HTML.Form.options_for_select/2"
   attr :multiple, :boolean, default: false, doc: "the multiple flag for select inputs"
+  attr :class, :string, default: nil, doc: "additinal css class for input"
 
   attr :rest, :global,
     include: ~w(accept autocomplete capture cols disabled form list max maxlength min minlength
@@ -75,60 +78,171 @@ defmodule DaisyuiWeb.Components.Input do
       end)
 
     ~H"""
-    <div phx-feedback-for={@name}>
-      <label class="flex items-center gap-4 text-sm leading-6 text-zinc-600">
-        <input type="hidden" name={@name} value="false" />
+    <div phx-feedback-for={@name} class="form-control">
+      <input type="hidden" name={@name} value="false" />
+      <label class={["label cursor-pointer justify-start space-x-4", @description && "items-start"]}>
         <input
           type="checkbox"
           id={@id}
           name={@name}
           value="true"
           checked={@checked}
-          class="rounded border-zinc-300 text-zinc-900 focus:ring-0"
+          class="checkbox"
+          aria-invalid={@errors != []}
+          aria-describedby={@errors != [] && "#{@id}-error"}
           {@rest}
         />
-        <%= @label %>
+        <span class={["label-text", @rest[:disabled] && "text-base-content/50"]}>
+          <span class={@rest[:required] && "after-[ml-px] after:content-['*']"}>
+            <%= @label %>
+          </span>
+          <.description :if={@description}><%= @description %></.description>
+        </span>
       </label>
-      <.error :for={msg <- @errors}><%= msg %></.error>
+
+      <.errors errors={@errors} />
+    </div>
+    """
+  end
+
+  def input(%{type: "radio"} = assigns) do
+    assigns =
+      assign_new(assigns, :checked, fn -> Form.normalize_value("radio", assigns[:value]) end)
+
+    ~H"""
+    <div phx-feedback-for={@name} class="form-control">
+      <input type="hidden" name={@name} value="false" />
+      <label class={["label justify-start space-x-4", @description && "items-start"]}>
+        <input
+          type="radio"
+          id={@id}
+          name={@name}
+          value="true"
+          checked={@checked}
+          class="radio"
+          aria-invalid={@errors != []}
+          aria-describedby={@errors != [] && "#{@id}-error"}
+          {@rest}
+        />
+
+        <span class={["label-text", @rest[:disabled] && "text-base-content/50"]}>
+          <span class={@rest[:required] && "after-[ml-px] after:content-['*']"}>
+            <%= @label %>
+          </span>
+          <.description :if={@description}><%= @description %></.description>
+        </span>
+      </label>
+
+      <.errors errors={@errors} />
     </div>
     """
   end
 
   def input(%{type: "select"} = assigns) do
     ~H"""
-    <div phx-feedback-for={@name}>
-      <.label for={@id}><%= @label %></.label>
+    <div
+      phx-feedback-for={@name}
+      class={["form-control w-full", @errors != [] && "[&_select]:phx-feedback:select-error"]}
+    >
+      <.label :if={@label} for={@id} required={@rest[:required]} disabled={@rest[:disabled]}>
+        <%= @label %>
+      </.label>
+
       <select
         id={@id}
         name={@name}
-        class="mt-2 block w-full rounded-md border border-gray-300 bg-white shadow-sm focus:border-zinc-400 focus:ring-0 sm:text-sm"
+        class={["select select-bordered", @class]}
         multiple={@multiple}
+        aria-invalid={@errors != []}
+        aria-describedby={@errors != [] && "#{@id}-error"}
         {@rest}
       >
         <option :if={@prompt} value=""><%= @prompt %></option>
         <%= Phoenix.HTML.Form.options_for_select(@options, @value) %>
       </select>
-      <.error :for={msg <- @errors}><%= msg %></.error>
+
+      <.description :if={@description && @errors == []}><%= @description %></.description>
+      <.errors errors={@errors} />
     </div>
     """
   end
 
   def input(%{type: "textarea"} = assigns) do
     ~H"""
-    <div phx-feedback-for={@name}>
-      <.label for={@id}><%= @label %></.label>
+    <div phx-feedback-for={@name} class="form-control w-full">
+      <.label :if={@label} for={@id} required={@rest[:required]} disabled={@rest[:disabled]}>
+        <%= @label %>
+      </.label>
+
       <textarea
-        id={@id}
         name={@name}
-        class={[
-          "mt-2 block w-full rounded-lg text-zinc-900 focus:ring-0 sm:text-sm sm:leading-6",
-          "min-h-[6rem] phx-no-feedback:border-zinc-300 phx-no-feedback:focus:border-zinc-400",
-          @errors == [] && "border-zinc-300 focus:border-zinc-400",
-          @errors != [] && "border-rose-400 focus:border-rose-400"
-        ]}
+        id={@id}
+        class={["textarea textarea-bordered", @errors != [] && "phx-feedback:textarea-error", @class]}
+        aria-invalid={@errors != []}
+        aria-describedby={@errors != [] && "#{@id}-error"}
         {@rest}
       ><%= Phoenix.HTML.Form.normalize_value("textarea", @value) %></textarea>
-      <.error :for={msg <- @errors}><%= msg %></.error>
+
+      <.description :if={@description && @errors == []}><%= @description %></.description>
+      <.errors errors={@errors} />
+    </div>
+    """
+  end
+
+  def input(%{type: "range"} = assigns) do
+    ~H"""
+    <div phx-feedback-for={@name} class="form-control w-full">
+      <.label :if={@label} for={@id} required={@rest[:required]} disabled={@rest[:disabled]}>
+        <%= @label %>
+      </.label>
+
+      <input
+        type={@type}
+        name={@name}
+        id={@id}
+        value={Phoenix.HTML.Form.normalize_value("range", @value)}
+        class={["range", @errors != [] && "phx-feedback:range-error", @class]}
+        aria-invalid={@errors != []}
+        aria-describedby={@errors != [] && "#{@id}-error"}
+        {@rest}
+      />
+
+      <.description :if={@description && @errors == []}><%= @description %></.description>
+      <.errors errors={@errors} />
+    </div>
+    """
+  end
+
+  def input(%{type: "search"} = assigns) do
+    ~H"""
+    <div phx-feedback-for={@name} class="form-control w-full">
+      <.label :if={@label} for={@id} required={@rest[:required]} disabled={@rest[:disabled]}>
+        <%= @label %>
+      </.label>
+
+      <div class="relative w-full">
+        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+          <.icon name="hero-magnifying-glass" class="w-5 h-5 text-base-content/50" />
+        </div>
+
+        <input
+          type="search"
+          name={@name}
+          id={@id}
+          value={Phoenix.HTML.Form.normalize_value(@type, @value)}
+          class={[
+            "input input-bordered !pl-10 w-full rounded-full",
+            @errors != [] && "phx-feedback:input-error",
+            @class
+          ]}
+          aria-invalid={@errors != []}
+          aria-describedby={@errors != [] && "#{@id}-error"}
+          {@rest}
+        />
+      </div>
+
+      <.description :if={@description && @errors == []}><%= @description %></.description>
+      <.errors errors={@errors} />
     </div>
     """
   end
@@ -136,22 +250,24 @@ defmodule DaisyuiWeb.Components.Input do
   # All other inputs text, datetime-local, url, password, etc. are handled here...
   def input(assigns) do
     ~H"""
-    <div phx-feedback-for={@name}>
-      <.label for={@id}><%= @label %></.label>
+    <div phx-feedback-for={@name} class="form-control w-full">
+      <.label :if={@label} for={@id} required={@rest[:required]} disabled={@rest[:disabled]}>
+        <%= @label %>
+      </.label>
+
       <input
         type={@type}
         name={@name}
         id={@id}
         value={Phoenix.HTML.Form.normalize_value(@type, @value)}
-        class={[
-          "mt-2 block w-full rounded-lg text-zinc-900 focus:ring-0 sm:text-sm sm:leading-6",
-          "phx-no-feedback:border-zinc-300 phx-no-feedback:focus:border-zinc-400",
-          @errors == [] && "border-zinc-300 focus:border-zinc-400",
-          @errors != [] && "border-rose-400 focus:border-rose-400"
-        ]}
+        class={["input input-bordered", @errors != [] && "input-error", @class]}
+        aria-invalid={@errors != []}
+        aria-describedby={@errors != [] && "#{@id}-error"}
         {@rest}
       />
-      <.error :for={msg <- @errors}><%= msg %></.error>
+
+      <.description :if={@description && @errors == []}><%= @description %></.description>
+      <.errors errors={@errors} />
     </div>
     """
   end
@@ -160,27 +276,42 @@ defmodule DaisyuiWeb.Components.Input do
   Renders a label.
   """
   attr :for, :string, default: nil
+  attr :required, :boolean, default: false
+  attr :disabled, :boolean, default: false
   slot :inner_block, required: true
 
   def label(assigns) do
     ~H"""
-    <label for={@for} class="block text-sm font-semibold leading-6 text-zinc-800">
-      <%= render_slot(@inner_block) %>
+    <label for={@for} class="label px-0 pt-0">
+      <span class={[
+        "label-text text-base/6 sm:text-sm/6",
+        @required && "after:content-['*']",
+        @disabled && "text-base-content/50"
+      ]}>
+        <%= render_slot(@inner_block) %>
+      </span>
     </label>
+    """
+  end
+
+  def description(assigns) do
+    ~H"""
+    <p class="text-base-content/60 text-base/6 mt-3 sm:text-sm/6">
+      <%= render_slot(@inner_block) %>
+    </p>
     """
   end
 
   @doc """
   Generates a generic error message.
   """
-  slot :inner_block, required: true
+  attr :errors, :list, required: true
 
-  def error(assigns) do
+  def errors(assigns) do
     ~H"""
-    <p class="mt-3 flex gap-3 text-sm leading-6 text-rose-600 phx-no-feedback:hidden">
-      <.icon name="hero-exclamation-circle-mini" class="mt-0.5 size-5 flex-none" />
-      <%= render_slot(@inner_block) %>
-    </p>
+    <label :if={@errors != []} class="text-base/6 mt-3 phx-no-feedback:hidden sm:text-sm/6">
+      <span :for={msg <- @errors} class="text-error"><%= msg %></span>
+    </label>
     """
   end
 

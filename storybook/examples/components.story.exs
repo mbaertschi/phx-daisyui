@@ -19,7 +19,6 @@ defmodule Storybook.Examples.Components do
      assign(socket,
        current_id: 2,
        selected_user: nil,
-       show: false,
        users: [
          %__MODULE__{
            id: 1,
@@ -156,21 +155,27 @@ defmodule Storybook.Examples.Components do
       </:secondary>
       <:portal>
         <.modal id="show_modal" responsive backdrop={false}>
-          <.header>
-            Create new user
-            <:subtitle>This won't be persisted into DB, memory only</:subtitle>
-          </.header>
           <.simple_form
             :let={f}
             for={%{}}
             as={:user}
             phx-submit={JS.push("save_user") |> JS.dispatch("submit:close")}
           >
-            <.input field={f[:first_name]} label="First name" required />
-            <.input field={f[:last_name]} label="Last name" required />
-            <.input field={f[:email]} label="EMail" type="email" required />
-            <.input field={f[:age]} label="Age" type="number" required />
-            <:actions class="modal-action">
+            <.fieldset legend="Create new user" text="This won't be persisted into DB, memory only">
+              <.fieldgroup>
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4">
+                  <.input field={f[:first_name]} label="First name" required />
+                  <.input field={f[:last_name]} label="Last name" required />
+                </div>
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
+                  <div class="sm:col-span-2">
+                    <.input field={f[:email]} label="EMail" type="email" required />
+                  </div>
+                  <.input field={f[:age]} label="Age" type="number" required />
+                </div>
+              </.fieldgroup>
+            </.fieldset>
+            <:actions>
               <button type="button" class="btn btn-ghost" onclick="show_modal.close()">
                 Cancel
               </button>
@@ -199,18 +204,7 @@ defmodule Storybook.Examples.Components do
      socket
      |> put_flash(:info, "User created successfully")
      |> update(:users, &(&1 ++ [user]))
-     |> update(:current_id, &(&1 + 1))
-     |> assign(:show, false)}
-  end
-
-  @impl true
-  def handle_event("show", _, socket) do
-    {:noreply, assign(socket, :show, true)}
-  end
-
-  @impl true
-  def handle_event("hide", _, socket) do
-    {:noreply, assign(socket, :show, false)}
+     |> update(:current_id, &(&1 + 1))}
   end
 
   @impl true
