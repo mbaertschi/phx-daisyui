@@ -48,7 +48,7 @@ defmodule Storybook.Examples.Components do
           List of users
           <:subtitle>Feel free to add any missing user!</:subtitle>
           <:actions>
-            <button type="button" class="btn" phx-click="show">
+            <button type="button" class="btn" onclick="show_modal.showModal()">
               Create user
             </button>
           </:actions>
@@ -155,19 +155,17 @@ defmodule Storybook.Examples.Components do
         </div>
       </:secondary>
       <:portal>
-        <.modal
-          :if={@show}
-          id="show_modal"
-          responsive
-          show
-          backdrop={false}
-          on_cancel={JS.push("hide")}
-        >
+        <.modal id="show_modal" responsive backdrop={false}>
           <.header>
             Create new user
             <:subtitle>This won't be persisted into DB, memory only</:subtitle>
           </.header>
-          <.simple_form :let={f} for={%{}} as={:user} phx-submit={JS.push("save_user")}>
+          <.simple_form
+            :let={f}
+            for={%{}}
+            as={:user}
+            phx-submit={JS.push("save_user") |> JS.dispatch("submit:close")}
+          >
             <.input field={f[:first_name]} label="First name" required />
             <.input field={f[:last_name]} label="Last name" required />
             <.input field={f[:email]} label="EMail" type="email" required />

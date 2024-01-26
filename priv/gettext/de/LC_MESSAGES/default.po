@@ -133,8 +133,8 @@ msgctxt "DaisyuiWeb.Components.Flash"
 msgid "close"
 msgstr "schliessen"
 
-#: lib/daisyui_web/components/components/modal.ex:53
-#: lib/daisyui_web/components/components/modal.ex:62
+#: lib/daisyui_web/components/components/modal.ex:85
+#: lib/daisyui_web/components/components/modal.ex:94
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.Components.Modal"
 msgid "close"

@@ -25,6 +25,38 @@ defmodule DaisyuiWeb.Components.Modal do
         This is another modal.
       </.modal>
 
+  ## Modal with a form
+
+  The modal component is designed to be used with a form. In this case you should use
+  backdrop={false} attr to prevent outside clicks from closing the modal. Further, you have
+  to chain the phx-submit JS command with |> JS.dispatch("submit:form"). This event
+  is handled in the modal.hook.ts ModalHook and will manually close the dialog.
+  For example:
+
+      <.modal id="user_modal" responsive backdrop={false} on_cancel={JS.patch(~p"/users")}>
+        <.header>
+          Create new user
+          <:subtitle>This won't be persisted into DB, memory only</:subtitle>
+        </.header>
+        <.simple_form
+          :let={f}
+          for={%{}}
+          as={:user}
+          phx-submit={JS.push("save_user") |> JS.dispatch("submit:close")}
+        >
+          <.input field={f[:first_name]} label="First name" required />
+          <.input field={f[:last_name]} label="Last name" required />
+          <.input field={f[:email]} label="EMail" type="email" required />
+          <.input field={f[:age]} label="Age" type="number" required />
+          <:actions class="modal-action">
+            <button type="button" class="btn btn-ghost" onclick="user_modal.close()">
+              Cancel
+            </button>
+            <button type="reset" class="btn btn-ghost">Reset</button>
+            <button type="submit" class="btn">Save user</button>
+          </:actions>
+        </.simple_form>
+      </.modal>
   """
   attr :id, :string, required: true
   attr :class, :string, default: nil, doc: "Additional CSS classes to add to the modal box."
