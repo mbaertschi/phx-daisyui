@@ -41,7 +41,7 @@ defmodule DaisyuiWeb.RecordLive.Index do
           <%= ~t"List of users"m %>
           <:subtitle><%= ~t"Feel free to add any missing user!"m %></:subtitle>
           <:actions>
-            <button type="button" class="btn" onclick="show_modal.showModal()">
+            <button type="button" class="btn btn-neutral" onclick="show_modal.showModal()">
               <%= ~t"Create user"m %>
             </button>
           </:actions>
@@ -97,6 +97,7 @@ defmodule DaisyuiWeb.RecordLive.Index do
                   <li>
                     <.link
                       phx-click={JS.push("delete", value: %{id: user.id})}
+                      class="hover:bg-primary hover:text-primary-content"
                       data-confirm={~t"Are you sure?"m}
                     >
                       <%= ~t"Delete"m %>
@@ -144,7 +145,11 @@ defmodule DaisyuiWeb.RecordLive.Index do
             </.list>
           </div>
           <div class="flex flex-shrink-0 justify-end p-4">
-            <button type="button" class="btn" phx-click={JS.push("select_user", value: %{id: nil})}>
+            <button
+              type="button"
+              class="btn btn-neutral"
+              phx-click={JS.push("select_user", value: %{id: nil})}
+            >
               <%= ~t"Close"m %>
             </button>
           </div>
@@ -180,11 +185,10 @@ defmodule DaisyuiWeb.RecordLive.Index do
                 <%= ~t"Cancel"m %>
               </button>
               <button type="reset" class="btn btn-ghost"><%= ~t"Reset"m %></button>
-              <button type="submit" class="btn"><%= ~t"Save user"m %></button>
+              <button type="submit" class="btn btn-neutral"><%= ~t"Save user"m %></button>
             </:actions>
           </.simple_form>
         </.modal>
-        <.flash_group class="isolate psb-z-20" flash={@flash} />
       </:portal>
     </.page>
     """

@@ -92,8 +92,8 @@ defmodule DaisyuiWeb.Components.Flash do
         class="pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6"
       >
         <div class="flex w-full flex-col items-center space-y-4 sm:items-end">
-          <.flash kind={:info} title="Success!" flash={@flash} />
-          <.flash kind={:error} title="Error!" flash={@flash} />
+          <.flash kind={:info} title={~t"Success!"m} flash={@flash} />
+          <.flash kind={:error} title={~t"Error!"m} flash={@flash} />
           <.flash
             id="client-error"
             kind={:error}

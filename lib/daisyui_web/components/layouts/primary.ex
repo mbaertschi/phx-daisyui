@@ -28,6 +28,7 @@ defmodule DaisyuiWeb.Layouts.Primary do
 
     <%!-- All registered portals are rendered in an isolated stack--%>
     <div id="portal-root" class="isolate">
+      <%!-- <.alert id="alert" size="xs" /> --%>
       <%= for portal <- @portal do %>
         <%= render_slot(portal) %>
       <% end %>

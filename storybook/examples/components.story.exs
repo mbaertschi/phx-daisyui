@@ -47,7 +47,7 @@ defmodule Storybook.Examples.Components do
           List of users
           <:subtitle>Feel free to add any missing user!</:subtitle>
           <:actions>
-            <button type="button" class="btn" onclick="show_modal.showModal()">
+            <button type="button" class="btn btn-neutral" onclick="show_modal.showModal()">
               Create user
             </button>
           </:actions>
@@ -103,6 +103,7 @@ defmodule Storybook.Examples.Components do
                   <li>
                     <.link
                       phx-click={JS.push("delete", value: %{id: user.id})}
+                      class="hover:bg-primary hover:text-primary-content"
                       data-confirm="Are you sure?"
                     >
                       Delete
@@ -150,7 +151,11 @@ defmodule Storybook.Examples.Components do
             </.list>
           </div>
           <div class="flex flex-shrink-0 justify-end p-4">
-            <button type="button" class="btn" phx-click={JS.push("select_user", value: %{id: nil})}>
+            <button
+              type="button"
+              class="btn btn-neutral"
+              phx-click={JS.push("select_user", value: %{id: nil})}
+            >
               Close
             </button>
           </div>
@@ -183,7 +188,7 @@ defmodule Storybook.Examples.Components do
                 Cancel
               </button>
               <button type="reset" class="btn btn-ghost">Reset</button>
-              <button type="submit" class="btn">Save user</button>
+              <button type="submit" class="btn btn-neutral">Save user</button>
             </:actions>
           </.simple_form>
         </.modal>

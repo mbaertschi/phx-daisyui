@@ -6,6 +6,7 @@ defmodule DaisyuiWeb.Components do
   defmacro __using__(_) do
     quote do
       import DaisyuiWeb.Components.{
+        Alert,
         Drawer,
         Dropdown,
         Flash,

@@ -26,7 +26,7 @@ defmodule Storybook.Blocks.Header do
           "<:subtitle>I'm a header subtitle</:subtitle>",
           """
           <:actions>
-            <button type="button" class="btn">Link</button>
+            <button type="button" class="btn btn-neutral">Link</button>
           </:actions>
           """
         ]

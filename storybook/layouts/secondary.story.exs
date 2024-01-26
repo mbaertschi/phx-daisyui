@@ -20,7 +20,7 @@ defmodule Storybook.Layouts.Secondary do
     ~H"""
     <.page current="home" open={@show}>
       <.header>Dashboard</.header>
-      <button type="button" class="btn" phx-click="toggle">
+      <button type="button" class="btn btn-neutral" phx-click="toggle">
         Toggle secondary
       </button>
       <:secondary>

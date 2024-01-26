@@ -21,7 +21,7 @@ defmodule Storybook.Examples.ControlledModal do
   def render(assigns) do
     ~H"""
     <section>
-      <button type="button" class="btn" phx-click="show">
+      <button type="button" class="btn btn-neutral" phx-click="show">
         Open modal
       </button>
 
@@ -65,7 +65,7 @@ defmodule Storybook.Examples.ControlledModal do
               Cancel
             </button>
             <button type="reset" class="btn btn-ghost">Reset</button>
-            <button type="submit" class="btn">Save user</button>
+            <button type="submit" class="btn btn-neutral">Save user</button>
           </:actions>
         </.simple_form>
       </.modal>

@@ -14,7 +14,7 @@ defmodule Storybook.Components.Modal do
 
   def template do
     """
-    <button type="button" class="btn" onclick="document.getElementById(':variation_id').showModal()" psb-code-hidden>
+    <button type="button" class="btn btn-neutral" onclick="document.getElementById(':variation_id').showModal()" psb-code-hidden>
       Open modal
     </button>
     <.psb-variation/>
@@ -112,7 +112,7 @@ defmodule Storybook.Components.Modal do
           Cancel
         </button>
         <button type="reset" class="btn btn-ghost">Reset</button>
-        <button type="submit" class="btn">Save user</button>
+        <button type="submit" class="btn btn-neutral">Save user</button>
       </:actions>
     </.simple_form>
     """
