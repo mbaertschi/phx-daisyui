@@ -8,7 +8,6 @@ defmodule DaisyuiWeb.Components.Input do
   alias Phoenix.HTML.Form
 
   import DaisyuiWeb.Components.Icon, only: [icon: 1]
-  import DaisyuiWeb.Helpers, only: [class_names: 1]
 
   @doc """
   Renders an input with label and error messages.
@@ -100,16 +99,16 @@ defmodule DaisyuiWeb.Components.Input do
       <.label
         :if={@label}
         for={@id}
-        class={class_names(["col-start-2 row-start-1 justify-self-start pb-0"])}
+        class="col-start-2 row-start-1 justify-self-start pb-0"
         required={@rest[:required]}
         disabled={@rest[:disabled]}
       >
         <%= @label %>
       </.label>
-      <.description :if={@description && @errors == []} class="col-start-2 row-start-2 mt-0">
+      <.description :if={@description && @errors == []} class="col-start-2 row-start-2">
         <%= @description %>
       </.description>
-      <.errors errors={@errors} id={@id} class="col-start-2 row-start-2 mt-0" />
+      <.errors errors={@errors} id={@id} class="col-start-2 row-start-2" />
     </div>
     """
   end
@@ -142,16 +141,16 @@ defmodule DaisyuiWeb.Components.Input do
       <.label
         :if={@label}
         for={@id}
-        class={class_names(["col-start-2 row-start-1 justify-self-start pb-0"])}
+        class="col-start-2 row-start-1 justify-self-start pb-0"
         required={@rest[:required]}
         disabled={@rest[:disabled]}
       >
         <%= @label %>
       </.label>
-      <.description :if={@description && @errors == []} class="col-start-2 row-start-2 mt-0">
+      <.description :if={@description && @errors == []} class="col-start-2 row-start-2">
         <%= @description %>
       </.description>
-      <.errors errors={@errors} id={@id} class="col-start-2 row-start-2 mt-0" />
+      <.errors errors={@errors} id={@id} class="col-start-2 row-start-2" />
     </div>
     """
   end
@@ -179,8 +178,10 @@ defmodule DaisyuiWeb.Components.Input do
         <%= Phoenix.HTML.Form.options_for_select(@options, @value) %>
       </select>
 
-      <.description :if={@description && @errors == []}><%= @description %></.description>
-      <.errors errors={@errors} id={@id} />
+      <.description :if={@description && @errors == []} class="mt-3">
+        <%= @description %>
+      </.description>
+      <.errors errors={@errors} id={@id} class="mt-3" />
     </div>
     """
   end
@@ -201,8 +202,10 @@ defmodule DaisyuiWeb.Components.Input do
         {@rest}
       ><%= Phoenix.HTML.Form.normalize_value("textarea", @value) %></textarea>
 
-      <.description :if={@description && @errors == []}><%= @description %></.description>
-      <.errors errors={@errors} id={@id} />
+      <.description :if={@description && @errors == []} class="mt-3">
+        <%= @description %>
+      </.description>
+      <.errors errors={@errors} id={@id} class="mt-3" />
     </div>
     """
   end
@@ -225,8 +228,10 @@ defmodule DaisyuiWeb.Components.Input do
         {@rest}
       />
 
-      <.description :if={@description && @errors == []}><%= @description %></.description>
-      <.errors errors={@errors} id={@id} />
+      <.description :if={@description && @errors == []} class="mt-3">
+        <%= @description %>
+      </.description>
+      <.errors errors={@errors} id={@id} class="mt-3" />
     </div>
     """
   end
@@ -259,8 +264,10 @@ defmodule DaisyuiWeb.Components.Input do
         />
       </div>
 
-      <.description :if={@description && @errors == []}><%= @description %></.description>
-      <.errors errors={@errors} id={@id} />
+      <.description :if={@description && @errors == []} class="mt-3">
+        <%= @description %>
+      </.description>
+      <.errors errors={@errors} id={@id} class="mt-3" />
     </div>
     """
   end
@@ -284,8 +291,10 @@ defmodule DaisyuiWeb.Components.Input do
         {@rest}
       />
 
-      <.description :if={@description && @errors == []}><%= @description %></.description>
-      <.errors errors={@errors} id={@id} />
+      <.description :if={@description && @errors == []} class="mt-3">
+        <%= @description %>
+      </.description>
+      <.errors errors={@errors} id={@id} class="mt-3" />
     </div>
     """
   end
@@ -318,7 +327,7 @@ defmodule DaisyuiWeb.Components.Input do
 
   def description(assigns) do
     ~H"""
-    <p class={["text-base-content/60 text-base/6 mt-3 sm:text-sm/6", @class]}>
+    <p class={["text-base-content/60 text-base/6 sm:text-sm/6", @class]}>
       <%= render_slot(@inner_block) %>
     </p>
     """
@@ -336,7 +345,7 @@ defmodule DaisyuiWeb.Components.Input do
     <p
       :if={@errors != []}
       id={"#{@id}-error"}
-      class={["text-base/6 mt-3 phx-no-feedback:hidden sm:text-sm/6", @class]}
+      class={["text-base/6 phx-no-feedback:hidden sm:text-sm/6", @class]}
     >
       <span :for={msg <- @errors} class="text-error"><%= msg %></span>
     </p>

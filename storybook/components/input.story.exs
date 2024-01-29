@@ -28,6 +28,7 @@ defmodule Storybook.Components.Input do
               attributes: %{
                 type: to_string(type),
                 label: String.capitalize("#{type} input"),
+                autocomplete: to_string(type),
                 description: String.capitalize("#{type} input description")
               }
             }
@@ -44,6 +45,7 @@ defmodule Storybook.Components.Input do
               attributes: %{
                 type: to_string(type),
                 label: String.capitalize("#{type} input"),
+                autocomplete: to_string(type),
                 description: String.capitalize("#{type} input disabled description"),
                 disabled: true
               }
