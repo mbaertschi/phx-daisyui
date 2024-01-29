@@ -63,6 +63,15 @@ defmodule Storybook.Components.Modal do
           responsive: true
         },
         slots: [content_with_form("modal-single-with-form")]
+      },
+      %Variation{
+        id: :with_custom_width,
+        attributes: %{
+          backdrop: false,
+          responsive: true,
+          class: "max-w-3xl"
+        },
+        slots: [content_with_close("modal-single-with-custom-width")]
       }
     ]
   end
@@ -100,10 +109,16 @@ defmodule Storybook.Components.Modal do
     >
       <.fieldset legend="Create new user" text="This won't be persisted into DB, memory only">
         <.fieldgroup>
-          <.input field={f[:first_name]} label="First name" />
-          <.input field={f[:last_name]} label="Last name" />
-          <.input field={f[:email]} label="EMail" type="email" />
-          <.input field={f[:age]} label="Age" type="number" />
+          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4">
+            <.input field={f[:first_name]} label="First name" required />
+            <.input field={f[:last_name]} label="Last name" required />
+          </div>
+          <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
+            <div class="sm:col-span-2">
+              <.input field={f[:email]} label="EMail" type="email" required />
+            </div>
+            <.input field={f[:age]} label="Age" type="number" required />
+          </div>
         </.fieldgroup>
       </.fieldset>
 

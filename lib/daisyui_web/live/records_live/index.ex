@@ -11,24 +11,9 @@ defmodule DaisyuiWeb.RecordLive.Index do
   def mount(_params, _session, socket) do
     {:ok,
      assign(socket,
-       current_id: 2,
+       current_id: 20,
        selected_user: nil,
-       users: [
-         %__MODULE__{
-           id: 1,
-           first_name: "Jose",
-           last_name: "Valim",
-           email: "jose.valim@example.com",
-           age: 33
-         },
-         %__MODULE__{
-           id: 2,
-           first_name: "Chris",
-           last_name: "McCord",
-           email: "chris.mscord@example.com",
-           age: 28
-         }
-       ]
+       users: seed_users()
      )}
   end
 
@@ -237,5 +222,17 @@ defmodule DaisyuiWeb.RecordLive.Index do
 
   def find_index(socket, id) do
     Enum.find_index(socket.assigns.users, &(&1.id == id))
+  end
+
+  defp seed_users do
+    for i <- 1..20 do
+      %__MODULE__{
+        id: i,
+        first_name: "John-#{i}",
+        last_name: "Doe",
+        email: "john-$#{i}.doe@example",
+        age: 20 + i
+      }
+    end
   end
 end

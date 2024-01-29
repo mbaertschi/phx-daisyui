@@ -23,10 +23,13 @@ defmodule DaisyuiWeb.Components.Alert do
   attr :text, :string, default: nil
   attr :on_cancel, JS, default: %JS{}, doc: "JS commands to run when the modal is cancelled."
   attr :on_confirm, JS, default: %JS{}, doc: "JS commands to run when the modal is closed."
+  attr :form, :boolean, default: false, doc: "Whether the alert provides a form."
 
   attr :size, :string,
     values: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl"],
     default: "md"
+
+  slot :inner_block, required: false
 
   def alert(assigns) do
     ~H"""
@@ -43,7 +46,8 @@ defmodule DaisyuiWeb.Components.Alert do
             <%= @title || ~t"Are you sure?"m %>
           </h2>
           <p :if={@text} class="text-base/6 sm:text-sm/6"><%= @text %></p>
-          <form method="dialog">
+          <%= render_slot(@inner_block) %>
+          <form :if={@form == false} method="dialog">
             <div class="modal-action">
               <button class="btn btn-ghost" value="cancel">
                 <%= ~t"Cancel"m %>

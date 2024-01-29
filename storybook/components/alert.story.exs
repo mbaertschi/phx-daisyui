@@ -4,6 +4,12 @@ defmodule Storybook.Components.Alert do
 
   def function, do: &Components.Alert.alert/1
 
+  def imports,
+    do: [
+      {Components.Form, [simple_form: 1, fieldset: 1, fieldgroup: 1]},
+      {Components.Input, [input: 1]}
+    ]
+
   def template do
     """
     <button type="button" class="btn btn-neutral" onclick="document.getElementById(':variation_id').showModal()" psb-code-hidden>
@@ -36,6 +42,14 @@ defmodule Storybook.Components.Alert do
         attributes: %{
           text: "This is an alert"
         }
+      },
+      %Variation{
+        id: :with_form,
+        attributes: %{
+          form: true,
+          on_confirm: JS.dispatch("storybook:console:log")
+        },
+        slots: [render_form("alert-single-with-form")]
       },
       %Variation{
         id: :size_xs,
@@ -92,5 +106,38 @@ defmodule Storybook.Components.Alert do
         }
       }
     ]
+  end
+
+  defp render_form(id) do
+    """
+    <.simple_form
+      :let={f}
+      for={%{}}
+      as={:user}
+      phx-submit={JS.dispatch("submit:close")}
+    >
+      <.fieldset legend="Create new user" text="This won't be persisted into DB, memory only">
+        <.fieldgroup>
+          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4">
+            <.input field={f[:first_name]} label="First name" required />
+            <.input field={f[:last_name]} label="Last name" required />
+          </div>
+          <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
+            <div class="sm:col-span-2">
+              <.input field={f[:email]} label="EMail" type="email" required />
+            </div>
+            <.input field={f[:age]} label="Age" type="number" required />
+          </div>
+        </.fieldgroup>
+      </.fieldset>
+      <:actions>
+        <button type="button" class="btn btn-ghost" onclick="document.getElementById('#{id}').close()">
+          Cancel
+        </button>
+        <button type="reset" class="btn btn-ghost">Reset</button>
+        <button type="submit" class="btn btn-neutral">Save user</button>
+      </:actions>
+    </.simple_form>
+    """
   end
 end

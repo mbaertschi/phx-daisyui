@@ -30,7 +30,10 @@ defmodule DaisyuiWeb.Components.Modal do
   The modal component is designed to be used with a form. In this case you should use
   backdrop={false} attr to prevent outside clicks from closing the modal. Further, you have
   to chain the phx-submit JS command with |> JS.dispatch("submit:form"). This event
-  is handled in the modal.hook.ts ModalHook and will manually close the dialog.
+  is handled in the modal.hook.ts ModalHook and will manually close the dialog. If you
+  control the modal with the :if directive combined with the show attr, you do not need
+  to chain the JS command.
+
   For example:
 
       <.modal id="user_modal" responsive backdrop={false} on_cancel={JS.patch(~p"/users")}>

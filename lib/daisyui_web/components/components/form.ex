@@ -71,7 +71,7 @@ defmodule DaisyuiWeb.Components.Form do
   attr :disabled, :boolean, default: false, doc: "whether the fieldset is disabled"
   attr :rest, :global, doc: "the arbitrary HTML attributes to apply to the fieldset tag"
 
-  slot(:inner_block, required: true)
+  slot :inner_block, required: true
 
   def fieldset(assigns) do
     ~H"""
