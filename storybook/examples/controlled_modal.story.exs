@@ -33,14 +33,14 @@ defmodule Storybook.Examples.ControlledModal do
           >
             <.fieldgroup>
               <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4">
-                <.input field={f[:first_name]} label="First name" required />
-                <.input field={f[:last_name]} label="Last name" required />
+                <.field field={f[:first_name]} label="First name" required />
+                <.field field={f[:last_name]} label="Last name" required />
               </div>
 
-              <.input field={f[:street_address]} label="Street address" required />
+              <.field field={f[:street_address]} label="Street address" required />
               <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
                 <div class="sm:col-span-2">
-                  <.input
+                  <.field
                     field={f[:country]}
                     label="Country"
                     description="We currently only ship to North America."
@@ -49,9 +49,9 @@ defmodule Storybook.Examples.ControlledModal do
                     options={["Canada", "Mexico", "United States"]}
                   />
                 </div>
-                <.input field={f[:postal_code]} label="Postal code" required />
+                <.field field={f[:postal_code]} label="Postal code" required />
               </div>
-              <.input
+              <.field
                 field={f[:notes]}
                 label="Delivery notes"
                 description="If you have a tiger, we'd like to know about it."

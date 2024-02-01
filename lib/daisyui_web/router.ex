@@ -45,7 +45,7 @@ defmodule DaisyuiWeb.Router do
     live_session :default, on_mount: user_hooks do
       live "/", DashboardLive.Index, :index
       live "/collections", CollectionLive.Index, :index
-      live "/records", RecordLive.Index, :index
+      live "/users", UserLive.Index, :index
       live "/tasks", TaskLive.Index, :index
     end
   end

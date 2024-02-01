@@ -68,7 +68,7 @@ defmodule DaisyuiWeb.Components.Alert do
 
   # credo:disable-for-next-line Credo.Check.Refactor.CyclomaticComplexity
   defp size(size) do
-    case String.to_existing_atom(size) do
+    case String.to_atom(size) do
       :xs -> "sm:max-w-xs"
       :sm -> "sm:max-w-sm"
       :md -> "sm:max-w-md"

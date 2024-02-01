@@ -41,13 +41,13 @@ defmodule Storybook.Examples.Components do
   @impl true
   def render(assigns) do
     ~H"""
-    <.page current="home" open={@selected_user != nil}>
+    <.page current="users" open={@selected_user != nil}>
       <div class="grid gap-y-4">
         <.header>
           List of users
           <:subtitle>Feel free to add any missing user!</:subtitle>
           <:actions>
-            <button type="button" class="btn btn-neutral" onclick="show_modal.showModal()">
+            <button type="button" class="btn btn-neutral" onclick="user_modal.showModal()">
               Create user
             </button>
           </:actions>
@@ -116,7 +116,7 @@ defmodule Storybook.Examples.Components do
         </div>
       </div>
       <:secondary>
-        <div class="bg-base-100 border-white/5 outline-black/5 divide-base-content/10 flex min-h-screen w-96 flex-col divide-y border-l outline outline-1 md:ml-6">
+        <div class="bg-base-100 border-white/5 outline-black/5 divide-base-content/10 min-h-dvh flex w-96 flex-col divide-y border-l outline outline-1 md:ml-6">
           <div :if={@selected_user} class="flex min-h-0 flex-1 flex-col overflow-y-scroll p-4">
             <.header>
               User details
@@ -162,29 +162,29 @@ defmodule Storybook.Examples.Components do
         </div>
       </:secondary>
       <:portal>
-        <.modal id="show_modal" responsive backdrop={false}>
+        <.modal id="user_modal" responsive backdrop={false}>
           <.simple_form
             :let={f}
             for={%{}}
             as={:user}
-            phx-submit={JS.push("save_user") |> JS.dispatch("submit:close")}
+            phx-submit={JS.push("create") |> JS.dispatch("submit:close")}
           >
             <.fieldset legend="Create new user" text="This won't be persisted into DB, memory only">
               <.fieldgroup>
                 <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4">
-                  <.input field={f[:first_name]} label="First name" required />
-                  <.input field={f[:last_name]} label="Last name" required />
+                  <.field field={f[:first_name]} label="First name" required />
+                  <.field field={f[:last_name]} label="Last name" required />
                 </div>
                 <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
                   <div class="sm:col-span-2">
-                    <.input field={f[:email]} label="EMail" type="email" required />
+                    <.field field={f[:email]} label="EMail" type="email" required />
                   </div>
-                  <.input field={f[:age]} label="Age" type="number" required />
+                  <.field field={f[:age]} label="Age" type="number" required />
                 </div>
               </.fieldgroup>
             </.fieldset>
             <:actions>
-              <button type="button" class="btn btn-ghost" onclick="show_modal.close()">
+              <button type="button" class="btn btn-ghost" onclick="user_modal.close()">
                 Cancel
               </button>
               <button type="reset" class="btn btn-ghost">Reset</button>
@@ -199,7 +199,7 @@ defmodule Storybook.Examples.Components do
   end
 
   @impl true
-  def handle_event("save_user", %{"user" => params}, socket) do
+  def handle_event("create", %{"user" => params}, socket) do
     user = %__MODULE__{
       first_name: params["first_name"],
       last_name: params["last_name"],
