@@ -45,10 +45,10 @@ defmodule DaisyuiWeb.Components.Modal do
         >
           <.fieldset legend="Create new user" text="This won't be persisted into DB, memory only">
             <.fieldgroup>
-              <.input field={f[:first_name]} label="First name" required />
-              <.input field={f[:last_name]} label="Last name" required />
-              <.input field={f[:email]} label="EMail" type="email" required />
-              <.input field={f[:age]} label="Age" type="number" required />
+              <.field field={f[:first_name]} label="First name" required />
+              <.field field={f[:last_name]} label="Last name" required />
+              <.field field={f[:email]} label="EMail" type="email" required />
+              <.field field={f[:age]} label="Age" type="number" required />
             </.fieldgroup>
           </.fieldset>
           <:actions>
