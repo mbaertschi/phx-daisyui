@@ -8,8 +8,7 @@ defmodule Storybook.Components.Modal do
   def imports,
     do: [
       {Blocks.Header, [header: 1]},
-      {Components.Input, [input: 1]},
-      {Components.Form, [simple_form: 1, fieldset: 1, fieldgroup: 1]}
+      {Components.Form, [simple_form: 1, fieldset: 1, fieldgroup: 1, field: 1]}
     ]
 
   def template do
@@ -110,14 +109,14 @@ defmodule Storybook.Components.Modal do
       <.fieldset legend="Create new user" text="This won't be persisted into DB, memory only">
         <.fieldgroup>
           <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4">
-            <.input field={f[:first_name]} label="First name" required />
-            <.input field={f[:last_name]} label="Last name" required />
+            <.field field={f[:first_name]} label="First name" required />
+            <.field field={f[:last_name]} label="Last name" required />
           </div>
           <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
             <div class="sm:col-span-2">
-              <.input field={f[:email]} label="EMail" type="email" required />
+              <.field field={f[:email]} label="EMail" type="email" required />
             </div>
-            <.input field={f[:age]} label="Age" type="number" required />
+            <.field field={f[:age]} label="Age" type="number" required />
           </div>
         </.fieldgroup>
       </.fieldset>

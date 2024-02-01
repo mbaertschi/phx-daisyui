@@ -1,4 +1,4 @@
-defmodule Storybook.Components.Input do
+defmodule Storybook.Components.Form.Input do
   use PhoenixStorybook.Story, :component
   alias DaisyuiWeb.Components
 
@@ -8,7 +8,7 @@ defmodule Storybook.Components.Input do
   def template do
     """
     <.simple_form :let={f} for={%{}} as={:story} class="w-full">
-      <.fieldgroup>
+      <.fieldgroup class="flex flex-col space-y-8">
         <.psb-variation-group field={f[:field]} required />
       </.fieldgroup>
     </.simple_form>
@@ -22,14 +22,13 @@ defmodule Storybook.Components.Input do
         variations:
           for type <-
                 ~w(checkbox color date datetime-local email hidden month number password
-               range search tel text textarea time url week)a do
+               range search tel text textarea time url week toggle)a do
             %Variation{
               id: type,
               attributes: %{
                 type: to_string(type),
                 label: String.capitalize("#{type} input"),
-                autocomplete: to_string(type),
-                description: String.capitalize("#{type} input description")
+                autocomplete: to_string(type)
               }
             }
           end
@@ -39,14 +38,13 @@ defmodule Storybook.Components.Input do
         variations:
           for type <-
                 ~w(checkbox color date datetime-local email hidden month number password
-               range search tel text textarea time url week)a do
+               range search tel text textarea time url week toggle)a do
             %Variation{
               id: type,
               attributes: %{
                 type: to_string(type),
                 label: String.capitalize("#{type} input"),
                 autocomplete: to_string(type),
-                description: String.capitalize("#{type} input disabled description"),
                 disabled: true
               }
             }
@@ -61,8 +59,7 @@ defmodule Storybook.Components.Input do
               attributes: %{
                 label: String.capitalize("#{option} input"),
                 type: "radio",
-                name: "radio_input",
-                description: "Radio input description"
+                name: "radio_input"
               }
             }
           end
@@ -77,7 +74,6 @@ defmodule Storybook.Components.Input do
                 label: String.capitalize("#{option} input"),
                 type: "radio",
                 name: "radio_input",
-                description: "Radio disabled input description",
                 disabled: true
               }
             }
@@ -88,8 +84,7 @@ defmodule Storybook.Components.Input do
         attributes: %{
           label: "Select input",
           type: "select",
-          options: ["Option 1", "Option 2", "Option 3"],
-          description: "Select input description"
+          options: ["Option 1", "Option 2", "Option 3"]
         }
       },
       %Variation{
@@ -98,7 +93,6 @@ defmodule Storybook.Components.Input do
           label: "Select input",
           type: "select",
           options: ["Option 1", "Option 2", "Option 3"],
-          description: "Select input disabled description",
           disabled: true
         }
       },
@@ -108,7 +102,6 @@ defmodule Storybook.Components.Input do
           label: "Multiselect input",
           type: "select",
           options: ["Option 1", "Option 2", "Option 3"],
-          description: "Multielect input description",
           multiple: true
         }
       },
@@ -118,7 +111,6 @@ defmodule Storybook.Components.Input do
           label: "Multiselect input",
           type: "select",
           options: ["Option 1", "Option 2", "Option 3"],
-          description: "Multiselect input disabled description",
           multiple: true,
           disabled: true
         }

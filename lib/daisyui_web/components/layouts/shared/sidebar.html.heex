@@ -4,12 +4,12 @@
       href="/"
       aria-current={if @current === "home", do: "page", else: nil}
       aria-label="Home"
-      class="avatar btn md:btn-circle btn-ghost"
+      class="avatar btn md:btn-circle btn-ghost justify-start w-full space-x-2"
     >
       <div class="w-10 rounded-full">
-        <img src="/images/logo.png" alt="DataAggregator" />
+        <img src="/images/logo.png" alt="DaisyUI Phoenix" />
       </div>
-      <span class="font-title text-base-content text-2xl md:hidden">DataAggregator</span>
+      <span class="font-title text-base-content text-lg md:hidden">DaisyUI Phoenix</span>
     </.link>
   </div>
 
@@ -40,14 +40,14 @@
     </li>
     <li>
       <.link
-        navigate={~p"/records"}
+        navigate={~p"/users"}
         class={[
           "flex md:flex-col md:p-3",
-          @current == "records" && "active"
+          @current == "users" && "active"
         ]}
       >
-        <.icon name="hero-bug-ant" class="size-6" />
-        <span class="md:hidden lg:inline"><%= ~t"Records"m %></span>
+        <.icon name="hero-user-group" class="size-6" />
+        <span class="md:hidden lg:inline"><%= ~t"Users"m %></span>
       </.link>
     </li>
     <li>

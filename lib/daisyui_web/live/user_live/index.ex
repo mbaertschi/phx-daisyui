@@ -1,4 +1,4 @@
-defmodule DaisyuiWeb.RecordLive.Index do
+defmodule DaisyuiWeb.UserLive.Index do
   @moduledoc false
 
   use DaisyuiWeb, :live_view
@@ -20,13 +20,13 @@ defmodule DaisyuiWeb.RecordLive.Index do
   @impl true
   def render(assigns) do
     ~H"""
-    <.page current="records" open={@selected_user != nil}>
+    <.page current="users" open={@selected_user != nil}>
       <div class="grid gap-y-4">
         <.header>
           <%= ~t"List of users"m %>
           <:subtitle><%= ~t"Feel free to add any missing user!"m %></:subtitle>
           <:actions>
-            <button type="button" class="btn btn-neutral" onclick="show_modal.showModal()">
+            <button type="button" class="btn btn-neutral" onclick="user_modal.showModal()">
               <%= ~t"Create user"m %>
             </button>
           </:actions>
@@ -141,12 +141,12 @@ defmodule DaisyuiWeb.RecordLive.Index do
         </div>
       </:secondary>
       <:portal>
-        <.modal id="show_modal" responsive backdrop={false}>
+        <.modal id="user_modal" responsive backdrop={false}>
           <.simple_form
             :let={f}
             for={%{}}
             as={:user}
-            phx-submit={JS.push("save_user") |> JS.dispatch("submit:close")}
+            phx-submit={JS.push("create") |> JS.dispatch("submit:close")}
           >
             <.fieldset
               legend={~t"Create new user"m}
@@ -154,19 +154,19 @@ defmodule DaisyuiWeb.RecordLive.Index do
             >
               <.fieldgroup>
                 <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4">
-                  <.input field={f[:first_name]} label={~t"First name"m} required />
-                  <.input field={f[:last_name]} label={~t"Last name"m} required />
+                  <.field field={f[:first_name]} label={~t"First name"m} required />
+                  <.field field={f[:last_name]} label={~t"Last name"m} required />
                 </div>
                 <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
                   <div class="sm:col-span-2">
-                    <.input field={f[:email]} label={~t"EMail"m} type="email" required />
+                    <.field field={f[:email]} label={~t"EMail"m} type="email" required />
                   </div>
-                  <.input field={f[:age]} label={~t"Age"m} type="number" required />
+                  <.field field={f[:age]} label={~t"Age"m} type="number" required />
                 </div>
               </.fieldgroup>
             </.fieldset>
             <:actions>
-              <button type="button" class="btn btn-ghost" onclick="show_modal.close()">
+              <button type="button" class="btn btn-ghost" onclick="user_modal.close()">
                 <%= ~t"Cancel"m %>
               </button>
               <button type="reset" class="btn btn-ghost"><%= ~t"Reset"m %></button>
@@ -180,7 +180,7 @@ defmodule DaisyuiWeb.RecordLive.Index do
   end
 
   @impl true
-  def handle_event("save_user", %{"user" => params}, socket) do
+  def handle_event("create", %{"user" => params}, socket) do
     user = %__MODULE__{
       first_name: params["first_name"],
       last_name: params["last_name"],
