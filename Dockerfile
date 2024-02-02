@@ -45,12 +45,13 @@ RUN mkdir config
 COPY config/config.exs config/${MIX_ENV}.exs config/
 RUN mix deps.compile
 
+# install asset dependencies
 COPY assets/package.json assets/package-lock.json assets/
 RUN mix assets.setup
 
 COPY priv priv
 COPY assets assets
-COPY lib lib
+COPY README.md README.md
 
 # compile assets
 RUN mix assets.deploy

@@ -61,3 +61,6 @@ npm-debug.log
 
 # Ignore database dumps
 priv/repo/dump/*.dump
+
+# Ignore test reports
+test/reports/*.xml
