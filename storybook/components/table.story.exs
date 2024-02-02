@@ -56,7 +56,7 @@ defmodule Storybook.Components.Table do
       <.dropdown id={"user-" <> to_string(user.id)} class="dropdown-left">
         <:summary>
           <summary class="btn btn-sm btn-ghost btn-square text-base-content/75 hover:text-base-content">
-            <.icon name="hero-ellipsis-horizontal" class="size-4" />
+            <.icon name="hero-ellipsis-horizontal-micro" />
           </summary>
         </:summary>
         <ul class="dropdown-content z-10 menu menu-sm bg-base-200 rounded-box border-white/5 outline-black/5 w-28 gap-1 border p-2 shadow-2xl outline outline-1">

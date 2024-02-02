@@ -4,7 +4,7 @@
       href="/"
       aria-current={if @current === "home", do: "page", else: nil}
       aria-label="Home"
-      class="avatar btn md:btn-circle btn-ghost justify-start w-full space-x-2"
+      class="avatar btn md:btn-circle btn-ghost max-md:justify-start w-full space-x-2"
     >
       <div class="w-10 rounded-full">
         <img src="/images/logo.png" alt="DaisyUI Phoenix" />
@@ -22,7 +22,7 @@
           @current == "home" && "active"
         ]}
       >
-        <.icon name="hero-home" class="size-6" />
+        <.icon name="hero-home" />
         <span class="md:hidden lg:inline"><%= ~t"Home"m %></span>
       </.link>
     </li>
@@ -34,7 +34,7 @@
           @current == "collections" && "active"
         ]}
       >
-        <.icon name="hero-squares-2x2" class="size-6" />
+        <.icon name="hero-squares-2x2" />
         <span class="md:hidden lg:inline"><%= ~t"Collections"m %></span>
       </.link>
     </li>
@@ -46,7 +46,7 @@
           @current == "users" && "active"
         ]}
       >
-        <.icon name="hero-user-group" class="size-6" />
+        <.icon name="hero-user-group" />
         <span class="md:hidden lg:inline"><%= ~t"Users"m %></span>
       </.link>
     </li>
@@ -60,7 +60,7 @@
         ]}
         data-tip={~t"Tasks"m}
       >
-        <.icon name="hero-queue-list" class="size-6" />
+        <.icon name="hero-queue-list" />
         <span class="md:hidden lg:inline">
           <%= ~t"Tasks"m %>
           <span class="badge badge-primary hidden lg:inline-flex">

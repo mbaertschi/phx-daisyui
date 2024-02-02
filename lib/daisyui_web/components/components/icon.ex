@@ -17,8 +17,8 @@ defmodule DaisyuiWeb.Components.Icon do
   You can customize the size and colors of the icons by setting
   width, height, and background color classes.
 
-  Icons are extracted from your `assets/vendor/heroicons` directory and bundled
-  within your compiled app.css by the plugin in your `assets/tailwind.config.js`.
+  Icons are extracted from the `deps/heroicons` directory and bundled within
+  your compiled app.css by the plugin in your `assets/tailwind.config.js`.
 
   ## Examples
 

@@ -25,8 +25,8 @@ config :daisyui, DaisyuiWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "yX3PybhL+uqLsGFKMNNM+AUiA0fXmjZek0N5Vuj7wAc/4d8CcxGOOrfQeW1nGSGC",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]},
+    esbuild: {Esbuild, :install_and_run, [:daisyui, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:daisyui, ~w(--watch)]},
     storybook_tailwind: {Tailwind, :install_and_run, [:storybook, ~w(--watch)]}
   ]
 
@@ -57,7 +57,7 @@ config :daisyui, DaisyuiWeb.Endpoint,
 config :daisyui, DaisyuiWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/daisyui_web/(controllers|live|components)/.*(ex|heex)$",
       ~r"storybook/.*(exs)$"
@@ -67,7 +67,7 @@ config :daisyui, DaisyuiWeb.Endpoint,
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.19.11",
-  default: [
+  daisyui: [
     args:
       ~w(js/app.ts js/storybook.ts --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
@@ -77,7 +77,7 @@ config :esbuild,
 # Configure tailwind (the version is required)
 config :tailwind,
   version: "3.4.1",
-  default: [
+  daisyui: [
     args: ~w(
       --config=tailwind.config.js
       --input=css/app.css
