@@ -13,7 +13,7 @@
 
 @layer utilities {
   * {
-    font-family: system-ui;
+    font-family: ui-sans-serif, system-ui;
   }
 }
 

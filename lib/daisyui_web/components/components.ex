@@ -16,6 +16,7 @@ defmodule DaisyuiWeb.Components do
         List,
         LocaleSelect,
         Modal,
+        Progress,
         Table,
         Transitions
       }
