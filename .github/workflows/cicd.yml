@@ -5,7 +5,6 @@ on:
 
 env:
   MIX_ENV: test
-  DATABASE_URL: postgres://phx_daisy_ui:secret@localhost:5432/phx_daisy_ui
 
 permissions:
   contents: read
@@ -20,8 +19,8 @@ jobs:
         image: postgres:15
         ports: ["5432:5432"]
         env:
-          POSTGRES_USER: phx_daisy_ui
-          POSTGRES_PASSWORD: secret
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         options: >-
           --health-cmd pg_isready
           --health-interval 5s
