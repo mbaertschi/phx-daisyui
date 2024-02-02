@@ -178,7 +178,7 @@ defmodule DaisyuiWeb.Components.Input do
     ~H"""
     <div class={["relative w-full", @class]}>
       <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-        <.icon name="hero-magnifying-glass" class="w-5 h-5 text-base-content/50" />
+        <.icon name="hero-magnifying-glass" class="size-5 text-base-content/50" />
       </div>
 
       <input

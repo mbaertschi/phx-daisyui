@@ -44,7 +44,7 @@ config :daisyui, Daisyui.Mailer, adapter: Swoosh.Adapters.Local
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.19.11",
-  default: [
+  daisyui: [
     args:
       ~w(js/app.ts --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
@@ -54,7 +54,7 @@ config :esbuild,
 # Configure tailwind (the version is required)
 config :tailwind,
   version: "3.4.1",
-  default: [
+  daisyui: [
     args: ~w(
       --config=tailwind.config.js
       --input=css/app.css

@@ -82,7 +82,7 @@ defmodule Storybook.Examples.Components do
               <.dropdown id={"user-#{user.id}"} class="dropdown-left">
                 <:summary>
                   <summary class="btn btn-sm btn-ghost btn-square text-base-content/75 hover:text-base-content">
-                    <.icon name="hero-ellipsis-horizontal" class="size-4" />
+                    <.icon name="hero-ellipsis-horizontal-micro" />
                   </summary>
                 </:summary>
                 <ul class="dropdown-content menu menu-sm bg-base-200 rounded-box border-white/5 outline-black/5 z-10 w-28 gap-1 border p-2 shadow-lg outline outline-1">

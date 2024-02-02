@@ -60,7 +60,7 @@ defmodule DaisyuiWeb.Components.Dropdown do
         <%= render_slot(@summary) %>
       <% else %>
         <summary class="btn btn-ghost text-base-content/75 hover:text-base-content">
-          <.icon :if={@icon} name={@icon} class="size-6" />
+          <.icon :if={@icon} name={@icon} />
           <span :if={@label}><%= @label %></span>
         </summary>
       <% end %>

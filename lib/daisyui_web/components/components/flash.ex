@@ -45,8 +45,8 @@ defmodule DaisyuiWeb.Components.Flash do
         @kind == :info && "alert-success text-success bg-success/10 border-success/20",
         @kind == :error && "alert-error text-error bg-error/10 border-error/20"
       ]}>
-        <.icon :if={@kind == :info} name="hero-information-circle-mini" class="size-6 shrink-0" />
-        <.icon :if={@kind == :error} name="hero-exclamation-circle-mini" class="size-6 shrink-0" />
+        <.icon :if={@kind == :info} name="hero-information-circle-mini" class="size-6" />
+        <.icon :if={@kind == :error} name="hero-exclamation-circle-mini" class="size-6" />
 
         <div>
           <h3 :if={@title} class="font-medium">
@@ -66,7 +66,7 @@ defmodule DaisyuiWeb.Components.Flash do
           ]}
           aria-label={~t"close"m}
         >
-          <.icon name="hero-x-mark-solid" class="w-5 h-5" />
+          <.icon name="hero-x-mark-mini" />
         </button>
       </div>
     </div>
