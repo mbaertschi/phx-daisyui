@@ -6,7 +6,8 @@ defmodule DaisyuiWeb.Blocks do
   defmacro __using__(_) do
     quote do
       import DaisyuiWeb.Blocks.{
-        Header
+        Header,
+        SecondaryNavigation
       }
     end
   end

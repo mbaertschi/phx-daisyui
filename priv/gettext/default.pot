@@ -29,39 +29,37 @@ msgctxt "DaisyuiWeb.TaskLive.Index"
 msgid "Tasks"
 msgstr ""
 
-#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:38
+#: lib/daisyui_web/components/layouts/shared/main_navigation.html.heex:42
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Layouts.Primary"
 msgid "Collections"
 msgstr ""
 
-#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:26
+#: lib/daisyui_web/components/layouts/shared/main_navigation.html.heex:30
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Layouts.Primary"
 msgid "Home"
 msgstr ""
 
-#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:61
-#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:65
+#: lib/daisyui_web/components/layouts/shared/main_navigation.html.heex:68
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Layouts.Primary"
 msgid "Tasks"
 msgstr ""
 
-#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:38
+#: lib/daisyui_web/components/layouts/shared/main_navigation.html.heex:42
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Layouts.Secondary"
 msgid "Collections"
 msgstr ""
 
-#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:26
+#: lib/daisyui_web/components/layouts/shared/main_navigation.html.heex:30
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Layouts.Secondary"
 msgid "Home"
 msgstr ""
 
-#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:61
-#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:65
+#: lib/daisyui_web/components/layouts/shared/main_navigation.html.heex:68
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Layouts.Secondary"
 msgid "Tasks"
@@ -91,7 +89,7 @@ msgctxt "DaisyuiWeb.Components.Flash"
 msgid "We can't find the internet"
 msgstr ""
 
-#: lib/daisyui_web/components/components/table.ex:53
+#: lib/daisyui_web/components/components/table.ex:58
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Components.Table"
 msgid "Actions"
@@ -146,147 +144,165 @@ msgctxt "DaisyuiWeb.Components.Flash"
 msgid "Success!"
 msgstr ""
 
-#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:50
+#: lib/daisyui_web/components/layouts/shared/main_navigation.html.heex:54
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Layouts.Primary"
 msgid "Users"
 msgstr ""
 
-#: lib/daisyui_web/components/layouts/shared/sidebar.html.heex:50
+#: lib/daisyui_web/components/layouts/shared/main_navigation.html.heex:54
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Layouts.Secondary"
 msgid "Users"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:56
-#: lib/daisyui_web/live/user_live/index.ex:127
-#: lib/daisyui_web/live/user_live/index.ex:164
+#: lib/daisyui_web/live/user_live/index.ex:67
+#: lib/daisyui_web/live/user_live/index.ex:131
+#: lib/daisyui_web/live/user_live/index.ex:168
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Age"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:86
+#: lib/daisyui_web/live/user_live/index.ex:91
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Are you sure?"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:170
+#: lib/daisyui_web/live/user_live/index.ex:174
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Cancel"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:138
+#: lib/daisyui_web/live/user_live/index.ex:142
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Close"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:152
+#: lib/daisyui_web/live/user_live/index.ex:156
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Create new user"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:30
+#: lib/daisyui_web/live/user_live/index.ex:41
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Create user"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:88
+#: lib/daisyui_web/live/user_live/index.ex:93
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Delete"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:162
+#: lib/daisyui_web/live/user_live/index.ex:166
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "EMail"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:79
+#: lib/daisyui_web/live/user_live/index.ex:84
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Edit"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:53
-#: lib/daisyui_web/live/user_live/index.ex:124
+#: lib/daisyui_web/live/user_live/index.ex:64
+#: lib/daisyui_web/live/user_live/index.ex:128
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Email"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:27
+#: lib/daisyui_web/live/user_live/index.ex:34
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Feel free to add any missing user!"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:47
-#: lib/daisyui_web/live/user_live/index.ex:118
-#: lib/daisyui_web/live/user_live/index.ex:157
+#: lib/daisyui_web/live/user_live/index.ex:58
+#: lib/daisyui_web/live/user_live/index.ex:122
+#: lib/daisyui_web/live/user_live/index.ex:161
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "First name"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:50
-#: lib/daisyui_web/live/user_live/index.ex:121
-#: lib/daisyui_web/live/user_live/index.ex:158
+#: lib/daisyui_web/live/user_live/index.ex:61
+#: lib/daisyui_web/live/user_live/index.ex:125
+#: lib/daisyui_web/live/user_live/index.ex:162
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Last name"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:26
+#: lib/daisyui_web/live/user_live/index.ex:33
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "List of users"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:172
+#: lib/daisyui_web/live/user_live/index.ex:176
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Reset"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:173
+#: lib/daisyui_web/live/user_live/index.ex:177
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Save user"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:153
+#: lib/daisyui_web/live/user_live/index.ex:157
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "This won't be persisted into DB, memory only"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:194
+#: lib/daisyui_web/live/user_live/index.ex:198
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "User created successfully"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:203
+#: lib/daisyui_web/live/user_live/index.ex:207
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "User deleted successfully"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:101
+#: lib/daisyui_web/live/user_live/index.ex:105
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "User details"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:74
+#: lib/daisyui_web/live/user_live/index.ex:79
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "View"
+msgstr ""
+
+#: lib/daisyui_web/live/user_live/index.ex:29
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.UserLive.Index"
+msgid "Details"
+msgstr ""
+
+#: lib/daisyui_web/live/user_live/index.ex:28
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.UserLive.Index"
+msgid "Overview"
+msgstr ""
+
+#: lib/daisyui_web/live/user_live/index.ex:30
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.UserLive.Index"
+msgid "Settings"
 msgstr ""

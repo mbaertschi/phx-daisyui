@@ -93,7 +93,7 @@ defmodule DaisyuiWeb.Components.Form do
       <p
         :if={@text}
         class={[
-          "mt-1 text-base leading-6 sm:text-sm",
+          "text-base/6 mt-1 sm:text-sm/6",
           if(@disabled, do: "text-base-content/50", else: "text-base-content/60")
         ]}
       >

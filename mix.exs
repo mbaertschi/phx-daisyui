@@ -41,11 +41,11 @@ defmodule Daisyui.MixProject do
     [
       # Phoenix Framework
       {:bandit, ">= 1.1.0"},
-      {:phoenix, "~> 1.7.10"},
+      {:phoenix, "~> 1.7.11"},
       {:phoenix_ecto, "~> 4.4"},
       {:phoenix_html, "~> 4.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_view, "~> 0.20.3"},
+      {:phoenix_live_view, "~> 0.20.5"},
       {:phoenix_storybook, "~> 0.6.0"},
 
       # Database and Ecto

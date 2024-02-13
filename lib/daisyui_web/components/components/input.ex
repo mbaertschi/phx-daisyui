@@ -198,6 +198,25 @@ defmodule DaisyuiWeb.Components.Input do
     """
   end
 
+  def input(%{type: "file"} = assigns) do
+    ~H"""
+    <input
+      type={@type}
+      id={@id}
+      name={@name}
+      value={Phoenix.HTML.Form.normalize_value("file", @value)}
+      class={[
+        "file file-input file-input-bordered",
+        @class,
+        @errors != [] && "phx-feedback:file-input-error"
+      ]}
+      aria-invalid={@errors != []}
+      aria-describedby={@errors != [] && "#{@id}-error"}
+      {@rest}
+    />
+    """
+  end
+
   # All other inputs text, datetime-local, url, password, etc. are handled here...
   def input(assigns) do
     ~H"""

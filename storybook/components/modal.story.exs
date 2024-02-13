@@ -48,12 +48,12 @@ defmodule Storybook.Components.Modal do
         slots: [content_with_close("modal-single-with-close-button")]
       },
       %Variation{
-        id: :with_on_close,
+        id: :with_on_cancel,
         attributes: %{
           responsive: true,
           on_cancel: JS.dispatch("storybook:console:log")
         },
-        slots: [content_with_close("modal-single-with-on-close")]
+        slots: [content_with_close("modal-single-with-on-cancel")]
       },
       %Variation{
         id: :with_form,

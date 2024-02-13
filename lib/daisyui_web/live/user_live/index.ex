@@ -23,10 +23,21 @@ defmodule DaisyuiWeb.UserLive.Index do
     <.page current="users" open={@selected_user != nil}>
       <div class="grid gap-y-4">
         <.header>
+          <:before_title>
+            <.secondary_navigation>
+              <.secondary_navigation_item label={~t"Overview"m} href={~p"/users"} active />
+              <.secondary_navigation_item label={~t"Details"m} href={~p"/users"} />
+              <.secondary_navigation_item label={~t"Settings"m} href={~p"/users"} />
+            </.secondary_navigation>
+          </:before_title>
           <%= ~t"List of users"m %>
           <:subtitle><%= ~t"Feel free to add any missing user!"m %></:subtitle>
           <:actions>
-            <button type="button" class="btn btn-neutral" onclick="user_modal.showModal()">
+            <button
+              type="button"
+              class="btn btn-neutral max-sm:btn-sm"
+              onclick="user_modal.showModal()"
+            >
               <%= ~t"Create user"m %>
             </button>
           </:actions>
@@ -58,38 +69,31 @@ defmodule DaisyuiWeb.UserLive.Index do
             </:col>
 
             <:action :let={user} class="-mx-3 -my-1.5 sm:-mx-2.5">
-              <.dropdown id={"user-#{user.id}"} class="dropdown-left">
-                <:summary>
-                  <summary class="btn btn-sm btn-ghost btn-square text-base-content/75 hover:text-base-content">
-                    <.icon name="hero-ellipsis-horizontal-micro" />
-                  </summary>
-                </:summary>
-                <ul class="dropdown-content menu menu-sm bg-base-200 rounded-box border-white/5 outline-black/5 z-10 w-28 gap-1 border p-2 shadow-lg outline outline-1">
-                  <li>
-                    <button
-                      type="button"
-                      class="hover:bg-primary hover:text-primary-content"
-                      phx-click={JS.push("select_user", value: %{id: user.id})}
-                    >
-                      <%= ~t"View"m %>
-                    </button>
-                  </li>
-                  <li>
-                    <button type="button" class="hover:bg-primary hover:text-primary-content">
-                      <%= ~t"Edit"m %>
-                    </button>
-                  </li>
-                  <li>
-                    <.link
-                      phx-click={JS.push("delete", value: %{id: user.id})}
-                      class="hover:bg-primary hover:text-primary-content"
-                      data-confirm={~t"Are you sure?"m}
-                    >
-                      <%= ~t"Delete"m %>
-                    </.link>
-                  </li>
-                </ul>
-              </.dropdown>
+              <.table_actions id={"user-#{user.id}"}>
+                <li>
+                  <button
+                    type="button"
+                    class="hover:bg-primary hover:text-primary-content"
+                    phx-click={JS.push("select_user", value: %{id: user.id})}
+                  >
+                    <%= ~t"View"m %>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="hover:bg-primary hover:text-primary-content">
+                    <%= ~t"Edit"m %>
+                  </button>
+                </li>
+                <li>
+                  <.link
+                    phx-click={JS.push("delete", value: %{id: user.id})}
+                    class="hover:bg-primary hover:text-primary-content"
+                    data-confirm={~t"Are you sure?"m}
+                  >
+                    <%= ~t"Delete"m %>
+                  </.link>
+                </li>
+              </.table_actions>
             </:action>
           </.table>
         </div>
