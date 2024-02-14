@@ -44,13 +44,13 @@ defmodule Storybook.Examples.Components do
     <.page current="users" open={@selected_user != nil}>
       <div class="grid gap-y-4">
         <.header>
-          <:before_title>
+          <:navbar>
             <.secondary_navigation>
               <.secondary_navigation_item label="Overview" href="#" active />
               <.secondary_navigation_item label="Details" href="#" />
               <.secondary_navigation_item label="Settings" href="#" />
             </.secondary_navigation>
-          </:before_title>
+          </:navbar>
           List of users
           <:subtitle>Feel free to add any missing user!</:subtitle>
           <:actions>

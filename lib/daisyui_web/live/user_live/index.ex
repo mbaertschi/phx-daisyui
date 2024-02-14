@@ -21,15 +21,22 @@ defmodule DaisyuiWeb.UserLive.Index do
   def render(assigns) do
     ~H"""
     <.page current="users" open={@selected_user != nil}>
-      <div class="grid gap-y-4">
+      <div>
         <.header>
-          <:before_title>
+          <:navbar>
             <.secondary_navigation>
               <.secondary_navigation_item label={~t"Overview"m} href={~p"/users"} active />
               <.secondary_navigation_item label={~t"Details"m} href={~p"/users"} />
               <.secondary_navigation_item label={~t"Settings"m} href={~p"/users"} />
             </.secondary_navigation>
-          </:before_title>
+          </:navbar>
+          <:breadcrumbs>
+            <.breadcrumbs items={[
+              %{label: ~t"Home"m, link: "#"},
+              %{label: ~t"Users"m, link: "#"},
+              %{label: ~t"Overview"m, link: "#"}
+            ]} />
+          </:breadcrumbs>
           <%= ~t"List of users"m %>
           <:subtitle><%= ~t"Feel free to add any missing user!"m %></:subtitle>
           <:actions>
