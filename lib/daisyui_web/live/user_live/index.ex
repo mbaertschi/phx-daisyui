@@ -106,50 +106,40 @@ defmodule DaisyuiWeb.UserLive.Index do
         </div>
       </div>
       <:secondary>
-        <div class="bg-base-100 border-white/5 outline-black/5 divide-base-content/10 min-h-dvh flex w-96 flex-col divide-y border-l outline outline-1 md:ml-6">
-          <div :if={@selected_user} class="flex min-h-0 flex-1 flex-col overflow-y-scroll p-4">
-            <.header>
-              <%= ~t"User details"m %>
-              <:subtitle><%= full_name(@selected_user) %></:subtitle>
-              <:actions>
-                <button
-                  type="button"
-                  class="btn btn-square btn-ghost drawer-button"
-                  phx-click={JS.push("select_user", value: %{id: nil})}
-                >
-                  <.icon name="hero-x-mark-mini" class="size-5 md:size-6" />
-                </button>
-              </:actions>
-            </.header>
+        <.slideover
+          title={~t"User details"m}
+          subtitle={~t"Displays the user settigns"m}
+          open={@selected_user != nil}
+          on_cancel={JS.push("select_user", value: %{id: nil})}
+        >
+          <.list>
+            <:item title="ID">
+              <%= @selected_user.id %>
+            </:item>
+            <:item title="First name">
+              <%= @selected_user.first_name %>
+            </:item>
+            <:item title="Last name">
+              <%= @selected_user.last_name %>
+            </:item>
+            <:item title="Email">
+              <%= @selected_user.email %>
+            </:item>
+            <:item title="Age">
+              <%= @selected_user.age %>
+            </:item>
+          </.list>
 
-            <.list>
-              <:item title="ID">
-                <%= @selected_user.id %>
-              </:item>
-              <:item title={~t"First name"m}>
-                <%= @selected_user.first_name %>
-              </:item>
-              <:item title={~t"Last name"m}>
-                <%= @selected_user.last_name %>
-              </:item>
-              <:item title={~t"Email"m}>
-                <%= @selected_user.email %>
-              </:item>
-              <:item title={~t"Age"m}>
-                <%= @selected_user.age %>
-              </:item>
-            </.list>
-          </div>
-          <div class="flex flex-shrink-0 justify-end p-4">
+          <:footer>
             <button
               type="button"
               class="btn btn-neutral"
               phx-click={JS.push("select_user", value: %{id: nil})}
             >
-              <%= ~t"Close"m %>
+              Close
             </button>
-          </div>
-        </div>
+          </:footer>
+        </.slideover>
       </:secondary>
       <:portal>
         <.modal id="user_modal" responsive backdrop={false}>

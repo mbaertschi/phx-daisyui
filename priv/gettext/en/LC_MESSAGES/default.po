@@ -157,8 +157,7 @@ msgid "Users"
 msgstr ""
 
 #: lib/daisyui_web/live/user_live/index.ex:74
-#: lib/daisyui_web/live/user_live/index.ex:138
-#: lib/daisyui_web/live/user_live/index.ex:175
+#: lib/daisyui_web/live/user_live/index.ex:165
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Age"
@@ -170,19 +169,13 @@ msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Are you sure?"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:181
+#: lib/daisyui_web/live/user_live/index.ex:171
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Cancel"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:149
-#, elixir-autogen, elixir-format, fuzzy
-msgctxt "DaisyuiWeb.UserLive.Index"
-msgid "Close"
-msgstr ""
-
-#: lib/daisyui_web/live/user_live/index.ex:163
+#: lib/daisyui_web/live/user_live/index.ex:153
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Create new user"
@@ -200,7 +193,7 @@ msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Delete"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:173
+#: lib/daisyui_web/live/user_live/index.ex:163
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "EMail"
@@ -213,7 +206,6 @@ msgid "Edit"
 msgstr ""
 
 #: lib/daisyui_web/live/user_live/index.ex:71
-#: lib/daisyui_web/live/user_live/index.ex:135
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Email"
@@ -226,16 +218,14 @@ msgid "Feel free to add any missing user!"
 msgstr ""
 
 #: lib/daisyui_web/live/user_live/index.ex:65
-#: lib/daisyui_web/live/user_live/index.ex:129
-#: lib/daisyui_web/live/user_live/index.ex:168
+#: lib/daisyui_web/live/user_live/index.ex:158
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "First name"
 msgstr ""
 
 #: lib/daisyui_web/live/user_live/index.ex:68
-#: lib/daisyui_web/live/user_live/index.ex:132
-#: lib/daisyui_web/live/user_live/index.ex:169
+#: lib/daisyui_web/live/user_live/index.ex:159
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Last name"
@@ -247,37 +237,37 @@ msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "List of users"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:183
+#: lib/daisyui_web/live/user_live/index.ex:173
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Reset"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:184
+#: lib/daisyui_web/live/user_live/index.ex:174
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Save user"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:164
+#: lib/daisyui_web/live/user_live/index.ex:154
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "This won't be persisted into DB, memory only"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:205
+#: lib/daisyui_web/live/user_live/index.ex:195
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "User created successfully"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:214
+#: lib/daisyui_web/live/user_live/index.ex:204
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "User deleted successfully"
 msgstr ""
 
-#: lib/daisyui_web/live/user_live/index.ex:112
+#: lib/daisyui_web/live/user_live/index.ex:110
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "User details"
@@ -318,4 +308,16 @@ msgstr ""
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Users"
+msgstr ""
+
+#: lib/daisyui_web/components/blocks/slideover.ex:55
+#, elixir-autogen, elixir-format, fuzzy
+msgctxt "DaisyuiWeb.Blocks.Slideover"
+msgid "close"
+msgstr ""
+
+#: lib/daisyui_web/live/user_live/index.ex:111
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.UserLive.Index"
+msgid "Displays the user settigns"
 msgstr ""

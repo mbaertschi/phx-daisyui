@@ -7,7 +7,8 @@ defmodule DaisyuiWeb.Blocks do
     quote do
       import DaisyuiWeb.Blocks.{
         Header,
-        SecondaryNavigation
+        SecondaryNavigation,
+        Slideover
       }
     end
   end
