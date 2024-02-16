@@ -51,4 +51,42 @@ defmodule DaisyuiWeb.Blocks.Header do
     </header>
     """
   end
+
+  attr :class, :string, default: nil, doc: "the header class"
+  attr :title, :string, required: true, doc: "the title of the header"
+  attr :subtitle, :string, required: false, doc: "the optional subtitle of the header"
+
+  attr :size, :string,
+    values: ["xs", "sm", "lg", "xl"],
+    default: "lg",
+    doc: "the size of the title"
+
+  def heading(assigns) do
+    ~H"""
+    <div class={@class}>
+      <h4 class={["text-base-content font-bold", heading_title_size_class(@size)]}><%= @title %></h4>
+      <p :if={@subtitle} class={["text-base-content/50", heading_subtitle_size_class(@size)]}>
+        <%= @subtitle %>
+      </p>
+    </div>
+    """
+  end
+
+  defp heading_title_size_class(size) do
+    case size do
+      "xs" -> "text-xs"
+      "sm" -> "text-sm"
+      "lg" -> "text-lg"
+      "xl" -> "text-xl"
+    end
+  end
+
+  defp heading_subtitle_size_class(size) do
+    case size do
+      "xs" -> "text-xs"
+      "sm" -> "text-sm"
+      "lg" -> "text-sm"
+      "xl" -> "text-sm"
+    end
+  end
 end
