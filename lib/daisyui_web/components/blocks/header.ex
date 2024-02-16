@@ -11,6 +11,10 @@ defmodule DaisyuiWeb.Blocks.Header do
   attr :class, :string, default: nil, doc: "the header class"
   attr :action_class, :string, default: nil
 
+  attr :dense, :boolean,
+    default: false,
+    doc: "whether to use a denser layout"
+
   attr :break, :boolean,
     default: false,
     doc: "whether to break the header actions into a new line on small screens"
@@ -23,9 +27,9 @@ defmodule DaisyuiWeb.Blocks.Header do
 
   def header(assigns) do
     ~H"""
-    <header class={["min-h-12 w-full", @class]}>
+    <header class={["w-full", @class]}>
       <%= render_slot(@navbar) %>
-      <div class="p-6 lg:px-8">
+      <div class={!@dense && "p-6 lg:px-8"}>
         <div class={[
           @break && "sm:flex sm:items-start sm:justify-between sm:gap-8",
           @break == false && "flex items-start justify-between gap-6 sm:gap-8"
