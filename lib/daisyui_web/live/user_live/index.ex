@@ -51,7 +51,7 @@ defmodule DaisyuiWeb.UserLive.Index do
         </.header>
         <div class="overflow-x-auto pb-4">
           <.table
-            id="user-table"
+            id="user_table"
             rows={@users}
             row_click={
               fn user ->
@@ -76,7 +76,7 @@ defmodule DaisyuiWeb.UserLive.Index do
             </:col>
 
             <:action :let={user} class="-mx-3 -my-1.5 sm:-mx-2.5">
-              <.table_actions id={"user-#{user.id}"}>
+              <.table_actions id={"user_#{user.id}"}>
                 <li>
                   <button
                     type="button"

@@ -68,7 +68,7 @@ defmodule DaisyuiWeb.Components.Table do
           :for={row <- @rows}
           id={@row_id && @row_id.(row)}
           role="rowgroup"
-          class={[@row_click && "hover", "border-base-content/10"]}
+          class={[@row_click && @row_click.(row) && "hover", "border-base-content/10"]}
         >
           <td
             :for={col <- @col}

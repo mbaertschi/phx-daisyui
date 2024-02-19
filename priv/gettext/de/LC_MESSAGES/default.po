@@ -321,3 +321,21 @@ msgstr "schliessen"
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Displays the user settigns"
 msgstr "Zeigt die Benutzereinstellungen an"
+
+#: lib/daisyui_web/components/blocks/empty_state.ex:12
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.Blocks.EmptyState"
+msgid "Get started by creating a new entry."
+msgstr "Beginne, indem Du einen neuen Eintrag erstellst."
+
+#: lib/daisyui_web/components/blocks/empty_state.ex:13
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.Blocks.EmptyState"
+msgid "New entry"
+msgstr "Neuer Eintrag"
+
+#: lib/daisyui_web/components/blocks/empty_state.ex:11
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.Blocks.EmptyState"
+msgid "No entries"
+msgstr "Keine Einträge"

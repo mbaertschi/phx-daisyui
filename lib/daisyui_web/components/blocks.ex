@@ -6,6 +6,7 @@ defmodule DaisyuiWeb.Blocks do
   defmacro __using__(_) do
     quote do
       import DaisyuiWeb.Blocks.{
+        EmptyState,
         Header,
         SecondaryNavigation,
         Slideover
