@@ -433,7 +433,7 @@ defmodule DaisyuiWeb.Components.Field do
     ~H"""
     <p
       :if={@errors != []}
-      id={"#{@id}-error"}
+      id={"#{@id}_error"}
       class={["text-base/6 phx-no-feedback:hidden sm:text-sm/6", @class]}
     >
       <span :for={msg <- @errors} class="text-error"><%= msg %></span>

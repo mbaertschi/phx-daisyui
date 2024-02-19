@@ -41,7 +41,7 @@ defmodule DaisyuiWeb.Components.Alert do
       data-confirm={@on_confirm}
     >
       <div class={["modal-box max-h-[calc(100dvh-5em)]", size(@size)]}>
-        <.focus_wrap id={"#{@id}-content"}>
+        <.focus_wrap id={"#{@id}_content"}>
           <h2 class="label-text text-base/6 font-semibold sm:text-sm/6">
             <%= @title || ~t"Are you sure?"m %>
           </h2>
