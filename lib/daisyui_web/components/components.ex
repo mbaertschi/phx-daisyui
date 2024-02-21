@@ -7,6 +7,7 @@ defmodule DaisyuiWeb.Components do
     quote do
       import DaisyuiWeb.Components.{
         Alert,
+        Badge,
         Breadcrumbs,
         Drawer,
         Dropdown,

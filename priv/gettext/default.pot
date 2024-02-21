@@ -101,8 +101,8 @@ msgctxt "DaisyuiWeb.Components.Flash"
 msgid "close"
 msgstr ""
 
-#: lib/daisyui_web/components/components/modal.ex:88
-#: lib/daisyui_web/components/components/modal.ex:97
+#: lib/daisyui_web/components/components/modal.ex:93
+#: lib/daisyui_web/components/components/modal.ex:102
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Components.Modal"
 msgid "close"
@@ -338,4 +338,10 @@ msgstr ""
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Blocks.EmptyState"
 msgid "No entries"
+msgstr ""
+
+#: lib/daisyui_web/components/components/stepper.ex:17
+#, elixir-autogen, elixir-format
+msgctxt "DaisyuiWeb.Components.Stepper"
+msgid "Step %{current} of %{steps}"
 msgstr ""
