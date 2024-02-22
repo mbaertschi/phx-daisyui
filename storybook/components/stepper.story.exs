@@ -1,4 +1,5 @@
 defmodule Storybook.Components.Stepper do
+  @moduledoc false
   use PhoenixStorybook.Story, :component
 
   alias DaisyuiWeb.Components.Stepper

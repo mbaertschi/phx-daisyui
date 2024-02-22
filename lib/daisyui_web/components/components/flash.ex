@@ -5,11 +5,11 @@ defmodule DaisyuiWeb.Components.Flash do
 
   use Phoenix.Component
 
-  alias Phoenix.LiveView.JS
-
-  import DaisyuiWeb.Gettext
   import DaisyuiWeb.Components.Icon, only: [icon: 1]
   import DaisyuiWeb.Components.Transitions, only: [show: 1, hide: 1, hide: 2]
+  import DaisyuiWeb.Gettext
+
+  alias Phoenix.LiveView.JS
 
   @doc """
   Renders flash notices.

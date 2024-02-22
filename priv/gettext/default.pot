@@ -101,8 +101,8 @@ msgctxt "DaisyuiWeb.Components.Flash"
 msgid "close"
 msgstr ""
 
-#: lib/daisyui_web/components/components/modal.ex:93
-#: lib/daisyui_web/components/components/modal.ex:102
+#: lib/daisyui_web/components/components/modal.ex:92
+#: lib/daisyui_web/components/components/modal.ex:101
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Components.Modal"
 msgid "close"

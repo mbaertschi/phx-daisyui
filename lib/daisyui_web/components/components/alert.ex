@@ -5,9 +5,9 @@ defmodule DaisyuiWeb.Components.Alert do
 
   use Phoenix.Component
 
-  alias Phoenix.LiveView.JS
-
   import DaisyuiWeb.Gettext
+
+  alias Phoenix.LiveView.JS
 
   @doc """
     Renders an alert.

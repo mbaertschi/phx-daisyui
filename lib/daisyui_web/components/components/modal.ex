@@ -5,9 +5,9 @@ defmodule DaisyuiWeb.Components.Modal do
 
   use Phoenix.Component
 
-  alias Phoenix.LiveView.JS
-
   import DaisyuiWeb.Gettext
+
+  alias Phoenix.LiveView.JS
 
   @doc """
   Renders a modal.
@@ -61,20 +61,19 @@ defmodule DaisyuiWeb.Components.Modal do
         </.simple_form>
       </.modal>
   """
-  attr(:id, :string, required: true)
-  attr(:class, :string, default: nil, doc: "Additional CSS classes to add to the modal box.")
-  attr(:show, :boolean, default: false, doc: "Whether the modal visibility is controlled.")
-  attr(:on_cancel, JS, default: %JS{}, doc: "JS commands to run when the modal is closed.")
-  attr(:responsive, :boolean, default: false, doc: "Show at bottom on small screens.")
-  attr(:backdrop, :boolean, default: true, doc: "Show a backdrop behind the modal.")
-  attr(:rest, :global, doc: "the arbitrary HTML attributes to add to the modal box.")
+  attr :id, :string, required: true
+  attr :class, :string, default: nil, doc: "Additional CSS classes to add to the modal box."
+  attr :show, :boolean, default: false, doc: "Whether the modal visibility is controlled."
+  attr :on_cancel, JS, default: %JS{}, doc: "JS commands to run when the modal is closed."
+  attr :responsive, :boolean, default: false, doc: "Show at bottom on small screens."
+  attr :backdrop, :boolean, default: true, doc: "Show a backdrop behind the modal."
+  attr :rest, :global, doc: "the arbitrary HTML attributes to add to the modal box."
 
-  attr(:size, :string,
+  attr :size, :string,
     values: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", nil],
     default: nil
-  )
 
-  slot(:inner_block, required: true, doc: "The modal content.")
+  slot :inner_block, required: true, doc: "The modal content."
 
   def modal(assigns) do
     ~H"""

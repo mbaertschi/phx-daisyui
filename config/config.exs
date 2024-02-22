@@ -45,8 +45,7 @@ config :daisyui, Daisyui.Mailer, adapter: Swoosh.Adapters.Local
 config :esbuild,
   version: "0.19.11",
   daisyui: [
-    args:
-      ~w(js/app.ts --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
+    args: ~w(js/app.ts --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]

@@ -5,9 +5,9 @@ defmodule DaisyuiWeb.Components.Dropdown do
 
   use Phoenix.LiveComponent
 
-  alias Phoenix.LiveView.JS
-
   import DaisyuiWeb.Components.Icon, only: [icon: 1]
+
+  alias Phoenix.LiveView.JS
 
   @doc """
   Renders a dropdown.

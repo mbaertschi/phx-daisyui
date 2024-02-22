@@ -14,17 +14,18 @@ defmodule Daisyui.DataCase do
   this option is not recommended for other databases.
   """
 
-  alias Ecto.Adapters.SQL.Sandbox
   use ExUnit.CaseTemplate
+
+  alias Ecto.Adapters.SQL.Sandbox
 
   using do
     quote do
-      alias Daisyui.Repo
-
+      import Daisyui.DataCase
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Daisyui.DataCase
+
+      alias Daisyui.Repo
     end
   end
 

@@ -20,14 +20,14 @@ defmodule DaisyuiWeb.ConnCase do
   using do
     quote do
       # The default endpoint for testing
-      @endpoint DaisyuiWeb.Endpoint
-
       use DaisyuiWeb, :verified_routes
 
       # Import conveniences for testing with connections
-      import Plug.Conn
-      import Phoenix.ConnTest
       import DaisyuiWeb.ConnCase
+      import Phoenix.ConnTest
+      import Plug.Conn
+
+      @endpoint DaisyuiWeb.Endpoint
     end
   end
 

@@ -8,17 +8,16 @@ defmodule DaisyuiWeb.Components.Badge do
   @doc """
   Renders a badge with different colors.
   """
-  attr(:class, :string, default: nil, doc: "the badge class")
+  attr :class, :string, default: nil, doc: "the badge class"
 
-  attr(:color, :string,
+  attr :color, :string,
     default: "gray",
     values: ~w(gray blue green red orange),
     doc: "the badge color"
-  )
 
-  attr(:rest, :global, include: ~w(data-tip))
+  attr :rest, :global, include: ~w(data-tip)
 
-  slot(:inner_block, required: true, doc: "the inner block of the badge")
+  slot :inner_block, required: true, doc: "the inner block of the badge"
 
   def badge(assigns) do
     ~H"""
@@ -37,13 +36,11 @@ defmodule DaisyuiWeb.Components.Badge do
 
   defp badge_color_class("blue"), do: "bg-info/10 text-info ring-info/20 tooltip-info"
 
-  defp badge_color_class("green"),
-    do: "bg-success/10 text-success ring-success/20 tooltip-success"
+  defp badge_color_class("green"), do: "bg-success/10 text-success ring-success/20 tooltip-success"
 
   defp badge_color_class("red"), do: "bg-error/10 text-error ring-error/20 tooltip-error"
 
-  defp badge_color_class("orange"),
-    do: "bg-warning/10 text-warning ring-warning/20 tooltip-warning"
+  defp badge_color_class("orange"), do: "bg-warning/10 text-warning ring-warning/20 tooltip-warning"
 
   defp badge_color_class(_), do: "bg-base-300 text-base-content/60 ring-base-content/30"
 end

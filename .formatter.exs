@@ -5,7 +5,7 @@
   plugins: [
     TailwindFormatter,
     Phoenix.LiveView.HTMLFormatter,
-    Recode.FormatterPlugin
+    Styler
   ],
   inputs: [
     "*.{heex,ex,exs}",

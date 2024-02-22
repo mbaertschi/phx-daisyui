@@ -1,5 +1,7 @@
 defmodule Storybook.Components.Form.FieldInline do
+  @moduledoc false
   use PhoenixStorybook.Story, :component
+
   alias DaisyuiWeb.Components
 
   def function, do: &Components.Field.field/1

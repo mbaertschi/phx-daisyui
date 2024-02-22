@@ -1,5 +1,7 @@
 defmodule Storybook.Components.Breadcrumbs do
+  @moduledoc false
   use PhoenixStorybook.Story, :component
+
   alias DaisyuiWeb.Components
 
   def function, do: &Components.Breadcrumbs.breadcrumbs/1

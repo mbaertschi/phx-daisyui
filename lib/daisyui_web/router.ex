@@ -63,7 +63,6 @@ defmodule DaisyuiWeb.Router do
     # you can use Plug.BasicAuth to set up some basic authentication
     # as long as you are also using SSL (which you should anyway).
     import Phoenix.LiveDashboard.Router
-
     import PhoenixStorybook.Router
 
     scope "/" do

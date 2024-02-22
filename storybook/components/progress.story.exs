@@ -1,5 +1,7 @@
 defmodule Storybook.Components.Progress do
+  @moduledoc false
   use PhoenixStorybook.Story, :component
+
   alias DaisyuiWeb.Components
 
   def function, do: &Components.Progress.progress/1

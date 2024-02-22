@@ -5,8 +5,8 @@ defmodule DaisyuiWeb.Blocks.EmptyState do
 
   use Phoenix.Component
 
-  import DaisyuiWeb.Gettext
   import DaisyuiWeb.Components.Icon, only: [icon: 1]
+  import DaisyuiWeb.Gettext
 
   attr :title, :string, default: ~t"No entries"m
   attr :description, :string, default: ~t"Get started by creating a new entry."m

@@ -57,8 +57,8 @@ defmodule Daisyui.MixProject do
       {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
       {:mix_audit, "~> 2.0", only: [:dev, :test], runtime: false},
       {:tailwind_formatter, "~> 0.4.0", only: [:dev, :test], runtime: false},
-      {:recode, "~> 0.6", only: [:dev, :test]},
       {:junit_formatter, "~> 3.3", only: :test},
+      {:styler, "~> 0.11", only: [:dev, :test], runtime: false},
 
       # Assers
       {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},

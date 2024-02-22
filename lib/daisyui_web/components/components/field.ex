@@ -4,10 +4,10 @@ defmodule DaisyuiWeb.Components.Field do
   """
   use Phoenix.Component
 
-  alias Phoenix.HTML.Form
-
   import DaisyuiWeb.Components.Input, only: [input: 1]
   import DaisyuiWeb.Helpers, only: [class_names: 1]
+
+  alias Phoenix.HTML.Form
 
   @valid_inside_types ~w(email number password tel text url search)
 
@@ -38,44 +38,39 @@ defmodule DaisyuiWeb.Components.Field do
       <.field field={@form[:email]} type="email" />
       <.field name="my-input" errors={["oh no!"]} />
   """
-  attr(:id, :any, default: nil)
-  attr(:name, :any)
-  attr(:label, :string, default: nil)
-  attr(:value, :any)
+  attr :id, :any, default: nil
+  attr :name, :any
+  attr :label, :string, default: nil
+  attr :value, :any
 
-  attr(:type, :string,
+  attr :type, :string,
     default: "text",
     values: ~w(checkbox color date datetime-local email file hidden month number password
                range radio search select tel text textarea time url week)
-  )
 
-  attr(:field, Phoenix.HTML.FormField,
-    doc: "a form field struct retrieved from the form, for example: @form[:email]"
-  )
+  attr :field, Phoenix.HTML.FormField, doc: "a form field struct retrieved from the form, for example: @form[:email]"
 
-  attr(:description, :string, default: nil, doc: "the description for the input")
+  attr :description, :string, default: nil, doc: "the description for the input"
 
-  attr(:errors, :list, default: [])
-  attr(:checked, :boolean, doc: "the checked flag for checkbox inputs")
-  attr(:prompt, :string, default: nil, doc: "the prompt for select inputs")
-  attr(:options, :list, doc: "the options to pass to Phoenix.HTML.Form.options_for_select/2")
-  attr(:multiple, :boolean, default: false, doc: "the multiple flag for select inputs")
-  attr(:class, :string, default: nil, doc: "additional css class for input")
-  attr(:inline, :boolean, default: false, doc: "whether the field is inline")
-  attr(:inside, :boolean, default: false, doc: "whether the field is inside")
-  attr(:hidden, :boolean, default: false, doc: "whether the field is hidden")
-  attr(:icon_start, :string, default: nil, doc: "icon name for the start of the input")
-  attr(:icon_end, :string, default: nil, doc: "icon name for the end of the input")
+  attr :errors, :list, default: []
+  attr :checked, :boolean, doc: "the checked flag for checkbox inputs"
+  attr :prompt, :string, default: nil, doc: "the prompt for select inputs"
+  attr :options, :list, doc: "the options to pass to Phoenix.HTML.Form.options_for_select/2"
+  attr :multiple, :boolean, default: false, doc: "the multiple flag for select inputs"
+  attr :class, :string, default: nil, doc: "additional css class for input"
+  attr :inline, :boolean, default: false, doc: "whether the field is inline"
+  attr :inside, :boolean, default: false, doc: "whether the field is inside"
+  attr :hidden, :boolean, default: false, doc: "whether the field is hidden"
+  attr :icon_start, :string, default: nil, doc: "icon name for the start of the input"
+  attr :icon_end, :string, default: nil, doc: "icon name for the end of the input"
 
-  attr(:rest, :global,
-    include: ~w(accept autocomplete capture cols disabled form list max maxlength min minlength
+  attr :rest, :global, include: ~w(accept autocomplete capture cols disabled form list max maxlength min minlength
                 multiple pattern placeholder readonly required rows size step)
-  )
 
-  slot(:inner_block)
-  slot(:custom_label, doc: "the slot for the label text (if you need to customize it)")
-  slot(:before_input, doc: "the slot for the region before the input (only for inside)")
-  slot(:after_input, doc: "the slot for the region after the input (only for inside)")
+  slot :inner_block
+  slot :custom_label, doc: "the slot for the label text (if you need to customize it)"
+  slot :before_input, doc: "the slot for the region before the input (only for inside)"
+  slot :after_input, doc: "the slot for the region after the input (only for inside)"
 
   def field(%{field: %Phoenix.HTML.FormField{} = field} = assigns) do
     assigns
@@ -387,37 +382,32 @@ defmodule DaisyuiWeb.Components.Field do
         </:content>
       </.custom_field>
   """
-  attr(:id, :any, default: nil)
-  attr(:name, :any)
-  attr(:label, :string, default: nil)
-  attr(:value, :any)
+  attr :id, :any, default: nil
+  attr :name, :any
+  attr :label, :string, default: nil
+  attr :value, :any
 
-  attr(:type, :string,
+  attr :type, :string,
     default: "text",
     values: ~w(checkbox color date datetime-local email file hidden month number password
                range radio search select tel text textarea time url week)
-  )
 
-  attr(:field, Phoenix.HTML.FormField,
-    doc: "a form field struct retrieved from the form, for example: @form[:email]"
-  )
+  attr :field, Phoenix.HTML.FormField, doc: "a form field struct retrieved from the form, for example: @form[:email]"
 
-  attr(:description, :string, default: nil, doc: "the description for the input")
+  attr :description, :string, default: nil, doc: "the description for the input"
 
-  attr(:errors, :list, default: [])
-  attr(:checked, :boolean, doc: "the checked flag for checkbox inputs")
-  attr(:prompt, :string, default: nil, doc: "the prompt for select inputs")
-  attr(:options, :list, doc: "the options to pass to Phoenix.HTML.Form.options_for_select/2")
-  attr(:multiple, :boolean, default: false, doc: "the multiple flag for select inputs")
-  attr(:class, :string, default: nil, doc: "additional css class for input")
-  attr(:hidden, :boolean, default: false, doc: "whether the field is hidden")
+  attr :errors, :list, default: []
+  attr :checked, :boolean, doc: "the checked flag for checkbox inputs"
+  attr :prompt, :string, default: nil, doc: "the prompt for select inputs"
+  attr :options, :list, doc: "the options to pass to Phoenix.HTML.Form.options_for_select/2"
+  attr :multiple, :boolean, default: false, doc: "the multiple flag for select inputs"
+  attr :class, :string, default: nil, doc: "additional css class for input"
+  attr :hidden, :boolean, default: false, doc: "whether the field is hidden"
 
-  attr(:rest, :global,
-    include: ~w(accept autocomplete capture cols disabled form list max maxlength min minlength
+  attr :rest, :global, include: ~w(accept autocomplete capture cols disabled form list max maxlength min minlength
                 multiple pattern placeholder readonly required rows size step)
-  )
 
-  slot(:content)
+  slot :content
 
   def custom_field(%{field: %Phoenix.HTML.FormField{} = field} = assigns) do
     assigns
@@ -439,13 +429,13 @@ defmodule DaisyuiWeb.Components.Field do
   @doc """
   Renders a label.
   """
-  attr(:for, :string, default: nil)
-  attr(:label, :string, default: nil, doc: "the label text")
-  attr(:class, :string, default: nil, doc: "additional css class for description")
-  attr(:required, :boolean, default: false)
-  attr(:disabled, :boolean, default: false)
+  attr :for, :string, default: nil
+  attr :label, :string, default: nil, doc: "the label text"
+  attr :class, :string, default: nil, doc: "additional css class for description"
+  attr :required, :boolean, default: false
+  attr :disabled, :boolean, default: false
 
-  slot(:inner_block, doc: "the slot for the label text if no label is given")
+  slot :inner_block, doc: "the slot for the label text if no label is given"
 
   def label(assigns) do
     ~H"""
@@ -468,10 +458,10 @@ defmodule DaisyuiWeb.Components.Field do
   @doc """
   Renders a description.
   """
-  attr(:description, :string, default: nil, doc: "the description text")
-  attr(:class, :string, default: nil, doc: "additional css class for description")
+  attr :description, :string, default: nil, doc: "the description text"
+  attr :class, :string, default: nil, doc: "additional css class for description"
 
-  slot(:inner_block, doc: "the slot for the description text if no description is given")
+  slot :inner_block, doc: "the slot for the description text if no description is given"
 
   def description(assigns) do
     ~H"""
@@ -488,9 +478,9 @@ defmodule DaisyuiWeb.Components.Field do
   @doc """
   Generates a generic error message.
   """
-  attr(:id, :string, required: true)
-  attr(:class, :string, default: nil)
-  attr(:errors, :list, required: true)
+  attr :id, :string, required: true
+  attr :class, :string, default: nil
+  attr :errors, :list, required: true
 
   def errors(assigns) do
     ~H"""

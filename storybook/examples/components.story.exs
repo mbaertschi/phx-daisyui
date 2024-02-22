@@ -1,4 +1,5 @@
 defmodule Storybook.Examples.Components do
+  @moduledoc false
   use PhoenixStorybook.Story, :example
   use DaisyuiWeb.Components
   use DaisyuiWeb.Blocks

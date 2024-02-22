@@ -24,9 +24,9 @@ defmodule DaisyuiWeb do
       use Phoenix.Router, helpers: false
 
       # Import common connection and controller functions to use in pipelines
-      import Plug.Conn
       import Phoenix.Controller
       import Phoenix.LiveView.Router
+      import Plug.Conn
     end
   end
 
@@ -42,8 +42,8 @@ defmodule DaisyuiWeb do
         formats: [:html, :json],
         layouts: [html: DaisyuiWeb.Layouts]
 
-      import Plug.Conn
       import DaisyuiWeb.Gettext
+      import Plug.Conn
 
       unquote(verified_routes())
     end
@@ -86,16 +86,17 @@ defmodule DaisyuiWeb do
       use DaisyuiWeb.Blocks
 
       # Shortcut for generating JS commands
-      alias Phoenix.LiveView.JS
 
       # HTML escaping functionality
-      import Phoenix.HTML
 
       # Translation
       import DaisyuiWeb.Gettext
+      import DaisyuiWeb.Helpers
+      import Phoenix.HTML
+
+      alias Phoenix.LiveView.JS
 
       # Formatters
-      import DaisyuiWeb.Helpers
 
       # Routes generation with the ~p sigil
       unquote(verified_routes())

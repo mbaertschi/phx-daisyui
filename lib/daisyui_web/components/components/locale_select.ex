@@ -5,9 +5,9 @@ defmodule DaisyuiWeb.Components.LocaleSelect do
 
   use Phoenix.Component
 
-  alias Phoenix.LiveView.JS
-
   import DaisyuiWeb.Components.Dropdown, only: [dropdown: 1]
+
+  alias Phoenix.LiveView.JS
 
   @locales DaisyuiWeb.Locale.locales()
 

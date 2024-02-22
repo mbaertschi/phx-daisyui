@@ -1,5 +1,7 @@
 defmodule Storybook.Components.Form.Input do
+  @moduledoc false
   use PhoenixStorybook.Story, :component
+
   alias DaisyuiWeb.Components
 
   def function, do: &Components.Input.input/1

@@ -1,4 +1,5 @@
 defmodule Storybook.Components.List do
+  @moduledoc false
   use PhoenixStorybook.Story, :component
 
   def function, do: &DaisyuiWeb.Components.List.list/1
