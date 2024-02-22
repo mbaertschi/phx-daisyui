@@ -169,7 +169,7 @@ msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Are you sure?"
 msgstr "Bist Du sicher?"
 
-#: lib/daisyui_web/live/user_live/index.ex:171
+#: lib/daisyui_web/live/user_live/index.ex:173
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Cancel"
@@ -237,13 +237,13 @@ msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "List of users"
 msgstr "Liste der Benutzer"
 
-#: lib/daisyui_web/live/user_live/index.ex:173
+#: lib/daisyui_web/live/user_live/index.ex:171
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: lib/daisyui_web/live/user_live/index.ex:174
+#: lib/daisyui_web/live/user_live/index.ex:170
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Save user"
