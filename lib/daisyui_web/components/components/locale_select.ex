@@ -23,7 +23,7 @@ defmodule DaisyuiWeb.Components.LocaleSelect do
               type="button"
               class={option.selected && "active"}
               phx-click={
-                JS.dispatch("set-locale", to: "#locale_selector-wrapper", detail: option.value)
+                JS.dispatch("set-locale", to: "#locale_selector_wrapper", detail: option.value)
               }
             >
               <span class="badge badge-sm badge-outline font-mono text-[.6rem] pt-px pr-1 pl-1.5 font-bold tracking-widest opacity-50">

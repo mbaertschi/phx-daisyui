@@ -42,7 +42,7 @@ defmodule DaisyuiWeb.UserLive.Index do
           <:actions>
             <button
               type="button"
-              class="btn btn-neutral max-sm:btn-sm"
+              class="btn btn-primary max-sm:btn-sm"
               onclick="user_modal.showModal()"
             >
               <%= ~t"Create user"m %>
@@ -133,7 +133,7 @@ defmodule DaisyuiWeb.UserLive.Index do
           <:footer>
             <button
               type="button"
-              class="btn btn-neutral"
+              class="btn btn-primary"
               phx-click={JS.push("select_user", value: %{id: nil})}
             >
               Close
@@ -167,7 +167,7 @@ defmodule DaisyuiWeb.UserLive.Index do
               </.fieldgroup>
             </.fieldset>
             <:actions>
-              <button type="submit" class="btn btn-neutral"><%= ~t"Save user"m %></button>
+              <button type="submit" class="btn btn-primary"><%= ~t"Save user"m %></button>
               <button type="reset" class="btn btn-ghost"><%= ~t"Reset"m %></button>
               <button type="button" class="btn btn-ghost" onclick="user_modal.close()">
                 <%= ~t"Cancel"m %>

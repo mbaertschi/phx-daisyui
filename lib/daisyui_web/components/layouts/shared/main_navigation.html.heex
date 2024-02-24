@@ -23,7 +23,7 @@
         navigate={~p"/"}
         class={[
           "flex md:flex-col md:p-3",
-          @current == "home" && "active"
+          @current == "home" && "bg-primary text-primary-content hover:bg-primary"
         ]}
       >
         <.icon name="hero-home" />
@@ -35,7 +35,7 @@
         navigate={~p"/collections"}
         class={[
           "flex md:flex-col md:p-3",
-          @current == "collections" && "active"
+          @current == "collections" && "bg-primary text-primary-content hover:bg-primary"
         ]}
       >
         <.icon name="hero-squares-2x2" />
@@ -47,7 +47,7 @@
         navigate={~p"/users"}
         class={[
           "flex md:flex-col md:p-3",
-          @current == "users" && "active"
+          @current == "users" && "bg-primary text-primary-content hover:bg-primary"
         ]}
       >
         <.icon name="hero-user-group" />
@@ -59,7 +59,7 @@
         navigate={~p"/tasks"}
         class={[
           "flex md:flex-col md:p-3",
-          @current == "tasks" && "active",
+          @current == "tasks" && "bg-primary text-primary-content hover:bg-primary",
           "md:max-lg:indicator"
         ]}
       >

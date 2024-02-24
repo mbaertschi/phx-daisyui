@@ -6,6 +6,7 @@ defmodule DaisyuiWeb.Blocks.Slideover do
   use Phoenix.Component
 
   import DaisyuiWeb.Blocks.Header, only: [header: 1]
+  import DaisyuiWeb.Components.Icon, only: [icon: 1]
   import DaisyuiWeb.Gettext
 
   alias Phoenix.LiveView.JS
@@ -55,7 +56,7 @@ defmodule DaisyuiWeb.Blocks.Slideover do
               aria-label={~t"close"m}
               phx-click={@on_cancel}
             >
-              ✕
+              <.icon name="hero-x-mark-mini" class="text-base-content/75" />
             </button>
           </:actions>
         </.header>

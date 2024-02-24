@@ -65,25 +65,25 @@ msgctxt "DaisyuiWeb.Layouts.Secondary"
 msgid "Tasks"
 msgstr ""
 
-#: lib/daisyui_web/components/components/flash.ex:105
+#: lib/daisyui_web/components/components/flash.ex:106
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Components.Flash"
 msgid "Attempting to reconnect"
 msgstr ""
 
-#: lib/daisyui_web/components/components/flash.ex:117
+#: lib/daisyui_web/components/components/flash.ex:118
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Components.Flash"
 msgid "Hang in there while we get back on track"
 msgstr ""
 
-#: lib/daisyui_web/components/components/flash.ex:112
+#: lib/daisyui_web/components/components/flash.ex:113
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Components.Flash"
 msgid "Something went wrong!"
 msgstr ""
 
-#: lib/daisyui_web/components/components/flash.ex:100
+#: lib/daisyui_web/components/components/flash.ex:101
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Components.Flash"
 msgid "We can't find the internet"
@@ -95,14 +95,14 @@ msgctxt "DaisyuiWeb.Components.Table"
 msgid "Actions"
 msgstr ""
 
-#: lib/daisyui_web/components/components/flash.ex:67
+#: lib/daisyui_web/components/components/flash.ex:68
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.Components.Flash"
 msgid "close"
 msgstr ""
 
-#: lib/daisyui_web/components/components/modal.ex:92
-#: lib/daisyui_web/components/components/modal.ex:101
+#: lib/daisyui_web/components/components/modal.ex:94
+#: lib/daisyui_web/components/components/modal.ex:102
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.Components.Modal"
 msgid "close"
@@ -132,13 +132,13 @@ msgctxt "DaisyuiWeb.Components.Alert"
 msgid "close"
 msgstr ""
 
-#: lib/daisyui_web/components/components/flash.ex:96
+#: lib/daisyui_web/components/components/flash.ex:97
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Components.Flash"
 msgid "Error!"
 msgstr ""
 
-#: lib/daisyui_web/components/components/flash.ex:95
+#: lib/daisyui_web/components/components/flash.ex:96
 #, elixir-autogen, elixir-format
 msgctxt "DaisyuiWeb.Components.Flash"
 msgid "Success!"
@@ -310,7 +310,7 @@ msgctxt "DaisyuiWeb.UserLive.Index"
 msgid "Users"
 msgstr ""
 
-#: lib/daisyui_web/components/blocks/slideover.ex:55
+#: lib/daisyui_web/components/blocks/slideover.ex:56
 #, elixir-autogen, elixir-format, fuzzy
 msgctxt "DaisyuiWeb.Blocks.Slideover"
 msgid "close"
