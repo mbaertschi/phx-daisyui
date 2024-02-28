@@ -14,7 +14,7 @@ defmodule DaisyuiWeb.CollectionLive.Index do
   def render(assigns) do
     ~H"""
     <.page current="collections">
-      <.header><%= ~t"Collections"m %></.header>
+      <.page_header class="px-6 lg:px-8 md:py-6"><%= ~t"Collections"m %></.page_header>
     </.page>
     """
   end

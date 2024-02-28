@@ -14,7 +14,9 @@ defmodule DaisyuiWeb.DashboardLive.Index do
   def render(assigns) do
     ~H"""
     <.page current="home">
-      <.header><%= ~t"Home"m %></.header>
+      <.page_header title_class="px-6 lg:px-8 md:py-6">
+        <%= ~t"Home"m %>
+      </.page_header>
     </.page>
     """
   end

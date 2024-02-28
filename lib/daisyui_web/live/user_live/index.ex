@@ -22,7 +22,37 @@ defmodule DaisyuiWeb.UserLive.Index do
     ~H"""
     <.page current="users" open={@selected_user != nil}>
       <div>
-        <.header>
+        <.page_header class="max-sm:mt-2" title_class="px-6 lg:px-8 mb-6 sm:mt-2" break_at="sm">
+          <:breadcrumbs>
+            <div class="flex items-center justify-between px-6 lg:px-8">
+              <.breadcrumbs
+                class="text-sm text-base-content/60 font-medium"
+                items={[
+                  %{label: ~t"Home"m, link: "#"},
+                  %{label: ~t"Users"m, link: "#"},
+                  %{label: ~t"Overview"m, link: "#"}
+                ]}
+              />
+              <button
+                type="button"
+                class="btn btn-primary btn-sm sm:hidden"
+                onclick="user_modal.showModal()"
+              >
+                <%= ~t"Create user"m %>
+              </button>
+            </div>
+          </:breadcrumbs>
+          <%= ~t"List of users"m %>
+          <:subtitle><%= ~t"Feel free to add any missing user!"m %></:subtitle>
+          <:actions class="max-sm:hidden">
+            <button
+              type="button"
+              class="btn btn-primary max-lg:btn-sm"
+              onclick="user_modal.showModal()"
+            >
+              <%= ~t"Create user"m %>
+            </button>
+          </:actions>
           <:navbar>
             <.secondary_navigation>
               <.secondary_navigation_item label={~t"Overview"m} href={~p"/users"} active />
@@ -30,25 +60,7 @@ defmodule DaisyuiWeb.UserLive.Index do
               <.secondary_navigation_item label={~t"Settings"m} href={~p"/users"} />
             </.secondary_navigation>
           </:navbar>
-          <:breadcrumbs>
-            <.breadcrumbs items={[
-              %{label: ~t"Home"m, link: "#"},
-              %{label: ~t"Users"m, link: "#"},
-              %{label: ~t"Overview"m, link: "#"}
-            ]} />
-          </:breadcrumbs>
-          <%= ~t"List of users"m %>
-          <:subtitle><%= ~t"Feel free to add any missing user!"m %></:subtitle>
-          <:actions>
-            <button
-              type="button"
-              class="btn btn-primary max-sm:btn-sm"
-              onclick="user_modal.showModal()"
-            >
-              <%= ~t"Create user"m %>
-            </button>
-          </:actions>
-        </.header>
+        </.page_header>
         <div class="overflow-x-auto pb-4">
           <.table
             id="user_table"

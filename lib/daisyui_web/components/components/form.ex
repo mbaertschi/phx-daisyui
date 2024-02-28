@@ -82,7 +82,7 @@ defmodule DaisyuiWeb.Components.Form do
       <legend
         :if={@legend}
         class={[
-          "label-text text-base/6 font-semibold sm:text-sm/6",
+          "label-text text-base/6 max-w-4xl font-semibold max-sm:line-clamp-2 sm:truncate",
           @disabled && "text-base-content/50"
         ]}
       >
@@ -91,7 +91,7 @@ defmodule DaisyuiWeb.Components.Form do
       <p
         :if={@text}
         class={[
-          "text-base/6 mt-1 sm:text-sm/6",
+          "text-sm/6 line-clamp-2 mt-1 max-w-4xl",
           if(@disabled, do: "text-base-content/50", else: "text-base-content/60")
         ]}
       >
@@ -102,9 +102,9 @@ defmodule DaisyuiWeb.Components.Form do
     """
   end
 
-  attr :class, :string, default: "space-y-8", doc: "the class to apply to the fieldgroup"
-  attr :inline, :boolean, default: false, doc: "whether the fieldgroup is inline"
-  slot :inner_block, required: true
+  attr(:class, :string, default: "space-y-8", doc: "the class to apply to the fieldgroup")
+  attr(:inline, :boolean, default: false, doc: "whether the fieldgroup is inline")
+  slot(:inner_block, required: true)
 
   def fieldgroup(assigns) do
     ~H"""
