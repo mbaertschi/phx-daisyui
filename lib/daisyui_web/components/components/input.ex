@@ -79,7 +79,7 @@ defmodule DaisyuiWeb.Components.Input do
       assign_new(assigns, :checked, fn -> Form.normalize_value("checkbox", assigns[:value]) end)
 
     ~H"""
-    <input type="hidden" name={@name} value="false" />
+    <.input type="hidden" name={@name} value="false" />
     <input
       type="checkbox"
       id={@id}
@@ -99,7 +99,7 @@ defmodule DaisyuiWeb.Components.Input do
       assign_new(assigns, :checked, fn -> Form.normalize_value("checkbox", assigns[:value]) end)
 
     ~H"""
-    <input type="hidden" name={@name} value="false" />
+    <.input type="hidden" name={@name} value="false" />
     <input
       type="checkbox"
       id={@id}
@@ -119,7 +119,7 @@ defmodule DaisyuiWeb.Components.Input do
       assign_new(assigns, :checked, fn -> Form.normalize_value("radio", assigns[:value]) end)
 
     ~H"""
-    <input type="hidden" name={@name} value="false" />
+    <.input type="hidden" name={@name} value="false" />
     <input
       type="radio"
       id={@id}
@@ -235,6 +235,21 @@ defmodule DaisyuiWeb.Components.Input do
       class={["input input-bordered", @class, @errors != [] && "phx-feedback:input-error"]}
       aria-invalid={@errors != []}
       aria-describedby={@errors != [] && "#{@id}_error"}
+      {@rest}
+    />
+    """
+  end
+
+  def input(%{type: "hidden"} = assigns) do
+    ~H"""
+    <input
+      type={@type}
+      id={@id}
+      name={@name}
+      value={Phoenix.HTML.Form.normalize_value(@type, @value)}
+      readonly
+      hidden
+      style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px; display: none;"
       {@rest}
     />
     """

@@ -45,8 +45,9 @@ jobs:
             deps
             _build
             priv/plts
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock', '**/.tool-versions') }}
+          key: ${{ runner.os }}-mix-${{ hashFiles('.tool-versions') }}-${{ hashFiles('mix.lock') }}
           restore-keys: |
+            ${{ runner.os }}-mix-${{ hashFiles('.tool-versions') }}-
             ${{ runner.os }}-mix-
 
       - run: mix deps.get
@@ -61,7 +62,7 @@ jobs:
             deps
             _build
             priv/plts
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock', '**/.tool-versions') }}
+          key: ${{ runner.os }}-mix-${{ hashFiles('.tool-versions') }}-${{ hashFiles('mix.lock') }}
 
       - run: mix assets.setup
       - run: mix assets.build
@@ -83,5 +84,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Read .tool-versions
+        uses: marocchino/tool-versions-action@v1
+        id: versions
+
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag phx_daisy_ui:$(date +%s)
+        run: docker build . --file Dockerfile --tag phx_daisy_ui:$(date +%s) --build-arg OTP_VERSION=${{ steps.versions.outputs.erlang }} --build-arg ELIXIR_VERSION=${{ steps.versions.outputs.elixir }}

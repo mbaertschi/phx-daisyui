@@ -30,6 +30,7 @@ defmodule Storybook.Components.Form.Input do
               attributes: %{
                 type: to_string(type),
                 label: String.capitalize("#{type} input"),
+                placeholder: "Enter #{type} input",
                 autocomplete: to_string(type)
               }
             }
@@ -40,12 +41,13 @@ defmodule Storybook.Components.Form.Input do
         variations:
           for type <-
                 ~w(checkbox color date datetime-local email hidden month number password
-               range search tel text textarea time url week toggle)a do
+               range search tel text textarea time url week toggle file)a do
             %Variation{
               id: type,
               attributes: %{
                 type: to_string(type),
                 label: String.capitalize("#{type} input"),
+                placeholder: "Enter #{type} input",
                 autocomplete: to_string(type),
                 disabled: true
               }

@@ -232,11 +232,7 @@ defmodule DaisyuiWeb.Components.Field do
     ~H"""
     <div
       phx-feedback-for={@name}
-      class={[
-        "form-control grid-cols-[subgrid] grid sm:col-span-3",
-        @errors != [] && "[&_select]:phx-feedback:select-error",
-        @hidden && "hidden"
-      ]}
+      class={["form-control grid-cols-[subgrid] grid sm:col-span-3", @hidden && "hidden"]}
     >
       <%= if @custom_label != [] do %>
         <%= render_slot(@custom_label) %>
@@ -260,14 +256,7 @@ defmodule DaisyuiWeb.Components.Field do
 
   def field(%{type: "select"} = assigns) do
     ~H"""
-    <div
-      phx-feedback-for={@name}
-      class={[
-        "form-control w-full",
-        @errors != [] && "[&_select]:phx-feedback:select-error",
-        @hidden && "hidden"
-      ]}
-    >
+    <div phx-feedback-for={@name} class={["form-control w-full", @hidden && "hidden"]}>
       <%= if @custom_label != [] do %>
         <%= render_slot(@custom_label) %>
       <% else %>
