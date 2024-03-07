@@ -10,6 +10,7 @@ defmodule DaisyuiWeb.Components do
       import DaisyuiWeb.Components.Alert
       import DaisyuiWeb.Components.Badge
       import DaisyuiWeb.Components.Breadcrumbs
+      import DaisyuiWeb.Components.Combobox
       import DaisyuiWeb.Components.Drawer
       import DaisyuiWeb.Components.Dropdown
       import DaisyuiWeb.Components.Field

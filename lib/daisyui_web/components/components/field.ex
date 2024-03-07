@@ -46,7 +46,7 @@ defmodule DaisyuiWeb.Components.Field do
   attr :type, :string,
     default: "text",
     values: ~w(checkbox color date datetime-local email file hidden month number password
-               range radio search select tel text textarea time url week)
+               range radio search select tel text textarea time url week combobox)
 
   attr :field, Phoenix.HTML.FormField, doc: "a form field struct retrieved from the form, for example: @form[:email]"
 
@@ -65,7 +65,8 @@ defmodule DaisyuiWeb.Components.Field do
   attr :icon_end, :string, default: nil, doc: "icon name for the end of the input"
 
   attr :rest, :global, include: ~w(accept autocomplete capture cols disabled form list max maxlength min minlength
-                multiple pattern placeholder readonly required rows size step)
+                multiple pattern placeholder readonly required rows size step
+                create max_items max_options tom_select_plugins tom_select_options remote_options_event_name)
 
   slot :inner_block
   slot :custom_label, doc: "the slot for the label text (if you need to customize it)"
@@ -254,21 +255,6 @@ defmodule DaisyuiWeb.Components.Field do
     """
   end
 
-  def field(%{type: "select"} = assigns) do
-    ~H"""
-    <div phx-feedback-for={@name} class={["form-control w-full", @hidden && "hidden"]}>
-      <%= if @custom_label != [] do %>
-        <%= render_slot(@custom_label) %>
-      <% else %>
-        <.label :if={@label} for={@id} label={@label} {@rest} />
-      <% end %>
-      <.input {assigns} />
-      <.description :if={@description} description={@description} class="mt-3" />
-      <.errors errors={@errors} id={@id} class={is_nil(@description) && "mt-2"} />
-    </div>
-    """
-  end
-
   # All other inputs text, datetime-local, url, password, etc. are handled here...
   def field(%{inline: true} = assigns) do
     ~H"""
@@ -314,9 +300,7 @@ defmodule DaisyuiWeb.Components.Field do
         <.input {assigns} />
         <%= render_slot(@after_input) %>
       </label>
-      <.description :if={@description} class="mt-3">
-        <%= @description %>
-      </.description>
+      <.description :if={@description} description={@description} class="mt-3" />
       <.errors errors={@errors} id={@id} class={is_nil(@description) && "mt-2"} />
     </div>
     """
@@ -331,9 +315,7 @@ defmodule DaisyuiWeb.Components.Field do
         <.label :if={@label} for={@id} label={@label} {@rest} />
       <% end %>
       <.input {assigns} />
-      <.description :if={@description} class="mt-3">
-        <%= @description %>
-      </.description>
+      <.description :if={@description} description={@description} class="mt-3" />
       <.errors errors={@errors} id={@id} class={is_nil(@description) && "mt-2"} />
     </div>
     """
@@ -379,7 +361,7 @@ defmodule DaisyuiWeb.Components.Field do
   attr :type, :string,
     default: "text",
     values: ~w(checkbox color date datetime-local email file hidden month number password
-               range radio search select tel text textarea time url week)
+               range radio search select tel text textarea time url week combobox)
 
   attr :field, Phoenix.HTML.FormField, doc: "a form field struct retrieved from the form, for example: @form[:email]"
 
@@ -394,7 +376,8 @@ defmodule DaisyuiWeb.Components.Field do
   attr :hidden, :boolean, default: false, doc: "whether the field is hidden"
 
   attr :rest, :global, include: ~w(accept autocomplete capture cols disabled form list max maxlength min minlength
-                multiple pattern placeholder readonly required rows size step)
+                multiple pattern placeholder readonly required rows size step
+                create max_items max_options tom_select_plugins tom_select_options remote_options_event_name)
 
   slot :content
 
