@@ -346,3 +346,18 @@ msgstr ""
 msgctxt "DaisyuiWeb.DashboardLive.Index"
 msgid "Home"
 msgstr ""
+
+#: lib/daisyui_web/components/components/combobox.ex:245
+#, elixir-autogen, elixir-format
+msgid "Add"
+msgstr ""
+
+#: lib/daisyui_web/components/components/combobox.ex:246
+#, elixir-autogen, elixir-format
+msgid "No results found for"
+msgstr ""
+
+#: lib/daisyui_web/components/components/combobox.ex:259
+#, elixir-autogen, elixir-format
+msgid "Remove this item"
+msgstr ""

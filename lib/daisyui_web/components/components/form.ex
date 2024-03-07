@@ -102,9 +102,9 @@ defmodule DaisyuiWeb.Components.Form do
     """
   end
 
-  attr(:class, :string, default: "space-y-8", doc: "the class to apply to the fieldgroup")
-  attr(:inline, :boolean, default: false, doc: "whether the fieldgroup is inline")
-  slot(:inner_block, required: true)
+  attr :class, :string, default: "space-y-8", doc: "the class to apply to the fieldgroup"
+  attr :inline, :boolean, default: false, doc: "whether the fieldgroup is inline"
+  slot :inner_block, required: true
 
   def fieldgroup(assigns) do
     ~H"""
