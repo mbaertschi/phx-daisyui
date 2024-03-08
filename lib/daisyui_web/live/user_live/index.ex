@@ -53,15 +53,24 @@ defmodule DaisyuiWeb.UserLive.Index do
               <%= ~t"Create user"m %>
             </button>
           </:actions>
-          <:navbar>
-            <.secondary_navigation>
-              <.secondary_navigation_item label={~t"Overview"m} href={~p"/users"} active />
-              <.secondary_navigation_item label={~t"Details"m} href={~p"/users"} />
-              <.secondary_navigation_item label={~t"Settings"m} href={~p"/users"} />
-            </.secondary_navigation>
-          </:navbar>
         </.page_header>
-        <div class="overflow-x-auto pb-4">
+        <.secondary_navigation class="sticky top-[calc(4rem-1px)]" gradient>
+          <.secondary_navigation_item label={~t"Overview"m} href={~p"/users"} active />
+          <.secondary_navigation_item label={~t"Details"m} href={~p"/users"} />
+          <.secondary_navigation_item label={~t"Settings"m} href={~p"/users"} />
+
+          <li
+            id="dynamic_add_button"
+            class="-my-2 ml-auto snap-start opacity-0 transition-opacity duration-150 ease-in-out"
+            data-show_y="40,sm:60,lg:76"
+            phx-hook="ShowHideOnScroll"
+          >
+            <button type="button" class="btn btn-primary btn-sm" onclick="user_modal.showModal()">
+              <%= ~t"Create user"m %>
+            </button>
+          </li>
+        </.secondary_navigation>
+        <div class="overflow-x-auto py-4">
           <.table
             id="user_table"
             rows={@users}
