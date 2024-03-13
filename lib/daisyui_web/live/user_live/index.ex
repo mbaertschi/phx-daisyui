@@ -23,7 +23,7 @@ defmodule DaisyuiWeb.UserLive.Index do
     <.page current="users" open={@selected_user != nil}>
       <div>
         <.page_header class="max-sm:mt-2" title_class="px-6 lg:px-8 mb-6 sm:mt-2" break_at="sm">
-          <:breadcrumbs>
+          <:breadcrumbs class="sm:-mb-1">
             <div class="flex items-center justify-between px-6 lg:px-8">
               <.breadcrumbs
                 class="text-sm text-base-content/60 font-medium"
